@@ -1,0 +1,11 @@
+{"total":8,"rows":[
+	{"Page":"Accueil","Description":"Page d'Accueil","Action":"<a href='admin.php?id_page=1'>Modif<\/a>"},
+	{"Page":"Photos","Description":"Page correspondsant à la rubrique des photos de planetes","Action":"<a href='admin.php?id_page=2'>Modif<\/a>"},
+	{"Page":"Vidéos","Description":"Page correspondant à la rubrique des vidéos de planetes","Action":"<a href='admin.php?id_page=3'>Modif<\/a>"},
+	{"Page":"Contact","Description":"Page de Contact","Action":"<a href='admin.php?id_page=4'>Modif<\/a>"},
+	{"Page":"Plan du site","Description":"Page Plan du site","Action":"<a href='admin.php?id_page=5'>Modif<\/a>"},
+	{"Page":"Photos de planètes","Description":"Page des photos de planètes","Action":"<a href='admin.php?id_page=6'>Modif<\/a>"},
+	{"Page":"Photos de satellites","Description":"Page des photos de satellites","Action":"<a href='admin.php?id_page=7'>Modif<\/a>"},
+	{"Page":"Vidéos de planetes","Description":"Page des vidéos de planètes","Action":"<a href='admin.php?id_page=8'>Modif<\/a>"},
+	{"Page":"Vidéos en Live","Description":"Page de Live de la chaine Arte","Action":"<a href='admin.php?id_page=9'>Modif<\/a>"}	
+]}

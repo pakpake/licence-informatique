@@ -1,0 +1,6 @@
+@startuml
+[*] --> Couverte
+Couverte -right-> Marquée : marquer
+Marquée -left-> Couverte : marquer
+Couverte -down-> Découverte : découvrir
+@enduml

@@ -1,0 +1,3 @@
+javac DataClient.java
+java DataClient XXX.XXX.60.140 22
+return la ligne lue

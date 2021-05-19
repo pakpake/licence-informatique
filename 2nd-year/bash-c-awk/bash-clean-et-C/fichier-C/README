@@ -1,0 +1,16 @@
+gcc  -fPIC -c carre.c
+
+gcc -shared  -o libcarre.so carre.o
+
+####     gcc test.c -L. -l carre 
+
+gcc -c -o test test.c
+gcc test.o -L. -l carre 
+
+nm  test.o
+
+a.out
+more /proc/XXX/maps
+
+detruire le libcarre.so
+et relancer le programme

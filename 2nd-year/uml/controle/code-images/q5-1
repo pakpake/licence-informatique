@@ -1,0 +1,25 @@
+@startuml
+actor ":Joueur" as player
+participant ":Partie" as party
+participant ":Plateau" as tray
+participant "cases: \n Map<Point,Case>" as point
+participant "c:Case" as case
+
+player -> party : découvrirCase(pt)
+activate player
+activate party
+party -> tray : découvrirCase(pt)
+activate tray
+tray -> point : trouver(pt)
+activate point
+point --> tray : \t c
+deactivate point
+tray -> case : \t \t découvrir()
+activate case
+deactivate case
+deactivate tray
+deactivate party
+deactivate player
+
+ref over party,case : découvrirCase(DP State)
+@enduml

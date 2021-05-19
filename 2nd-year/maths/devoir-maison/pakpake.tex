@@ -1,0 +1,851 @@
+%-------------------------------------------------------------------------------
+% Title:   DM2 - Math
+% Authors: pakpake
+% Created: 5 avril 2020
+% Last Revision: 7 avril 2020
+%-------------------------------------------------------------------------------
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{lmodern}
+
+\usepackage{textpos}
+\usepackage[a4paper,left=2.5cm, right=2.5cm, top=2.5cm, bottom=3.5cm]{geometry}
+\usepackage[]{amsmath,amssymb}
+
+\setlength{\parindent}{0ex}
+\setlength{\parskip}{1ex}
+
+\renewcommand{\thesection}{Exercice \arabic{section}}
+\renewcommand{\thesubsection}{Partie \Roman{subsection}.}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}.}
+
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\vect}{vect}
+\DeclareMathOperator{\Mat}{\mathcal{M}at}
+%\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\B}{\mathcal{B}}
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\di}{dim}
+
+ 
+\title{Devoir Maison de mathématiques n$^\circ$ 2}
+\author{pakpake}
+\date{7 Avril 2020}
+
+
+\begin{document}
+
+\maketitle
+
+% Exercice 1
+\section{}
+
+% Partie I
+\subsection{}
+
+% Question 1
+\subsubsection{Montrons que $f$ est linéaire :}
+
+\begin{align*}
+f(P) &= (X+1)P
+\end{align*}
+
+$\forall P, Q \in \mathbb{R}^2[X]$, on a :
+
+\begin{align*}
+  f(P+\lambda Q)&=(X+1)(P+\lambda Q) \\
+                &= (X+1)P + (X+1)\lambda Q \\
+                &= (X+1)P + \lambda (X+1)Q \\
+                &= f(P) + \lambda f(Q)
+\end{align*}
+
+Donc $f$ est une application linéaire.
+
+% Question 2
+\subsubsection{Déterminons le noyau et l'image de $f$}
+
+On peut écrire $P(X)$ sous la forme $P(X)=aX^2+bX+c$
+
+On a donc :
+\begin{align*}
+  f(P)         & = (X+1)P                 \\
+  f(aX^2+bX+c) & = aX^3+bX^2+cX+aX^2+bX+c \\
+               & = aX^3+(b+a)X^2+(c+b)X+c
+\end{align*}
+
+On peut maintenant résoudre $f(P)=0$
+
+\[
+  \left\{ \begin{array}{rl}
+    a   & = 0 \\
+    b+a & = 0  \\
+    c+b & = 0  \\
+    c   & = 0
+  \end{array}\right.
+  \Leftrightarrow
+  \left\{ \begin{array}{rl}
+    a & =0 \\
+    b & =0 \\
+    c & =0
+  \end{array} \right.
+\]
+
+Ce qui implique que $\Ker f = \vect(0)$
+
+Ainsi $f$ est injective.
+
+On a d'après le théorème du rang :
+\[
+  \di E_3 = \di \Ker f + \di \Img f
+\]
+
+Avec $E_3$ l'espace des polynômes
+
+Or $\di \Ker f = 0$ et $\di E_3 = 4$, donc $\di \Img f= 4$
+
+On a ainsi $\Img f = \vect{(1,X,X^2,X^3)}$
+
+Donc $\di \Img f = \di\mathbb{R}^3 = 4$
+
+Ainsi, $f$ est surjective.
+
+Pour conclure, $f$ est injective et surjective, $f$ est donc bijective.
+
+% Question 3
+\subsubsection{}
+
+\[
+  \begin{array}{lll}
+    f(1)   & =(X+1)1   & =X+1     \\
+    f(X)   & =(X+1)X   & =X^2+X   \\
+    f(X^2) & =(X+1)X^2 & =X^3+X^2
+  \end{array}
+\]
+
+% Question 4
+\subsubsection{}
+
+\[
+  \begin{array}{ccc}
+      &  \begin{array}{ccc} f(1)&f(X)&f(X^2) \end{array} & \\
+  A = & \left(\begin{array}{c@{\hspace*{3em}}c@{\hspace*{3em}}c}
+            1 & 0 & 0 \\
+            1 & 1 & 0 \\
+            0 & 1 & 1 \\
+            0 & 0 & 1
+          \end{array} \right) 
+          & \begin{array}{c} e_1\\ e_2 \\ e_3 \\ e_4 \end{array}
+  \end{array}
+  = \mathcal{M}_{\mathbb{R}^2[X],\mathbb{R}^3[X]}(A)
+\]
+
+% Partie II
+\subsection{}
+
+% Question 1
+\subsubsection{Montrons que $g$ est linéaire :}
+
+D'après la définition de dérivation, on a :
+
+\[ 
+  (P+Q)'(1) = P'(1)+Q'(1)
+\]
+
+et,
+
+\[ 
+  (\lambda P)'(1)=\lambda P'(1)
+\]
+
+Ainsi, on a : % IL FAUT EN RAJOUTER UN PEU ???
+
+\[
+  g(P+\lambda Q) = g(P)+g(\lambda Q) = g(P) + \lambda g(Q)
+\]
+
+Donc $g$ est linéaire.
+
+% Question 2
+\subsubsection{}
+
+Sur $\mathbb{R}^3[X]$ :
+
+\begin{align*}
+  P(X)   & = aX^3 +bX^2+cX+d \\
+  P'(X)  & = 3aX^2+2bX+c     \\
+  P''(X) & = 6aX+2b         
+\end{align*}
+
+On a donc
+
+\begin{align*}
+  P(1)   & = a+b+c+d \\
+  P'(1)  & = 3a+2b+c  \\
+  P''(1) & = 6a+2b
+\end{align*}
+
+Ainsi $\Ker g \Leftrightarrow \{(P(1);P'(1);P''(1))\} = {(0,0,0)}$
+
+\[
+  \left\{\begin{array}{rl}
+    a+b+c+d & = 0 \\
+    3a+2b   & = 0 \\
+    6a+2b   & =0
+  \end{array} \right.
+  %
+  \Leftrightarrow
+  %
+  \left\{\begin{array}{rl}
+    a+b+c+d & = 0                             \\
+    2b      & = -3a-c                         \\
+    a       & = \frac{-2b}{6} = \frac{-1}{3}b
+  \end{array}\right.
+  %
+  \Leftrightarrow
+  %
+  \left\{\begin{array}{rl}
+    a+b+c+d & = 0             \\
+    2b      & = b-c           \\
+    a       & = \frac{-1}{3}b
+  \end{array}\right.
+\]
+
+\[
+  \Leftrightarrow
+  %
+  \left\{\begin{array}{rl}
+    c & = \frac{1}{3}b +c-d \\
+    b & = -c                \\
+    a & = \frac{-1}{3}b
+  \end{array}\right.
+  %
+  \Leftrightarrow
+  %
+  \left\{\begin{array}{rl}
+    a & = \frac{1}{3}c  \\
+    b & = -c            \\
+    d & = \frac{-1}{3}c
+  \end{array}\right.
+\]
+
+On a donc $\Ker g = \vect{(\frac{1}{3};-1;1;-\frac{1}{3})} \\$
+
+On a $\di \Ker g = 1$ et de plus, $\Ker g$ n'est pas égal au vecteur nul, donc
+on en déduit que $g$ n'est pas injective.
+
+De plus, $\di E \neq \di \Img g$
+
+avec $\di E = 4$ et $\di \Img g = 3$
+
+On peut donc écrire $\Img g = \{(X^2;X;1)\}$
+
+Ainsi on peut dire que $g$ n'est pas surjective. Donc, $g$ n'est pas bijective.
+
+
+% Question 3
+\subsubsection{}
+
+On peut calculer $g(1),g(X),g(X^2) \mbox{ et } g(X^3)$
+
+%J'AI CORRIGE On a $\Img g = \vect{(1,,X^2,X^3)}$
+On a $\Img g = \vect{(1,X,X^2,X^3)}$
+
+On a donc : 
+
+\begin{align*}
+  g(1)   & =(1,0,0)       \\
+  g(X)   & =(X,1,0)       \\
+  g(X^2) & =(X^2,2X,2)    \\
+  g(X^3) & =(X^3,3X^2,6X)
+\end{align*}
+$\Leftrightarrow$
+\begin{align*}
+    g(1)&=1 \\
+    g(X)&=1+X\\
+    g(X^2)&=2+2X+X^2\\
+    g(X^3)&=6X+3X^2+X^3
+\end{align*}
+
+On a ainsi la matrice suivante :
+
+
+\[
+  \begin{array}{cccc}
+    &\begin{array}{cccc} g(1)&g(X)&g(X^2)&g(X^3) \end{array} & \\
+    B=&\left(\begin{array}{c@{\hspace*{3em}}c@{\hspace*{3em}}c@{\hspace*{3em}}c}
+            1 & 1 & 2 & 0 \\
+            0 & 1 & 2 & 6 \\
+            0 & 0 & 1 & 3 \\
+            0 & 0 & 0 & 1
+          \end{array} \right)
+  \end{array}
+  = \Mat g
+\]
+
+% Partie III
+\subsection{}
+
+On a :
+
+\begin{align*}
+  h        & =g\circ f                                             \\
+  g\circ f & =\Mat g \times \Mat f = \Mat C
+\end{align*}
+
+\[
+  \Leftrightarrow
+  %
+  \begin{pmatrix}
+    1 & 1 & 2 & 0 \\
+    0 & 1 & 2 & 6 \\
+    0 & 0 & 1 & 3 \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+  .
+  \begin{pmatrix}
+    1 & 0 & 0 \\
+    1 & 1 & 0 \\
+    0 & 1 & 1 \\
+    0 & 0 & 1
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    2 & 3 & 2 \\
+    1 & 3 & 8 \\
+    0 & 1 & 4 \\
+    0 & 0 & 1
+  \end{pmatrix}
+\]
+
+\clearpage
+
+% Exercice 2
+\section{}
+
+% Question 1
+\subsubsection{}
+
+On a :
+
+\[
+  \mathcal{M}_{\varepsilon}(f)=
+  \begin{array}{ccc}
+    &\left(\begin{array}{c@{\hspace*{3em}}c@{\hspace*{3em}}c}
+            2 & 0 & -1 \\
+            0 & 3 & 0  \\
+            1 & 2 & 1
+          \end{array} \right) 
+    & \begin{array}{c} e_1\\ e_2 \\ e_3 \end{array}
+  \end{array}
+\]
+
+% Question 2
+\subsubsection{}
+
+Calcul du déterminant :
+
+$\det \mathcal{M}(f) = 3(2-(1\times(-1))) = 3(2+1) = 9 \neq 0$
+
+Comme le déterminant est non-nul, on peut dire que la matrice est inversible, et que les vecteurs colonnes forment une base.
+
+Aussi, comme $\det\ \mathcal{M}(f) \neq 0$, on peut dire que l'application $g$ est injective.
+
+De plus, on sait que le rang d'une matrice $n\times n$ constituée des 3 vecteurs de la base, est $n$. % 
+
+D'où ici, $rg(f)=3$, ainsi, $f$ est surjective.
+
+Et comme, $g$ est injective et surjective, $g$ est bijective.
+
+% Question 3
+\subsubsection{}
+
+Soient les vecteurs : \[ b_1=(1,0,1),\quad b_2=(1,1,1),\quad b_3=(-1,1,0).\]
+
+% Question 4
+\subsubsection{Montrons que la famille $\mathcal{B}=\{b_1,b_2,b_3\}$ est une base.}
+
+On obtient la matrice suivante :
+
+
+$$
+\begin{array}{ccc}
+  &\begin{array}{ccc} b_1&b_2&b_3 \end{array} & \\
+  \mathcal{M}_{\mathcal{B}}=&\left(\begin{array}{c@{\hspace*{1em}}c@{\hspace*{1em}}c}
+            1&1&-1\\
+            0&1&1\\
+            1&1&0 \end{array} \right) 
+\end{array}
+$$
+
+On peut ainsi calculer le déterminant :
+
+\begin{align*}
+det\ \mathcal{B}&=1(1\times0-1\times1) \\
+&=1(0-1) \\
+&=(-1)\neq 0
+\end{align*}
+
+Donc, la matrice est inversible, et on peut dire que la famille $\mathcal{B}=\{b_1,b_2,b_3\}$ forme une base.
+
+% Question 5
+\subsubsection{}
+
+La matrice de passage $\mathcal{M}_{\mathcal{B,E}}(id)$ est tout simplement :
+
+$$
+\begin{array}{ccc}
+  P=\mathcal{M}_{\mathcal{B,E}}(id)=&\left(\begin{array}{c@{\hspace*{1em}}c@{\hspace*{1em}}c}
+            1&1&-1\\
+            0&1&1\\
+            1&1&0 \end{array} \right) 
+\end{array}
+$$
+
+Pour obtenir $\mathcal{M}_{\mathcal{E,B}}(id)$, il suffit de faire $P^{-1}.$
+
+Or, $P^{-1}=\frac{1}{\mbox{det}\ P}\times ^t\mbox{Com}\ P$
+
+Ce qui nous donne :
+
+$$
+\begin{array}{ccc}
+    P^{-1}=\mathcal{M}_{\mathcal{E,B}}(id)=&\left(\begin{array}{c@{\hspace*{1em}}c@{\hspace*{1em}}c}
+            -1&-1&2\\
+            1&1&-1\\
+            -1&0&1 \end{array} \right) 
+\end{array}
+$$
+
+% Question 6
+\subsubsection{Déterminons la matrice  $\M_{\B,\B}(f)$}
+
+On a,
+
+\begin{align*}
+    f(x_1)&=\alpha\vec{b_1}+\beta\vec{b_2}+\gamma\vec{b_3}=(2,0,1) \\
+    &=\alpha(1,0,1)+\beta(1,1,1)+\gamma(-1,1,0) \\
+    &=(\alpha+\beta-\gamma,\beta+\gamma,\alpha+\beta)
+\end{align*}
+
+On peut donc procéder par identification via un système :
+
+$$
+    \left\{\begin{array}{rl}
+        \alpha+\beta-\gamma &=2 \\
+        \beta+\gamma &= 0 \\
+        \alpha+\beta&=1
+    \end{array} \right.
+    %
+    \Leftrightarrow
+    %
+    \left\{\begin{array}{rl}
+        \alpha-\gamma-\gamma &=2 \\
+        \beta &= -\gamma \\
+        \alpha-\gamma &= 1 \Leftrightarrow \gamma=-1+\alpha
+    \end{array} \right.
+    %
+    \Leftrightarrow
+    %
+    \left\{\begin{array}{rl}
+        \alpha-2(-1+\alpha)&=2 \\
+        \alpha+2-2\alpha&=2 \\
+        -\alpha&=0
+    \end{array}\right.
+    %
+$$
+$$
+    \Leftrightarrow
+    %
+    \left\{\begin{array}{rl}
+        \alpha&=0 \\
+        \beta&=1 \\
+        \gamma&=-1
+    \end{array}\right.
+    \Leftrightarrow
+    %
+    f(x_1)=\begin{pmatrix}0\\1\\-1\end{pmatrix}
+$$
+
+Donc $f(x_1)=\vec{b_2}-\vec{b_3}$
+\clearpage
+
+$$f(x_2)=\alpha\vec{b_1}+\beta\vec{b_2}+\gamma\vec{b_3}=(0,3,2)$$
+
+$$
+    %
+    \left\{\begin{array}{rl}
+        \alpha+\beta-\gamma&=0 \\
+        \beta+\gamma&=3 \\
+        \alpha+\beta&=2
+    \end{array}\right.
+    %
+    \Leftrightarrow
+    %
+    \left\{\begin{array}{rl}
+        \alpha+3-\gamma-\gamma&=0 \\
+        \beta&=3-\gamma \\
+        \alpha+3-\gamma&=2 
+    \end{array}\right.
+$$
+$$
+    %
+    \Leftrightarrow
+    %
+    \left\{\begin{array}{rl}
+        -1+\gamma+3-\gamma-\gamma&=0 \\
+        \beta&=3-\gamma \\
+        \alpha&=-1+\gamma
+    \end{array}\right.
+    %
+    \Leftrightarrow
+    %
+    \left\{\begin{array}{rl}
+        \alpha&=1 \\
+        \beta&=1 \\
+        \gamma&=2
+    \end{array}\right.
+    %
+    \Leftrightarrow
+    %
+    f(x_2)=\begin{pmatrix}1\\1\\2\end{pmatrix}
+$$
+
+Donc $$f(x_2)=\vec{b_1}+\vec{b_2}+2\vec{b_3}$$
+
+$$f(x_3)=\alpha\vec{b_1}+\beta\vec{b_2}+\gamma\vec{b_3}=(-1,0,1)$$
+
+$$
+    \left\{\begin{array}{rl}
+        \alpha+\beta-\gamma&=-1 \\
+        \beta+\gamma&=0 \\
+        \alpha+\beta&=1
+    \end{array}\right.
+    %
+    \Leftrightarrow
+    %
+    \left\{\begin{array}{rl}
+        \alpha+\beta-\gamma&=-1 \\
+        \beta&=-\gamma \\
+        \alpha-\gamma&=1
+    \end{array}\right.
+    %
+    \Leftrightarrow
+$$
+$$
+    \left\{\begin{array}{rl}
+        1+\gamma-\gamma-\gamma&=1 \\
+        \beta&=-\gamma \\
+        \alpha&=1+\gamma
+    \end{array}\right.
+    %
+    \Leftrightarrow
+    %
+    \left\{\begin{array}{rl}
+        \gamma&=2 \\
+        \beta&=-2 \\
+        \alpha&=3
+    \end{array}\right.
+$$
+
+Donc 
+\begin{align*}
+    f(x_3)&=\begin{pmatrix}3\\-2\\2\end{pmatrix} \\
+    &=3\vec{b_1}-2\vec{b_2}+\vec{b_3}
+\end{align*}
+
+Donc
+
+$$
+\begin{array}{ccc} 
+    &\begin{array}{ccc} f(x_1)&f(x_2)&f(x_3) \end{array} & \\
+    \M_{\B,\B}(f)=&\left(\begin{array}{c@{\hspace*{3em}}c@{\hspace*{3em}}c}
+            0&1&3\\
+            1&1&-2\\
+            -1&2&2 \end{array} \right) 
+\end{array}
+$$
+\clearpage
+On a donc :
+$$
+%A
+\begin{array}{ccc} 
+\M_{\E,\E}(f)=&\left(\begin{array}{c@{\hspace*{1em}}c@{\hspace*{1em}}c}
+        2&0&-1\\
+        0&3&0\\
+        1&2&1 \end{array} \right) 
+        =A
+\end{array}
+$$
+$$
+%P^-1
+\begin{array}{ccc} 
+\M_{\E,\B}(id)=&\left(\begin{array}{c@{\hspace*{1em}}c@{\hspace*{1em}}c}
+        -1&-1&2\\
+        1&1&-1\\
+        -1&0&1 \end{array} \right)
+        =P^{-1}
+\end{array}
+$$
+$$
+%P
+\begin{array}{ccc} 
+\M_{\B,\E}(id)=&\left(\begin{array}{c@{\hspace*{1em}}c@{\hspace*{1em}}c}
+        1&1&-1\\
+        0&1&1\\
+        1&1&0 \end{array} \right)
+        =P
+\end{array}
+$$
+\bigskip
+$$
+\M_{\E,\B}(f):(\mathbb{R}^3,\E)\xrightarrow[\B]{\E}(\mathbb{R}^3,\E)\xrightarrow[\M_{x\in P^{-1}}(id)]{id}(\mathbb{R}^3,\B)
+$$
+\vspace{4ex}
+
+Ainsi,
+\[
+\M_{\E,\B}(f)=C=B\times P^{-1}
+\]
+\begin{align*}
+    C&=\begin{pmatrix}0&1&3\\1&1&-2\\-1&2&2\end{pmatrix}\times\begin{pmatrix}-1&-1&2\\1&1&-1\\-1&0&1\end{pmatrix}\\ 
+    &=\begin{pmatrix}-2&1&2\\2&0&-1\\1&3&-2\end{pmatrix}
+\end{align*}
+
+\clearpage
+
+%Exercice 3
+\section{}
+% Question 1
+\subsubsection{}
+
+Soit
+$$\M(f)=\begin{pmatrix}1&2&2\\0&-1&-1\\0&0&0\end{pmatrix}$$
+$$det\M(f)=0$$
+Donc la matrice n'est pas inversible.
+
+$\bullet$ Déterminons le noyau de l'application linéaire f :
+
+Pour déterminer $\Ker f$, on pose $X=\begin{pmatrix}x\\y\\z\end{pmatrix}$ et on calcule $\M(f).X=0$.
+
+On a :
+
+$$
+\begin{pmatrix}
+    1&2&2\\
+    0&-1&-1\\
+    0&0&0
+\end{pmatrix}
+.
+\begin{pmatrix}x\\ y\\ z\end{pmatrix}
+=\begin{pmatrix}0\\ 0\\ 0\end{pmatrix}
+\Leftrightarrow
+\left\{\begin{array}{rl}
+    x+2y+2z&=0\\
+    -y-z&=0\\
+    0&=0\end{array}\right.
+$$
+$$
+\Leftrightarrow
+\left\{\begin{array}{rl}
+    x&=-2y-2z\\
+y&=-z\end{array}\right.
+%
+\Leftrightarrow
+%
+\left\{\begin{array}{rl}
+    x&=2z-2z=0\\
+y&=-z\end{array}\right.
+$$
+
+Ainsi
+\begin{align*}
+    \Ker f&=\{(x,y,z),x=0,y=-z,z\in\mathbb{R}\}\\
+    \Ker f&=\vect{\left\{\begin{pmatrix}0\\-1\\1\end{pmatrix}\right\}}
+\end{align*}
+
+D'où $\Ker f=\vect\{-e_2+e_3\}$
+
+$\bullet$ Déterminons l'image de l'application linéaire f :
+
+Par le théorème du rang, on sait que :
+$$\di\E=\di\Ker f+\di\Img f$$
+Sachant que $\di\Ker f$ et $\di\E =3$ car ($\mathbb{R}^3$), on a donc $\di\Img f =2$.
+
+Pour déterminer $\Img f$, on va utiliser les vecteurs de la base $\E$.
+
+On a :
+$$f\begin{pmatrix}1\\0\\0\end{pmatrix}=\begin{pmatrix}1&2&2\\0&-1&-1\\0&0&0\end{pmatrix}.\begin{pmatrix}1\\0\\0\end{pmatrix}=\begin{pmatrix}1\\0\\0\end{pmatrix}$$
+Donc $\begin{pmatrix}1\\0\\0\end{pmatrix}\in\Img f$
+De plus,
+$$f\begin{pmatrix}0\\1\\0\end{pmatrix}=\begin{pmatrix}1&2&2\\0&-1&-1\\0&0&0\end{pmatrix}.\begin{pmatrix}0\\1\\0\end{pmatrix}=\begin{pmatrix}2\\-1\\0\end{pmatrix}$$
+Donc, $\begin{pmatrix}2\\-1\\0\end{pmatrix}\in\Img f$
+
+Or $\begin{pmatrix}1\\0\\0\end{pmatrix}$ et $\begin{pmatrix}2\\-1\\0\end{pmatrix}$ ne sont pas colinéaires, ils sont linéairement indépendants, ils engendrent donc un espace vectoriel de $\di 2$ inclus dans $\Img f$ qui est aussi de $\di 2$.
+
+    Ainsi, on a : $\Img f=\vect\left\{\begin{pmatrix}1\\0\\0\end{pmatrix}\mbox{,}\begin{pmatrix}2\\-1\\0\end{pmatrix}\right\}$ (dans $\E$)
+
+% Question 2
+\subsubsection{}
+
+$\bullet$ Ces espaces sont-ils supplémentaires ?
+
+On a toujours d'après le théorème du rang $\di \E = \di \Ker f + \di \Img f$
+
+Pour montrer que ces sous-espaces sont supplémentaires, il suffit de montrer que $\Ker f\cap\Img f=\{0\}$.
+
+Soient :
+$$X=\begin{pmatrix}x\\y\\z\end{pmatrix}\in\Img f\cap\Ker f$$
+Avec \begin{align*}
+        \Ker f&=\vect(0,-1,1) \\
+        &=\vect(u)
+    \end{align*}
+
+Donc ici, $X\in\Ker f\Leftrightarrow \exists a \in \mathbb{R},\begin{pmatrix}x\\y\\z\end{pmatrix}=a\begin{pmatrix}0\\-1\\1\end{pmatrix}$
+
+De plus, $X\in\Img f\Leftrightarrow \exists \alpha,\beta,\gamma \in \mathbb{R},\\
+\begin{pmatrix}x\\y\\z\end{pmatrix}=\begin{pmatrix}\alpha+2\beta+2\gamma\\-\beta-\gamma\\0\end{pmatrix}$
+
+Donc si $X$ vérifie les 2 équations précédentes, on a :
+$$
+\begin{pmatrix}
+    \alpha+2\beta+2\gamma \\
+    -\beta-\gamma\\
+    0
+\end{pmatrix}
+=
+\begin{pmatrix}0\\-a\\a\end{pmatrix}
+$$
+
+Ce qui équivaut au système suivant :
+$$
+  \left\{\begin{array}{rl}
+  \alpha+2\beta+2\gamma & = 0\\
+  -\beta-\gamma         & = -a\\
+                    0   & = a 
+  \end{array}\right.
+$$
+Comme $a=0$, $X=\begin{pmatrix}0\\0\\0\end{pmatrix}$
+
+Ainsi, on a bien prouvé que $\Img f\cap\Ker f \subset\{0\}$
+
+Cependant, d'après la réciprque du théorème du rang, comme $\Img f$ et $\Ker f$ sont des sous-espaces vectoriels de $\mathbb{R}^3$, ils contiennent l'élément neutre.
+
+On a toujours, $\{0\}\subset\Img f \cap\Ker f$
+
+Donc $\Img f\cap\Ker f=\{0\}$. Ainsi, les 2 sev sont supplémentaires.
+
+$\bullet$ $f$ est-elle une projection ?
+
+Soient les 2 sous-espaces vectoriels suivant :
+$$U=\vect\{(0,-1,1)\} \mbox{ et } V=\vect\{(1,0,0);(2,-1,0)\}$$
+
+Calculons $proj^u_v$ :
+
+$$(x,y,z)=a(b_1)+b(b_2)+c(b_3)$$
+$$(x,y,z)=a(0,-1,1)+b(1,0,0)+c(2,-1,0)$$
+
+
+\[
+  \left\{\begin{array}{rl}
+    x &= 0a+b+2c \\
+    y &= -a+0b+-c  \\
+    z &= a+0b+0c
+  \end{array}\right.
+  \Leftrightarrow
+  \left\{\begin{array}{rl}
+    b &=x-2c \\
+    -c &=y+z \\
+    a &=z
+  \end{array} \right.
+\]
+\[
+  \Leftrightarrow
+  \left\{\begin{array}{rl}
+      b&=x+2y+2z\\
+      c&=-y-z \\
+      a&=z
+  \end{array}\right.
+\]
+
+On obtient : 
+$$(x,y,z)=zb_1+(x+2y+2z)b_2+(-y-z)b_3$$
+La projection sur $U$ parralèlement à $V$ (où $U=\vect(b_1)$) et $V=\vect\{(b_2,b_3)\}$ vérifie :
+\begin{align*}
+    proj(b_1)&=b1 \\
+    proj(b_2)&=0 \\
+    proj(b_3)&=0
+\end{align*}
+
+Donc,
+\begin{align*}
+    proj(x,y,z)&=proj(zb_1+(x+2y+2z)b_2+(-y-z)b_3) \\
+    &=zproj(b_1)+(x+2y+2z)proj(b_2)+(-y-z)proj(b_3) \\
+    &=z\times b_1
+\end{align*}
+
+On peut ainsi exprimer dans la base canonique :  $(0,-z,z)$
+$$proj^u_v(x,y,z)=(0,-z,z)$$
+Les 3 coordonnées sont colinéaires, c'est une application de rang 1.
+
+$\bullet$ $f$ est-elle une symétrie ?
+
+Pour savoir si $f$ est une symétrie, on calcul $f\circ f$ $(f^2)$.
+
+Calculons donc $A^2$ :
+
+\[A^2=\begin{pmatrix}1&2&2\\0&-1&-1\\0&0&0\end{pmatrix}.\begin{pmatrix}1&2&2\\0&-1&-1\\0&0&0\end{pmatrix}=\begin{pmatrix}1&0&0\\0&1&1\\0&0&0\end{pmatrix}\]
+$$f^2\neq Id_3\Rightarrow f \mbox{ n'est pas une symétrie.}$$
+
+%Exercice 4
+\section{}
+
+Soit $E$ un $\mathbb{R}$-espace vectoriel et $f$ un endomorphisme de $E$.
+
+$\bullet$ Pour la démonstration, nous allons d'abord supposer que $f\circ p = p\circ f$.
+
+$\forall x \in \Ker(p), p(x) = 0$ par définition du noyau. 
+
+A partir de notre hypothèse :
+\begin{align*}
+  p \circ f(x) & = f \circ p(x)\\
+              & = f(p(x))\\
+              & = f(0)\\
+              & = 0
+\end{align*}
+car $f$ est un endomorphisme
+
+Donc $\Ker p$ est stable par $f$.
+
+De même $ \forall y \in \Img p, \exists x \in F, \mbox{ tel que  } y = p(x)$ (définition de l'image de $p$).
+
+D'après notre hypothèse, on peut écrire :
+
+$$f(y) = f(p(x)) = p(f(x))$$
+
+Donc $f(y)$ est antécédent de $f(x)$, donc $f(y) \in \Img p$.
+
+L'image de $p$, $\Img p$ est stable par $f$.
+
+$\bullet$ Réciproque :
+
+Supposons que $\Ker p$ et $\Img p$ sont stables par $f$.
+
+$p$ est une projection donc $F = \Ker p \oplus \Img p$
+
+Soit $x \in \Ker p$ alors $f(p(x)) = f(0) = 0 $ et $p(f(x)) = 0$ car $\Ker p$ stable par $f$.
+
+Soit $y \in \Img p, \exists x \in F, \mbox{ tel que } y = p(x)$.
+
+$$f(p(y)) = f(p(p(x))) = f(p^2(x)) = f(p(x))$$
+
+car $p$ est une projection
+
+donc $f(p(y)) = f(y)$ et $f(y) \in \Img p$ car $\Img p$ est stable par $f$.
+
+
+\end{document

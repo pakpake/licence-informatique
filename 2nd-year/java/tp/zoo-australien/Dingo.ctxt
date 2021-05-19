@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=nom\ poids
+comment0.target=Dingo(java.lang.String,\ double)
+comment0.text=\n\ Constructeur\ d'objets\ de\ classe\ Dingo\n
+comment1.params=
+comment1.target=java.lang.String\ toString()
+numComments=2

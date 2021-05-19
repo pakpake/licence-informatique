@@ -1,0 +1,261 @@
+/* definition image de fond et police par defaut */
+html {
+font-size: 100%;
+font-family:Verdana, Arial;
+margin:0;
+padding:0;
+width: 800px;
+}
+
+body {
+color:#000;
+font-family:Verdana, Arial;
+font-size:14px;
+background:#fff;
+margin:0;
+padding:10px 20px;
+}
+
+/* Espace reserver au menu */
+#menu_top {
+background-color:#036;
+width:800px;
+height:40px;
+padding:0;
+}
+
+/* Pour le "id" et on peut l'utiliser qu'une seule fois*/
+#gauche {
+float:left
+}
+
+#droit {
+float:right
+}
+
+#menu_top ul {
+list-style:none;
+margin:0;
+padding:10px 5px
+}
+
+#menu_top li {
+display:inline;
+padding:0 5px
+}
+
+#menu_top a {
+color:#fff;
+text-decoration:none;
+border:1px solid #036;
+padding:6px 4px
+}
+
+#menu_top a:hover {
+color:#fff;
+background-color:#903;
+border:1px solid #fff
+}
+
+#actif a {
+color:#fff;
+background-color:#903;
+border:1px solid #07b
+}
+
+/***********************************************************************/
+
+/* Pied de page */
+#footer {
+  position: absolute;
+  bottom: 0;
+  background-color: #888888;
+  height: 35px;
+  width:800px;
+  text-align: center;
+  color: #FFFFFF
+}
+
+.validator {
+  float: left;
+  width: 80px;
+  height: 31px;
+  margin: 2px;
+}
+
+/* class pour le titre image "photo #X" */
+.imgtitle {
+  width: 155px;
+  background-color: #336699;
+  border-color: #336699;
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+/* class pour le bloc complet de l'image*/
+.imgblock {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #336699;
+  width: 155px;
+  height: 170px;
+  text-align: center;
+  padding-top: 15px;
+  }
+
+/* class pour la taille de l'image*/
+.imgimg {
+  width: 100px;
+}
+
+/*class pour le bloc des images avec bordure exterieure*/
+.bloc_image {
+  margin: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #336699;
+}
+
+
+/* class pour aligner le bloc des 4 images*/
+.tableau {
+  display: inline-flex;
+}
+
+/*********************************************************************/
+
+/* class pour la banniere*/
+.banniere {
+  background-image: url(../images/banniere.png);
+  height: 100px;
+  width: 800px;
+}
+
+/*********************************************************************/
+/*********************************************************************/
+
+/* permet de positionner les cases login et password au milieu haut de la page */
+.tabcenter{
+  margin-top: 90px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+
+.td_compte {
+  width: 200px;
+}
+
+/*class pour le tableau des videos youtube*/
+.tab_vid_marg {
+  border-spacing: 50px 20px;
+  margin-left: -30px;
+}
+/*titre sous les videos*/
+.vid_title {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.td_vid_taille {
+  width: 165px;
+  height: 200px;
+}
+
+/* change le iframe pour les videos dans le tableau*/
+iframe {
+  width: 200px;
+  height: 165px;
+}
+
+/* style du msg d'erreur pour la page compte.html*/
+.msgerror {
+  width: 400px;
+  margin-left: 200px;
+  margin-top: 200px;
+  color: red;
+}
+/* pour bien positionner l'affichage du nom, prenom, email, et message dans reception.php */
+.rec_decal {
+  margin-left: 200px;
+  margin-top: 150px;
+}
+
+/* Pour ne pas avoir le texte souligné pour les liens hypertext */
+a {
+  color: blue;
+  text-decoration:none;
+}
+
+/**************************PAGE auth.php*******************************************/
+/*menu de navigation vertical gauche*/
+#navig {
+  background-color: #036;
+}
+
+/*pas de puces affichées et espacement entre le bord haut et gauche*/
+#navig ul {
+  list-style: none;
+  padding-left: 6px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+}
+/* couleur blanche du texte*/
+#navig a {
+  color: #FFFFFF;
+  padding: 6px 4px;
+}
+
+/*espacement entre le contenu de la liste*/
+#navig li {
+  padding: 10px;
+}
+
+#navig a:hover {
+color:#fff;
+background-color:#903;
+border:1px solid #fff
+}
+
+.parent {
+  width: 800px;
+}
+
+.child1 {
+  float: left;
+  width: 20%;
+  height: 30%;
+}
+
+.child2 {
+  width: 80%;
+  height: 100%;
+  margin-left: 25%;
+  padding-top: 0.1px;
+}
+
+.child2 li {
+  line-height: 4ex;
+}
+
+.pgdecal {
+  margin-left: 3em;
+}
+/********************************************************************/
+
+/*** compte-perso.php ***/
+
+.mespref {
+  font-weight:bold;
+  text-decoration: underline;
+}
+
+.pdedroite {
+  width: 600px;
+  padding-top: 0.1px;
+  margin-left: 25%;
+}

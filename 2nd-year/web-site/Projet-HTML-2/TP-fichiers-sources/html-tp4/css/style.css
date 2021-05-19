@@ -1,0 +1,82 @@
+/* html taille du site */
+html {
+  width: 800px;
+  color: white;
+}
+
+html a {
+  text-decoration: none;
+}
+
+/* Fond d'écran du site */
+body {
+  margin-left: 50%;
+  margin-top: 20px;
+  background-image: url(../images/fond.jpg);
+  background-repeat: no-repeat;
+}
+
+/* Bannière */
+#banniere {
+  background-image: url(../images/banniere.jpg);
+  width: 1100px;
+  height: 114px;
+  /* hauteur d'un x minuscule */
+  margin-bottom: 1ex;
+}
+
+/* fil d'ariane */
+#fil_ariane {
+  width: 1100px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  background-color: #036;
+  margin-bottom: 1ex;
+}
+
+#fil_ariane a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* placer le menu à droite */
+#main {
+  width: 1100px;
+}
+
+aside {
+  width: 20%;
+  float: right;
+}
+
+#aside a {
+  text-decoration: none;
+}
+
+/* footer */
+#ft1 {
+  width: 1100px;
+  text-align: center;
+  color: #808080;
+  border-top: 1px solid white;
+  opacity: 0.7;
+}
+
+#blue li a {
+  /* color blue */
+  /* color: #336699; */
+  color: #4f81bd;
+}
+
+/* style du msg d'erreur pour la page reception.php*/
+.msgerror {
+  width: 1100px;
+  margin-left: 30%;
+  margin-top: 50%;
+  color: red;
+  font-size: 20px;
+}
+.msgerror a {
+    color: red;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function test_vide(){
+        var text = document.monForm.text.value;
+
+        if (text=="") {
+          alert("Champs vides !");
+          document.monForm.text.focus();
+          return false;
+        } else document.monForm.text.select();
+      }
+    </script>
+  </head>
+  <body>
+    <form name="monForm">
+      <label for="text">Appel de la fonction au clic du bouton</label>
+      <input type="text" id="text" name="text" value=""/>
+      <input type="button" value="bouton" onclick="test_vide()"/>
+    </form>
+  </body>
+</html>

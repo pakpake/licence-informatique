@@ -1,0 +1,10 @@
+                            Rendu du devoir maison 2
+
+Avant de vous envoyer le mail concernant la question 3, de l'exercice 2, j'avais déjà commencé à faire les méthodes que j'ai laissé dans mon code avec des commentaires.
+
+Pour l'exercice 2, j'ai, en plus de vos textes, généré 24 fichiers que j'ai placé dans le répertoire 'files', à partir du fichier 'textes.dat' et du code 'generate-files.py'.
+Ceci m'a permis de faire des tests étendus.
+
+Attention, dans l'utilisation des méthodes et les exemples, quand on appelle la méthode 'intersection_inv_sets_terms', c'est bien la liste des fichiers qui ne contiennent pas ces mots qui est renvoyée.
+
+pakpake - L2 Info

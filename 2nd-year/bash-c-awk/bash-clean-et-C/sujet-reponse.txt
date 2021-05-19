@@ -1,0 +1,79 @@
+Définir  une  variable bonjourqui  contient  la  chaîne  de  caractères  : bonjour  a  tous.  Vérifier  son contenu
+$ bonjour='Bonour a tous'
+$ echo $bonjour
+Bonjour a tous
+
+
+
+Définir une variableaujourdhuiqui contient la date d’aujourd’hui en utilisant la commande date et les anti-quotes
+$ aujourdhui=`date`
+$ echo $aujourdhui 
+lun. févr. 17 14:12:29 CET 2020
+
+
+
+Définir une variable exportée MAMACHINE qui contient le nom de votre machine (en utilisant la commande hostname ou équivalent). Vérifier son exportation en créant un Bash fils de votre Bashc ourant ou un terminal fils
+
+$ export MAMACHINE=`hostname`
+$ echo $MAMACHINE 
+ens-ssiva-0074
+$ sh
+[e1800010@ens-ssiva-0074 e1800010]$ echo $MAMACHINE 
+ens-ssiva-0074
+
+Définir une variable exportée MONGROUP qui contient le nom du groupe principal de l’utilisateur courant (à partir de la commande groups et les tableaux Bash)
+
+$ MONGROUP=(`groups`)
+$ export MONGROUP1=`echo ${MONGROUP[0]}`
+$ echo $MONGROUP
+etud
+$ sh
+$ echo $MONGROUP1 
+etud
+
+
+Définir une variable exportée MESSAGE initialisée avec la phrase “bienvenue sur la machine TOTO :lundi 28 février” Vous devez utiliser les variables précédemment définies (la date n’est pas recalcu-lée).
+
+export MESSAGE="bienvenu sur la machine $USER : $aujourdhui"
+$ echo $MESSAGE 
+bienvenu sur la machine e1800010 : lun. févr. 17 14:37:30 CET 2020
+
+Définir une variable exportée MOI qui contient le nom de l’utilisateur courant. Tester votre fichier en lançant un shell (regarder pour cela, la valeur de la variable MOI)
+
+$ vim .bashrc
+# On ajoute cette ligne suivante
+export MOI=`whoami`
+# on relance le fichier .bashrc
+$ source .bashrc
+$ echo $MOI
+e1800010
+
+Modifier la variable PS1 (l’invite ou le prompt) comme décrit sur la ligne suivante
+# mon ancienne vairable
+$ echo $PS1
+[\u@\h \W]\$
+# la nouvelle valeur
+[e1800010@ens-ssiva-0074 e1800010]$ source .bashrc
+e1800010:
+
+Modifier à nouveau la variable PS1 pour afficher l’heure, le nom de l’utilisateur et le répertoire de travail
+
+# dans le fichier .bashrc
+PS1='\t \u \w > '
+15:01:27 e1800010 ~ > 
+
+
+# dans le fichier .bashrc
+export LANG=C
+# le man ls est bien en anglais
+
+Mettre un alias h sur history (tester le)
+
+alias h='history'
+# alias manFR
+alias manFR='LANG=fr_FR.UTF-8 && man'
+# alias manUS
+alias manUS='LANG=C && man'
+
+
+/b

@@ -1,0 +1,24 @@
+Pour tester Transport et LineTransport on utilise le programme 'TestLineTransport'
+$ javac TestLineTransport.java
+$ java TestLineTransport localhost 4545
+// port aleatoire
+Dans un autre terminal on ouvre le TP2 pour tester avec EchoServer
+$ javac EchoServer
+$ java EchoServer 4545
+// connection started !
+On peut maintenant écrire ce que l'on veut dans le terminal de TestLineTransport
+Et c'est retranscrit dans le terminal de EchoServer
+
+############################################################
+
+Pour tester DataTransport on utilise le programme TestDataTransport
+Dans un 1er terminal :
+$ java -jar DataServer.jar out 4545 TESTFILE
+TESTFILE : fichier rempli de texte < 1Mo (574 bytes)
+port aleatoire
+
+
+Dans un 2eme temrinal :
+$ java TestDataTransport localhost 4545 TESTFILE 
+
+Et sur le 1er terminal on devrait voir que les 574 bytes sont envoyees et socket close

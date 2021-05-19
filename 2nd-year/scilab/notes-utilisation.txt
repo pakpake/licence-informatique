@@ -1,0 +1,54 @@
+//Définir des matrices
+A = [2 1 3 ; 1 2 3]
+// si on met un ; a la fin de la ligne, ca n'affiche pas notre variable auto
+// si on a une matrice d et c on peut transposer les matrices => d = c'
+//fonction qui rempli une matrice que de zeros
+zeros(10,10)
+//fct random
+a = rand(2,5) // 2 lignes 5 colonnes
+//ligne de i a n par pas de h // Notation commencant par 1 et non 0 !!!
+A = i:h:n
+A = 1:1:10 => 1...10
+// si on met pas le pas par default il est de 1
+// Chercher des éléments dans une matrice
+//Si on a A = [ 1 2 3 ; 2 3 4 ; 4 5 6] et qu'on fait A(2,3),
+// ca nous retourne l'element i,j de la matrice A
+// on peut aussi changer la valeur de A(i,j) en faisant A(i,j) = k
+//chercher (afficher) ou changer un groupe (bloc) d'une matrice par 
+A(2:3,2:4) = u[...]
+// matrice identité de n lignes et p colones
+eye(n,p)
+// notation particuliere
+A .* B // A=B=(n,p) //=> multiplication de chaque elements a la meme place entre eux
+// ex: element A(i,j)*B(i,j) pour tous les elements des matrices
+// recuperer la taille de la matrice A
+size(A)
+u = size(A)
+// u devient un vecteur
+// => a faire plutot :
+[n,p] = size(A)
+
+// booleen
+//%F False ; %T True
+// test 
+a == b
+// affectation
+a = b
+// aide en ligne : help size
+
+
+/****************************************************************************/
+
+/*Structure de donnees pour representer un graphe*/
+
+/* idee:
+	matrice d'adjacence
+	liste aretes/ar
+
+	Nb sommet : 7 (entier)
+	orientation %F (bool)
+	
+	aretes = [ 2 3 ; 3 4 ; 5 7 ; 7 6 ] // 2 colones nb aretes
+
+graphe1 = liste(Nb sommet, orientation, aretes)
+*/

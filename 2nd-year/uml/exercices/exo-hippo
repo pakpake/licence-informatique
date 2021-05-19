@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+
+Spectateur <|-right- Client
+Parieur <|-right- Client
+Parieur --> (Parier) : <<communicate>>
+
+
+(assiste à la\n course hippique) as (assiste)
+(est assis à la \n tribune d'honneur) as (tribune)
+
+Spectateur ---> (assiste) : <<communicate>>
+' Obligation => inclusion
+(assiste) .> (achète une place) : <<include>>
+
+(assiste) <|.. (tribune) : <<extend>>
+(tribune) .> (boit du champagne) : <<include>>
+
+(Parier) <|. (Gagne son pari) : <<extend>>
+(Parier) <|.. (Perd son pari) : <<extend>>
+(Gagne son pari) .> (Encaisse les gains) : <<include>>
+(Perd son pari) .> (Perd sa mise) : <<include>>
+@enduml

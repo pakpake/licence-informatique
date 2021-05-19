@@ -1,0 +1,36 @@
+@startuml
+participant ":Case" as case
+participant ":EtaDécouverte" as discover
+participant ":EtatCouverte" as cover
+participant ":EtatMarquée" as marked
+participant "<<singleton>> \n :Partie" as party
+
+alt découverte
+    case -> discover : \t marquer(self)
+    activate case
+    activate discover
+    deactivate case
+    deactivate discover
+    note right : Ignoré
+else couverte
+    case -> cover : \t marquer(self)
+    activate case
+    activate cover
+    cover -> party : \t \t decrNbMines()
+    activate party
+    deactivate party
+    cover -> case : \t setEtatCourant(marquee)
+    deactivate cover
+    deactivate case
+else marquee
+    case -> marked : \t marquer(self)
+    activate case
+    activate marked
+    marked -> party : \t incrNbMines()
+    activate party
+    deactivate party
+    marked -> case : \t setEtatCourant(couverte)
+    deactivate marked
+    deactivate case
+end
+@enduml

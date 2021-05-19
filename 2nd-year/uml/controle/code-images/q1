@@ -1,0 +1,18 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Joueur as player
+
+rectangle démineur {
+    (<<secondaire>> \n Configurer le jeu) as config
+    (Jouer une partie \n de démineur) as play
+    (<<support>> \n Consulter l'aide \n en ligne) as help
+
+    player -- play
+    player -- config
+    player -- help
+    config .> play : <<extend>>
+    play <. help : <<extend>>
+}
+@enduml

@@ -1,0 +1,35 @@
+Serveur ItIsTime
+================
+
+1. Modifier le fichier de propriétés
+
+Le fichier ItIsTimeServer.properties doit se trouver dans le même
+répertoire que ItIsTimeServer.jar, et contient plusieurs parties:
+
+* deadlines: les deadlines pour chacun des TPs et pour chacun des groupes
+* output directory: le répertoire qui contiendra les fichiers déposés
+* users and group: les logins des utilisateurs et leurs groupes
+
+Pour pouvoir tester votre client, vous devez modifier ce fichier en mettant:
+
+* deadlines: une deadline future pour un des TPs au moins. Exemple,
+  pour le TP3 et le groupe 1:  3-1=30/03/2019 11.00
+* output directory: il faut que le répertoire indiqué ici
+  existe. Donc créer le répertoire ou indiquer ici un répertoire
+  existant
+* users and group: ajouter le login et numéro de groupe que vous
+  utiliserez pour vos test. Exemple pour le login toto, dans le
+  groupe 1: toto=1
+
+2. Lancer le programme serveur:
+
+java -jar ItIsTimeServer.jar -v 5000 6000
+
+3. Initialiser la clé du client
+
+nc localhost 5000
+
+4. Tester votre programme ItIsTime
+
+avec la clé obtenue en 3 et les autres paramètres compatibles avec
+les informations se trouvant dans ItIsTimeServer.properties

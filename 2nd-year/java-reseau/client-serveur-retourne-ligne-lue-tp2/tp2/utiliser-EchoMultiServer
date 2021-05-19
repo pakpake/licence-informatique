@@ -1,0 +1,10 @@
+javac EchoMultiServer.java
+java EchoMultiServer 4545
+// port aleatoire
+// le serveur est lance
+// pour tester si le MultiServeur fonctionne, on lance par exemple EchoClient
+javac EchoClient
+java EchoClient 4545
+// EchoClient est lancé , maintenant si on ecrit qqch dans le shell EchoClient on devrait le voir retranscrit dans le shell EchoMultiServer
+test //(EchoClient)
+test //(EchoMultiServer)

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      function add(){
+        var ax = document.form.text.value;
+        var by = document.form.text2.value;
+        //var addxy = x+y;
+        var aadd = console.log(ax + by);
+        alert("la somme de " +ax+ " et " +by+ " est : "+aadd);
+      }
+    </script>
+  </head>
+  <body>
+    <form name="form">
+      <input type="number" id="text" name="text" value=""/>
+      <input type="number" id="text2" name="text" value=""/>
+      <input type="button" value="calcul" onclick="add()"/>
+    </form>
+  </body>
+</html>

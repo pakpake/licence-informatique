@@ -1,0 +1,109 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+class "<<DP singleton>> \n **Partie**" as party {
+    - nbMinesInitial: Int = 10
+    {static} - uniqueInstance: Partie
+    -/ nbMinesRestantes: int
+    - niveau Chaine = "débutant"
+    - résultat: boolean
+    __
+    + marquerCase(pt:Point): void
+    + découvrirCase(pt:point): void
+    {static} + getInstance
+    \t if (uniqueInstance == null)
+    \t \t Partie uniqueInstance = new Partie();
+    \t return uniqueInstance;
+    + decrNbMines(): void
+    + incrNbMines(): void
+    + perdre(): void
+    + testerSiGagne(): void
+}
+
+
+class "**Plateau**" as tray {
+    - hauteur: int = 9
+    - largeur: int = 9
+    __
+    + marquerCase(pt:Point): void
+    +découvrirCase(pt:Point): void
+    __
+    coordonnées
+}
+
+class "**Chronomètre**" as chrono {
+    - temps: int
+    __
+    + start(): void
+    + stop(): void
+}
+
+class "**//Case//**" as case {
+    - coordonnées: Point
+    __
+    + marquer(): void
+    \t état.Courant.marquer(c)
+    + découvrir(): void
+    \t étatCourant.découvrir(c)
+    {abstract} dévoiler(): void
+    + setEtatCourant(e:EtatCase): void
+}
+
+class "<<DP State>> \n **//EtatCase//**" as state {
+    + marquer(c:Case): void
+    + découvrir(c:Case): void
+}
+
+class "**CaseMinée**" as mine {
+    __
+    + dévoiler(): void
+    \t Partie.perdre
+}
+
+class "**CaseVide**" as vide {
+    __
+    + dévoiler(): void
+    \t loop.voisines.découvrir
+}
+
+class "**CaseNumérotée**" as num {
+    -/ nbVoisinesMinées: 1..8
+    __
+    + dévoiler(): void
+    \t Partie.testerSiGagne
+}
+
+class "**EtatCouverte**" as cover {
+    __
+    + marquer(c:Case): void
+    + découvrir(c:Case): void
+    \t c.dévoiler
+}
+
+class "**EtatMarquée**" as mark {
+    + marquer(c:Case): void
+    + découvrir(c:Case): void
+}
+
+class "**EtatDécouverte**" as discover {
+    + marquer(c:Case): void
+    + découvrir(c:Case): void
+}
+
+
+party "0..1" --> "1" tray
+party "1" -down-> "1" chrono
+'case "1" <-down* "1" tray
+tray "1" *-down> "1" case
+case o-right-> "1" state : -étatCourant
+case -> case : \n \n voisines 3,5,8
+
+mine -up-|> case
+vide -up-|> case
+num -up-|> case
+
+cover -up-|> state
+mark -up-|> state
+discover -up-|> state
+@enduml

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function carre(){
+        var xvar = document.monForm.text.value;
+        var result = xvar*xvar;
+        //return result=xvar*xvar; NE MARCHE PAS
+        alert("le carre de "+xvar+" est : "+result);
+      }
+    </script>
+  </head>
+  <body>
+    <form name="monForm">
+      <input type="number" id="text" name="text" value=""/>
+      <input type="button" value="calcul" onclick="carre()"/>
+    </form>
+  </body>
+</html>

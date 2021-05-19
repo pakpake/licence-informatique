@@ -1,0 +1,7 @@
+javac DateServerAture.java
+java DateServerAutre 8880
+// n'importe quel port au dessus de 1024 il me semble
+// et enfin dans un autre temrinal 
+java DataClient localhost 8880
+//le meme port
+return la ligne lue, à savoir la date

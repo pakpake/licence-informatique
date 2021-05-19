@@ -1,0 +1,2 @@
+https://download.cksource.com/CKEditor/CKEditor/CKEditor%204.15.1/ckeditor_4.15.1_standard.zip
+standard package

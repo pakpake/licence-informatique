@@ -1,0 +1,32 @@
+@startuml
+skinparam sequenceMessageAlign center
+
+participant ":Case" as case
+participant ":EtatDécouverte" as discover
+participant ":EtatMarquée" as mark
+participant ":EtatCouverte" as cover
+
+alt découverte
+    case -> discover : \t découvrir(self)
+    activate case
+    activate discover
+    deactivate case
+    deactivate discover
+    note right : Ignoré
+   
+else marquée
+    case -> mark : découvrir(self)
+    activate case
+    activate mark
+    deactivate case
+    deactivate mark
+    note right : Impossible
+    deactivate case
+    deactivate mark
+else couverte
+    case -> cover : découvrir(self)
+    cover -> case : setEtatCourant(découverte)
+    cover -> case : dévoiler()
+    ref over case : dévoiler(polymorphe)
+end
+@enduml

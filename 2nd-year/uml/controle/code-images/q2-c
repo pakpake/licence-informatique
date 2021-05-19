@@ -1,0 +1,29 @@
+@startuml
+!pragma teoz true
+actor Joueur
+participant "<<system>> \n :Démineur" as sys
+
+opt configuration
+    ref over Joueur, sys : Configurer le jeu
+end
+
+group loop partie
+    alt mine
+        break
+            Joueur -> sys : découvrirCase(pt)
+            sys --> Joueur : perdu !
+        end
+    else gain
+        break
+            Joueur -> sys : découvrirCase(pt)
+            sys --> Joueur : gagné !   
+        end
+    else else
+        alt découvrir
+            Joueur -> sys : découvrirCase(pt)
+            sys --> Joueur : affichage contenu
+        else marquer
+            Joueur -> sys : marquerCase(pt)
+    end
+end
+@enduml

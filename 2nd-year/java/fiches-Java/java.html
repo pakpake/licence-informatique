@@ -1,0 +1,438 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Made with Remarkable!
+  </title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
+  <style type="text/css">
+  </style>
+ </head>
+ <body>
+  <p>
+   <meta charset="utf-8"/>
+   <br/>
+  </p>
+  <h1 id="java">
+   <em>
+    <center>
+     <h1>
+      JAVA
+     </h1>
+    </center>
+   </em>
+  </h1>
+  <p>
+   <strong>
+    Encapsulation  =
+   </strong>
+  </p>
+  <ul>
+   <li>
+    <p>
+     Regrouper dans une seule et même entité (ex: les objets informatique) les données et les traitements (qui agissent sur ces données) en cachant l’implémentation de l’objet
+    </p>
+    <ul>
+     <li>
+      Regroupement des caractéristiques d’un objet
+      <br/>
+      =&gt; données(=attributs= + traitements (=méthodes)
+     </li>
+     <li>
+      dissimuler les détails de l’implémentation
+      <br/>
+      =&gt; abstraction
+     </li>
+    </ul>
+   </li>
+   <li>
+    <p>
+     meilleure : visibilité + cohérence + plus grande modularité
+    </p>
+   </li>
+   <li>
+    cadre plus rigoureux : les modifs de la structure interne restent invisibles à l’extérieur
+   </li>
+  </ul>
+  <p>
+   <br/>
+  </p>
+  <p>
+   <strong>
+    Héritage =
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Définir une classe qui regroupe les points communs des 2 classes au lieu de définir 2 classes qui n’ont rien en commun
+   </li>
+   <li>
+    Définir des sous-classes pour gére des les détails/spécificités
+    <br/>
+    Avantages :
+    <ul>
+     <li>
+      organiser le code en évitant des duplications
+     </li>
+     <li>
+      créer une hiérarchie de classes (réutiliser le code dans les sousClasses)
+     </li>
+     <li>
+      faciliter la maintenance en apportant des modifications uniquement à la super classe
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <p>
+   <br/>
+  </p>
+  <p>
+   <strong>
+    Re-définition - Overriding =
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Méthode pour laquelle les paramètres et leur types sont identiques, et les types de retour compatibles (types de bases identiques ou relation d’héritage)
+   </li>
+  </ul>
+  <p>
+   <strong>
+    Surcharge (Overload) =
+   </strong>
+  </p>
+  <ul>
+   <li>
+    le nom de la méthode est aussi identique mais les paramètres ne le sont pas
+   </li>
+  </ul>
+  <hr/>
+  <h2 id="methodes">
+   Méthodes
+  </h2>
+  <pre><code>tye_de_retour nom_methode(type_param1 nom_param1, ..., type_param? nom_paramN) {
+    /* Corps de la méthode*/
+};
+</code></pre>
+  <h2 id="accesseurs-ou-getters">
+   Accesseurs ou Getters
+  </h2>
+  <p>
+   <em>
+    retourne la valeur d’une variable
+   </em>
+  </p>
+  <pre><code>public typeAttribut getNomAttribut() {
+    return attribut;
+};
+</code></pre>
+  <h2 id="mutateurs-ou-setters-ou-manipulateur">
+   Mutateurs ou Setters ou Manipulateur
+  </h2>
+  <p>
+   <em>
+    modifie l’état d’un attribut
+   </em>
+  </p>
+  <pre><code>public void setNomAttribut(typeAttribut a) {
+    attribut = a;
+};
+</code></pre>
+  <h2 id="constructeur">
+   Constructeur
+  </h2>
+  <p>
+   <em>
+    méthode spécifique en charge de l’initialisation des attributs
+   </em>
+  </p>
+  <pre><code>public NomClasse(typeAttribut1 Attribut1, ..., typeAttributN AttributN) {
+    hauteur=h;
+    /*exemple d'initialisation*/
+};
+</code></pre>
+  <h4 id="constructeur-par-defaut">
+   Constructeur par défaut
+  </h4>
+  <pre><code>Patient peter = new Patient();
+</code></pre>
+  <h4 id="methode-init">
+   Méthode init
+  </h4>
+  <pre><code>public void init(double h, double m) {
+    hauteur = h;
+    masse = m;
+};
+</code></pre>
+  <h4 id="methode-tostring">
+   Méthode toString
+  </h4>
+  <pre><code>public String toString() {
+    return "chaîne de caractère" + "une autre chaîne de caractère";
+};
+</code></pre>
+  <h4 id="methode-equals">
+   Méthode équals
+  </h4>
+  <p>
+   <em>
+    égalité de chaines de caractères
+   </em>
+  </p>
+  <pre><code>public boolean equals(ClasseBook b) {
+    if(//condition){
+        return false;
+    } else {
+        return title.equals(b.title)&amp;&amp; author.equals(b.author);
+        }
+    }
+</code></pre>
+  <h2 id="arraylist">
+   ArrayList
+  </h2>
+  <ul>
+   <li>
+    <p>
+     maintient le nombre d’éléments, et récupérer cette valeur grace à size()
+    </p>
+   </li>
+   <li>
+    <p>
+     elle cache les détails d’implémentation
+    </p>
+   </li>
+   <li>
+    <p>
+     elle respecte l’ordre des objets selon l’insertion
+    </p>
+   </li>
+  </ul>
+  <pre><code class="java">    import java.util.ArrayList;
+
+    //Déclaration
+    ArrayList&lt;nomdelaClasse&gt; nomVariable;
+
+    //Initialisation, instance
+    nomVariable = new ArrayList&lt;nomdelaClasse&gt;();
+
+    //Ajouter un élément à la fin d'une liste
+    nomVariable.add(b1);
+
+    //afficher un élément d'une ArrayList
+    for(int i=0; i&lt;nomVariable.size(); i++) {
+        System.out.println("le nb d'élément"+i+" est "+nomVariable.get(i).toString());
+    };
+</code></pre>
+  <hr/>
+  <h2 id="heritage">
+   Héritage
+  </h2>
+  <ul>
+   <li>
+    <p>
+     première ligne quand il y a une extend :
+     <strong>
+      super(param1, …, paramN);
+     </strong>
+    </p>
+    <p>
+     class NomSousClasse extends NomSuperClasse {
+     <br/>
+     /
+     <em>
+      déclaration de nouveaux attributs
+     </em>
+     /
+    </p>
+    <pre><code>public NomSousClasse(liste paramètres) {
+
+super(arguments);
+//ou
+super.uneMéthodelaplusproche();
+
+//initialisation des attributs de NomSousClasse
+}
+//déclaration de nouvelles méthodes
+</code></pre>
+    <p>
+     };
+    </p>
+    <hr/>
+    <h2 id="methode-abstraite">
+     Méthode abstraite
+    </h2>
+   </li>
+   <li>
+    <p>
+     méthode consituée d’une en-tête de méthode sans corps de méthode
+    </p>
+   </li>
+   <li>
+    la présence d’une méthode abstraite rend la classe abstraite
+   </li>
+  </ul>
+  <pre><code class="java">abstract typeRetour nomMéthode(liste_paramètres);
+</code></pre>
+  <h2 id="classe-abstraite">
+   Classe abstraite
+  </h2>
+  <ul>
+   <li>
+    unique objectif : servir de super-classe
+    <ul>
+     <li>
+      ses sous-classes sont aussi abstraites tant quelles ne définissent pas toutes les méthodes abstraites
+     </li>
+    </ul>
+   </li>
+   <li>
+    une classe concrète est une classe non-abstraite
+   </li>
+   <li>
+    une classe peut être abstraite sans contenir de méthodes abstraites
+   </li>
+  </ul>
+  <pre><code class="java">abstract class NomClasseAbstraite {
+    //corps de la classe
+};
+</code></pre>
+  <hr/>
+  <h2 id="modificateur-final">
+   Modificateur final
+  </h2>
+  <ul>
+   <li>
+    <strong>
+     variable final
+    </strong>
+    ne peut être modifiée (constante)
+   </li>
+   <li>
+    <strong>
+     méthode final
+    </strong>
+    ne peut pas être redéfine
+   </li>
+   <li>
+    <strong>
+     classe final
+    </strong>
+    ne peut être étendue
+   </li>
+  </ul>
+  <h2 id="modificateur-static">
+   Modificateur static
+  </h2>
+  <ul>
+   <li>
+    pour une méthode, peut être appelée sans instancier sa classe
+   </li>
+   <li>
+    pour un attribut, la valeur est partagée entre les différentes instance de la classe
+   </li>
+  </ul>
+  <p>
+   <em>
+    syntaxe
+   </em>
+  </p>
+  <pre><code>static int x = 10;
+</code></pre>
+  <hr/>
+  <h2 id="interface">
+   Interface
+  </h2>
+  <ul>
+   <li>
+    attribue des composants communs à des composants non liées par une relation d’héritage
+   </li>
+   <li>
+    impose à certaines classes d’avoir un contenu particulier sans que ce contenu ne fasse partie de la classe
+   </li>
+  </ul>
+  <p>
+   interface ≠  classe
+  </p>
+  <p>
+   Une interface contient uniquement des :
+   <br/>
+   <em>
+    constantes (
+    <code>
+     public final static &lt;constante&gt;
+    </code>
+    )
+    <br/>
+   </em>
+   méthodes abstraites visible (
+   <code>
+    public abstract
+   </code>
+   )
+   <br/>
+   <em>
+    méthodes static visibles(
+    <code>
+     public static
+    </code>
+    )
+    <br/>
+   </em>
+   définitions de méthodes par défaut
+  </p>
+  <p>
+   Une interface ne peut pas être instanciée : elle ne contient pas de constructeurs
+   <br/>
+   Une classe qui implémente une interface reçoit son type
+  </p>
+  <p>
+   <em>
+    Règles :
+   </em>
+  </p>
+  <ul>
+   <li>
+    plusieurs classes oeuvent implémenter une même interface
+   </li>
+   <li>
+    une classe peut hériter d’une seule classe
+   </li>
+   <li>
+    une classe peut implémenter plusieurs interfaces
+   </li>
+  </ul>
+  <p>
+   <em>
+    Une classe qui :
+   </em>
+  </p>
+  <ul>
+   <li>
+    implémente toutes les méthodes d’une inteface est
+    <strong>
+     concrète
+    </strong>
+   </li>
+   <li>
+    n’implémente pas toutes les méthodes de l’interface est
+    <strong>
+     abstraite
+    </strong>
+   </li>
+  </ul>
+  <hr/>
+  <p>
+  </p>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   MathJax.Hub.Config({"showProcessingMessages" : false,"messageStyle" : "none","tex2jax": { inlineMath: [ [ "$", "$" ] ] }});
+  </script>
+ </body>
+</html>

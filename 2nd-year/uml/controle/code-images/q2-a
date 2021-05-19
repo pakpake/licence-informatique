@@ -1,0 +1,19 @@
+@startuml
+!pragma teoz true
+actor Joueur
+
+
+loop
+  alt découvrir
+    Joueur -> "<<system>> \n :Démineur" : découvrirCase(pt)
+  else marquer
+    Joueur -> "<<system>> \n :Démineur" : marquerCase(pt)
+  end
+end
+
+Joueur -> "<<system>> \n :Démineur" : découvrirCase(pt)
+"<<system>> \n :Démineur" --> Joueur : gagné !
+
+opt niveau prédéfini \n et meilleur temps
+    Joueur -> "<<system>> \n :Démineur" : entrerNom(nom)
+@endumll

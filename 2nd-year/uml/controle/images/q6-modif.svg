@@ -1,0 +1,1318 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   contentScriptType="application/ecmascript"
+   contentStyleType="text/css"
+   height="595px"
+   preserveAspectRatio="none"
+   style="width:1119px;height:595px;"
+   version="1.1"
+   viewBox="0 0 1119 595"
+   width="1119px"
+   zoomAndPan="magnify"
+   id="svg259"
+   sodipodi:docname="q6-modif.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata263">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="3840"
+     inkscape:window-height="2081"
+     id="namedview261"
+     showgrid="false"
+     inkscape:zoom="8.9749082"
+     inkscape:cx="472.86076"
+     inkscape:cy="239.59385"
+     inkscape:window-x="0"
+     inkscape:window-y="50"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g257" />
+  <defs
+     id="defs11">
+    <filter
+       height="300%"
+       id="f19fyuiw7yna0a"
+       width="300%"
+       x="-1"
+       y="-1">
+      <feGaussianBlur
+         result="blurOut"
+         stdDeviation="2.0"
+         id="feGaussianBlur2" />
+      <feColorMatrix
+         in="blurOut"
+         result="blurOut2"
+         type="matrix"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"
+         id="feColorMatrix4" />
+      <feOffset
+         dx="4.0"
+         dy="4.0"
+         in="blurOut2"
+         result="blurOut3"
+         id="feOffset6" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut3"
+         mode="normal"
+         id="feBlend8" />
+    </filter>
+  </defs>
+  <g
+     id="g257">
+    <!--MD5=[e041c4a0c0526bb497d98607aa0887b9]
+class party-->
+    <rect
+       fill="#FEFECE"
+       filter="url(#f19fyuiw7yna0a)"
+       height="246.0078"
+       id="party"
+       style="stroke: #A80036; stroke-width: 1.5;"
+       width="292"
+       x="559.5"
+       y="8" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="119"
+       x="644"
+       y="24.1387"
+       id="text14">&lt;&lt;DP singleton&gt;&gt;</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="0"
+       x="686"
+       y="38.1074"
+       id="text16" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="43"
+       x="686"
+       y="38.1074"
+       id="text18">Partie</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="560.5"
+       x2="850.5"
+       y1="45.9375"
+       y2="45.9375"
+       id="line20" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="134"
+       x="565.5"
+       y="60.1479"
+       id="text22">-nbMinesInitial: Int = 10</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       text-decoration="underline"
+       textLength="131"
+       x="565.5"
+       y="72.9526"
+       id="text24">-uniqueInstance: Partie</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="138"
+       x="565.5"
+       y="85.7573"
+       id="text26">-/ nbMinesRestantes: int</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="161"
+       x="565.5"
+       y="98.562"
+       id="text28">-niveau Chaine = &quot;débutant&quot;</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="101"
+       x="565.5"
+       y="111.3667"
+       id="text30">-résultat: boolean</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="560.5"
+       x2="850.5"
+       y1="117.9609"
+       y2="117.9609"
+       id="line32" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="169"
+       x="565.5"
+       y="132.1714"
+       id="text34">+marquerCase(pt:Point): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="173"
+       x="565.5"
+       y="144.9761"
+       id="text36">+découvrirCase(pt:point): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       text-decoration="underline"
+       textLength="75"
+       x="565.5"
+       y="157.7808"
+       id="text38">+getInstance</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="151"
+       x="601.5"
+       y="170.5854"
+       id="text40">if (uniqueInstance == null)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="0"
+       x="601.5"
+       y="183.3901"
+       id="text42" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="212"
+       x="633.5"
+       y="183.3901"
+       id="text44">Partie uniqueInstance = new Partie();</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="129"
+       x="601.5"
+       y="196.1948"
+       id="text46">return uniqueInstance;</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="121"
+       x="565.5"
+       y="208.9995"
+       id="text48">+decrNbMines(): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="117"
+       x="565.5"
+       y="221.8042"
+       id="text50">+incrNbMines(): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="86"
+       x="565.5"
+       y="234.6089"
+       id="text52">+perdre(): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="130"
+       x="565.5"
+       y="247.4136"
+       id="text54">+testerSiGagne(): void</text>
+    <!--MD5=[2276ca5ef9d65581225916042194f951]
+class tray-->
+    <rect
+       fill="#FEFECE"
+       filter="url(#f19fyuiw7yna0a)"
+       height="111.9922"
+       id="tray"
+       style="stroke: #A80036; stroke-width: 1.5;"
+       width="185"
+       x="18"
+       y="324" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="55"
+       x="83"
+       y="340.1387"
+       id="text57">Plateau</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="19"
+       x2="202"
+       y1="347.9688"
+       y2="347.9688"
+       id="line59" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="94"
+       x="24"
+       y="362.1792"
+       id="text61">-hauteur: int = 9</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="91"
+       x="24"
+       y="374.9839"
+       id="text63">-largeur: int = 9</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="19"
+       x2="202"
+       y1="381.5781"
+       y2="381.5781"
+       id="line65" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="169"
+       x="24"
+       y="395.7886"
+       id="text67">+marquerCase(pt:Point): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="173"
+       x="24"
+       y="408.5933"
+       id="text69">+découvrirCase(pt:Point): void</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="19"
+       x2="202"
+       y1="415.1875"
+       y2="415.1875"
+       id="line71" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="74"
+       x="24"
+       y="429.3979"
+       id="text73">coordonnées</text>
+    <!--MD5=[aef5c7a870dad8ee4f9eb2eafb9dde8d]
+class chrono-->
+    <rect
+       fill="#FEFECE"
+       filter="url(#f19fyuiw7yna0a)"
+       height="78.3828"
+       id="chrono"
+       style="stroke: #A80036; stroke-width: 1.5;"
+       width="99"
+       x="869"
+       y="341" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="93"
+       x="872"
+       y="357.1387"
+       id="text76">Chronomètre</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="870"
+       x2="967"
+       y1="364.9688"
+       y2="364.9688"
+       id="line78" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="62"
+       x="875"
+       y="379.1792"
+       id="text80">-temps: int</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="870"
+       x2="967"
+       y1="385.7734"
+       y2="385.7734"
+       id="line82" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="75"
+       x="875"
+       y="399.9839"
+       id="text84">+start(): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="73"
+       x="875"
+       y="412.7886"
+       id="text86">+stop(): void</text>
+    <!--MD5=[f180bf0a27e641cc35aab97e703f1d2f]
+class case-->
+    <rect
+       fill="#FEFECE"
+       filter="url(#f19fyuiw7yna0a)"
+       height="129.6016"
+       id="case"
+       style="stroke: #A80036; stroke-width: 1.5;"
+       width="207"
+       x="238"
+       y="315" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       font-style="italic"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="32"
+       x="325.5"
+       y="331.1387"
+       id="text89">Case</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="239"
+       x2="444"
+       y1="338.9688"
+       y2="338.9688"
+       id="line91" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="114"
+       x="244"
+       y="353.1792"
+       id="text93">-coordonnées: Point</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="239"
+       x2="444"
+       y1="359.7734"
+       y2="359.7734"
+       id="line95" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="97"
+       x="244"
+       y="373.9839"
+       id="text97">+marquer(): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="138"
+       x="280"
+       y="386.7886"
+       id="text99">état.Courant.marquer(c)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="101"
+       x="244"
+       y="399.5933"
+       id="text101">+découvrir(): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="138"
+       x="280"
+       y="412.3979"
+       id="text103">étatCourant.découvrir(c)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       font-style="italic"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="86"
+       x="244"
+       y="425.2026"
+       id="text105">dévoiler(): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="195"
+       x="244"
+       y="438.0073"
+       id="text107">+setEtatCourant(e:EtatCase): void</text>
+    <!--MD5=[4f04165da5aa77fff23471537a3ba2c7]
+class state-->
+    <rect
+       fill="#FEFECE"
+       filter="url(#f19fyuiw7yna0a)"
+       height="79.5469"
+       id="state"
+       style="stroke: #A80036; stroke-width: 1.5;"
+       width="152"
+       x="681.5"
+       y="340" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="95"
+       x="708"
+       y="356.1387"
+       id="text110">&lt;&lt;DP State&gt;&gt;</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="0"
+       x="729.5"
+       y="370.1074"
+       id="text112" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       font-style="italic"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="60"
+       x="729.5"
+       y="370.1074"
+       id="text114">EtatCase</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="682.5"
+       x2="832.5"
+       y1="377.9375"
+       y2="377.9375"
+       id="line116" />
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="682.5"
+       x2="832.5"
+       y1="385.9375"
+       y2="385.9375"
+       id="line118" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="136"
+       x="687.5"
+       y="400.1479"
+       id="text120">+marquer(c:Case): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="140"
+       x="687.5"
+       y="412.9526"
+       id="text122">+découvrir(c:Case): void</text>
+    <!--MD5=[756131b17d0210a2ce7c493215fece1d]
+class mine-->
+    <rect
+       fill="#FEFECE"
+       filter="url(#f19fyuiw7yna0a)"
+       height="65.5781"
+       id="mine"
+       style="stroke: #A80036; stroke-width: 1.5;"
+       width="123"
+       x="6"
+       y="512" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="78"
+       x="28.5"
+       y="528.1387"
+       id="text125">CaseMinée</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="7"
+       x2="128"
+       y1="535.9688"
+       y2="535.9688"
+       id="line127" />
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="7"
+       x2="128"
+       y1="543.9688"
+       y2="543.9688"
+       id="line129" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="93"
+       x="12"
+       y="558.1792"
+       id="text131">+dévoiler(): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="75"
+       x="48"
+       y="570.9839"
+       id="text133">Partie.perdre</text>
+    <!--MD5=[3fca095ac9dd8b53b7218d9a815fdc75]
+class vide-->
+    <rect
+       fill="#FEFECE"
+       filter="url(#f19fyuiw7yna0a)"
+       height="65.5781"
+       id="vide"
+       style="stroke: #A80036; stroke-width: 1.5;"
+       width="180"
+       x="164.5"
+       y="512" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="66"
+       x="221.5"
+       y="528.1387"
+       id="text136">CaseVide</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="165.5"
+       x2="343.5"
+       y1="535.9688"
+       y2="535.9688"
+       id="line138" />
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="165.5"
+       x2="343.5"
+       y1="543.9688"
+       y2="543.9688"
+       id="line140" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="93"
+       x="170.5"
+       y="558.1792"
+       id="text142">+dévoiler(): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="132"
+       x="206.5"
+       y="570.9839"
+       id="text144">loop.voisines.découvrir</text>
+    <!--MD5=[d1fd1a5453e1d5033f668ccd0d89429e]
+class num-->
+    <rect
+       fill="#FEFECE"
+       filter="url(#f19fyuiw7yna0a)"
+       height="78.3828"
+       id="num"
+       style="stroke: #A80036; stroke-width: 1.5;"
+       width="167"
+       x="380"
+       y="506" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="114"
+       x="406.5"
+       y="522.1387"
+       id="text147">CaseNumérotée</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="381"
+       x2="546"
+       y1="529.9688"
+       y2="529.9688"
+       id="line149" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="144"
+       x="386"
+       y="544.1792"
+       id="text151">-/ nbVoisinesMinées: 1..8</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="381"
+       x2="546"
+       y1="550.7734"
+       y2="550.7734"
+       id="line153" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="93"
+       x="386"
+       y="564.9839"
+       id="text155">+dévoiler(): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="119"
+       x="422"
+       y="577.7886"
+       id="text157">Partie.testerSiGagne</text>
+    <!--MD5=[408dccf2cd320307d7d2f97da75e43f2]
+class cover-->
+    <rect
+       fill="#FEFECE"
+       filter="url(#f19fyuiw7yna0a)"
+       height="78.3828"
+       id="cover"
+       style="stroke: #A80036; stroke-width: 1.5;"
+       width="152"
+       x="582.5"
+       y="506" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="93"
+       x="612"
+       y="522.1387"
+       id="text160">EtatCouverte</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="583.5"
+       x2="733.5"
+       y1="529.9688"
+       y2="529.9688"
+       id="line162" />
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="583.5"
+       x2="733.5"
+       y1="537.9688"
+       y2="537.9688"
+       id="line164" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="136"
+       x="588.5"
+       y="552.1792"
+       id="text166">+marquer(c:Case): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="140"
+       x="588.5"
+       y="564.9839"
+       id="text168">+découvrir(c:Case): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="55"
+       x="624.5"
+       y="577.7886"
+       id="text170">c.dévoiler</text>
+    <!--MD5=[0b3403ee99abc6bf6cc4c92556d2a1b6]
+class mark-->
+    <rect
+       fill="#FEFECE"
+       filter="url(#f19fyuiw7yna0a)"
+       height="65.5781"
+       id="mark"
+       style="stroke: #A80036; stroke-width: 1.5;"
+       width="152"
+       x="769.5"
+       y="512" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="92"
+       x="799.5"
+       y="528.1387"
+       id="text173">EtatMarquée</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="770.5"
+       x2="920.5"
+       y1="535.9688"
+       y2="535.9688"
+       id="line175" />
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="770.5"
+       x2="920.5"
+       y1="543.9688"
+       y2="543.9688"
+       id="line177" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="136"
+       x="775.5"
+       y="558.1792"
+       id="text179">+marquer(c:Case): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="140"
+       x="775.5"
+       y="570.9839"
+       id="text181">+découvrir(c:Case): void</text>
+    <!--MD5=[e2bccaa007927978d75bd83dd31474dc]
+class discover-->
+    <rect
+       fill="#FEFECE"
+       filter="url(#f19fyuiw7yna0a)"
+       height="65.5781"
+       id="discover"
+       style="stroke: #A80036; stroke-width: 1.5;"
+       width="152"
+       x="956.5"
+       y="512" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="110"
+       x="977.5"
+       y="528.1387"
+       id="text184">EtatDécouverte</text>
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="957.5"
+       x2="1107.5"
+       y1="535.9688"
+       y2="535.9688"
+       id="line186" />
+    <line
+       style="stroke: #A80036; stroke-width: 1.5;"
+       x1="957.5"
+       x2="1107.5"
+       y1="543.9688"
+       y2="543.9688"
+       id="line188" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="136"
+       x="962.5"
+       y="558.1792"
+       id="text190">+marquer(c:Case): void</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="11"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="140"
+       x="962.5"
+       y="570.9839"
+       id="text192">+découvrir(c:Case): void</text>
+    <!--MD5=[e2f5b4c763327e0e9c1d4dc761e26378]
+link party to tray-->
+    <path
+       d="M559.373,180.007 C461.722,213.81 331.339,262.294 220.5,315 C216.085,317.099 211.612,319.314 207.123,321.608 "
+       fill="none"
+       id="party-&gt;tray"
+       style="stroke: #A80036; stroke-width: 1.0;" />
+    <polygon
+       fill="#A80036"
+       points="202.631,323.927,212.463,323.3516,207.0736,321.6328,208.7924,316.2434,202.631,323.927"
+       style="stroke: #A80036; stroke-width: 1.0;"
+       id="polygon195" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="24"
+       x="527.7137"
+       y="179.0874"
+       id="text197">0..1</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="8"
+       x="205.9228"
+       y="312.8576"
+       id="text199">1</text>
+    <!--MD5=[40c5ebd8a6044b9bf22283c986bd28c9]
+link party to chrono-->
+    <path
+       d="M810.752,254.053 C836.512,283.925 862.37,313.91 882.295,337.016 "
+       fill="none"
+       id="party-&gt;chrono"
+       style="stroke: #A80036; stroke-width: 1.0;" />
+    <polygon
+       fill="#A80036"
+       points="885.693,340.956,882.8469,331.5273,882.4286,337.1687,876.7872,336.7504,885.693,340.956"
+       style="stroke: #A80036; stroke-width: 1.0;"
+       id="polygon202" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="8"
+       x="808.922"
+       y="274.0793"
+       id="text204">1</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="8"
+       x="871.3668"
+       y="330.0017"
+       id="text206">1</text>
+    <!--MD5=[0c4165b073503fda9771cce6bd7456af]
+link tray to case-->
+    <path
+       d="M215.441,380 C215.441,380 221.98,380 224.642,380 "
+       fill="none"
+       id="tray-case"
+       style="stroke: #A80036; stroke-width: 1.0;" />
+    <polygon
+       fill="#A80036"
+       points="237.956,380,228.956,376,232.956,380,228.956,384,237.956,380"
+       style="stroke: #A80036; stroke-width: 1.0;"
+       id="polygon209" />
+    <line
+       style="stroke: #A80036; stroke-width: 1.0;"
+       x1="232.956"
+       x2="224.956"
+       y1="380"
+       y2="380"
+       id="line211" />
+    <polygon
+       fill="#A80036"
+       points="203.441,380,209.441,384,215.441,380,209.441,376,203.441,380"
+       style="stroke: #A80036; stroke-width: 1.0;"
+       id="polygon213" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="8"
+       x="210.863"
+       y="376.4981"
+       id="text215">1</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="8"
+       x="222.0582"
+       y="376.5356"
+       id="text217">1</text>
+    <!--MD5=[164d1097e89fe68ed6fe04e20cd84fc1]
+link case to state-->
+    <path
+       d="M457.134,380 C457.134,380 606.773,380 668.12,380 "
+       fill="none"
+       id="case-state"
+       style="stroke: #A80036; stroke-width: 1.0;" />
+    <polygon
+       fill="#A80036"
+       points="681.276,380,672.276,376,676.276,380,672.276,384,681.276,380"
+       style="stroke: #A80036; stroke-width: 1.0;"
+       id="polygon220" />
+    <line
+       style="stroke: #A80036; stroke-width: 1.0;"
+       x1="676.276"
+       x2="668.276"
+       y1="380"
+       y2="380"
+       id="line222" />
+    <polygon
+       fill="#FFFFFF"
+       points="445.134,380,451.134,384,457.134,380,451.134,376,445.134,380"
+       style="stroke: #A80036; stroke-width: 1.0;"
+       id="polygon224" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="77"
+       x="525.75"
+       y="373.0669"
+       id="text226">étatCourant</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="8"
+       x="665.3789"
+       y="376.3575"
+       id="text228">1</text>
+    <!--MD5=[2ab7cb4b755c273d35bbde9957bd58ec]
+link case to case-->
+    <path
+       d="m 393.66849,314.33577 c 5.11514,-19.8392 12.95347,-33.28817 22.15436,-31.82182 8.41086,1.34045 11.86459,14.17091 11.39866,31.98154"
+       id="case-&gt;case"
+       style="fill:none;stroke:#a80036;stroke-width:1"
+       inkscape:connector-curvature="0" />
+    <polygon
+       points="453.582,391.8848 445.088,396.87 454.4802,399.8342 450.0564,396.3086 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon231"
+       transform="rotate(-86.602225,392.4496,365.16211)" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="0"
+       x="533.5"
+       y="369.5669"
+       id="text233" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="0"
+       x="533.5"
+       y="384.6997"
+       id="text235" />
+    <text
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="87"
+       x="490"
+       y="399.83249"
+       id="text237"
+       transform="translate(-63.287555,-103.95649)"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">voisines 3,5,8</text>
+    <!--MD5=[a076216d3902cab64b394416353dff67]
+reverse link case to mine-->
+    <path
+       d="M220.49,452.988 C185.796,473.627 149.715,495.0909 121.312,511.9879 "
+       fill="none"
+       id="case&lt;-mine"
+       style="stroke: #A80036; stroke-width: 1.0;" />
+    <polygon
+       fill="none"
+       points="217.145,446.833,237.912,442.623,224.303,458.865,217.145,446.833"
+       style="stroke: #A80036; stroke-width: 1.0;"
+       id="polygon240" />
+    <!--MD5=[01dddd33fda1be315eefec7a85bed7c7]
+reverse link case to vide-->
+    <path
+       d="M297.582,463.283 C288.376,480.531 279.195,497.7325 271.688,511.7964 "
+       fill="none"
+       id="case&lt;-vide"
+       style="stroke: #A80036; stroke-width: 1.0;" />
+    <polygon
+       fill="none"
+       points="291.522,459.77,307.115,445.422,303.873,466.362,291.522,459.77"
+       style="stroke: #A80036; stroke-width: 1.0;"
+       id="polygon243" />
+    <!--MD5=[99d0e8c5c938ab148d01311b7622ca34]
+reverse link case to num-->
+    <path
+       d="M401.72,461.458 C413.318,476.954 424.954,492.4995 434.949,505.8545 "
+       fill="none"
+       id="case&lt;-num"
+       style="stroke: #A80036; stroke-width: 1.0;" />
+    <polygon
+       fill="none"
+       points="396.098,465.628,389.718,445.422,407.306,457.239,396.098,465.628"
+       style="stroke: #A80036; stroke-width: 1.0;"
+       id="polygon246" />
+    <!--MD5=[ffe7537d7ec7c9358b3827551de9e8ea]
+reverse link state to cover-->
+    <path
+       d="M723.24,437.408 C709.511,460.013 694.048,485.4716 681.678,505.8384 "
+       fill="none"
+       id="state&lt;-cover"
+       style="stroke: #A80036; stroke-width: 1.0;" />
+    <polygon
+       fill="none"
+       points="717.422,433.503,733.787,420.043,729.388,440.77,717.422,433.503"
+       style="stroke: #A80036; stroke-width: 1.0;"
+       id="polygon249" />
+    <!--MD5=[11b8e4a3160f7e6a2c20295d1eed32a9]
+reverse link state to mark-->
+    <path
+       d="M788.146,437.766 C801.537,462.568 816.749,490.7459 828.141,511.8466 "
+       fill="none"
+       id="state&lt;-mark"
+       style="stroke: #A80036; stroke-width: 1.0;" />
+    <polygon
+       fill="none"
+       points="781.92,440.967,778.578,420.043,794.239,434.316,781.92,440.967"
+       style="stroke: #A80036; stroke-width: 1.0;"
+       id="polygon252" />
+    <!--MD5=[84247ff0f9c93e23e5f1e262d6c58798]
+reverse link state to discover-->
+    <path
+       d="M829.815,431.261 C837.08,436 844.396,440.653 851.5,445 C890.147,468.649 934.796,493.0991 970.078,511.7845 "
+       fill="none"
+       id="state&lt;-discover"
+       style="stroke: #A80036; stroke-width: 1.0;" />
+    <polygon
+       fill="none"
+       points="825.87,437.044,813.082,420.149,833.615,425.382,825.87,437.044"
+       style="stroke: #A80036; stroke-width: 1.0;"
+       id="polygon255" />
+    <!--MD5=[04a99bce8ddc68ace0b57f8a1768ab16]
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+class "<<DP singleton>> \n **Partie**" as party {
+    - nbMinesInitial: Int = 10
+    {static} - uniqueInstance: Partie
+    -/ nbMinesRestantes: int
+    - niveau Chaine = "débutant"
+    - résultat: boolean
+    __
+    + marquerCase(pt:Point): void
+    + découvrirCase(pt:point): void
+    {static} + getInstance
+    \t if (uniqueInstance == null)
+    \t \t Partie uniqueInstance = new Partie();
+    \t return uniqueInstance;
+    + decrNbMines(): void
+    + incrNbMines(): void
+    + perdre(): void
+    + testerSiGagne(): void
+}
+
+
+class "**Plateau**" as tray {
+    - hauteur: int = 9
+    - largeur: int = 9
+    __
+    + marquerCase(pt:Point): void
+    +découvrirCase(pt:Point): void
+    __
+    coordonnées
+}
+
+class "**Chronomètre**" as chrono {
+    - temps: int
+    __
+    + start(): void
+    + stop(): void
+}
+
+class "**//Case//**" as case {
+    - coordonnées: Point
+    __
+    + marquer(): void
+    \t état.Courant.marquer(c)
+    + découvrir(): void
+    \t étatCourant.découvrir(c)
+    {abstract} dévoiler(): void
+    + setEtatCourant(e:EtatCase): void
+}
+
+class "<<DP State>> \n **//EtatCase//**" as state {
+    + marquer(c:Case): void
+    + découvrir(c:Case): void
+}
+
+class "**CaseMinée**" as mine {
+    __
+    + dévoiler(): void
+    \t Partie.perdre
+}
+
+class "**CaseVide**" as vide {
+    __
+    + dévoiler(): void
+    \t loop.voisines.découvrir
+}
+
+class "**CaseNumérotée**" as num {
+    -/ nbVoisinesMinées: 1..8
+    __
+    + dévoiler(): void
+    \t Partie.testerSiGagne
+}
+
+class "**EtatCouverte**" as cover {
+    __
+    + marquer(c:Case): void
+    + découvrir(c:Case): void
+    \t c.dévoiler
+}
+
+class "**EtatMarquée**" as mark {
+    + marquer(c:Case): void
+    + découvrir(c:Case): void
+}
+
+class "**EtatDécouverte**" as discover {
+    + marquer(c:Case): void
+    + découvrir(c:Case): void
+}
+
+
+party "0..1" - -> "1" tray
+party "1" -down-> "1" chrono
+tray "1" *-down> "1" case
+case o-right-> "1" state : -étatCourant
+case -> case : \n \n voisines 3,5,8
+
+mine -up-|> case
+vide -up-|> case
+num -up-|> case
+
+cover -up-|> state
+mark -up-|> state
+discover -up-|> state
+@enduml
+
+PlantUML version 1.2020.07beta13(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.7.0_25-b15
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+-->
+  </g>
+</svg>

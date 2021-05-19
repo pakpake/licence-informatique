@@ -1,0 +1,4 @@
+javac EchoServer
+java EchoServer 4545 // port aleatoire
+java EchoClient localhost 4545
+// on ecrit ce que l'on veut dans EchoClient et on retrouve le meme texte ecrit dans EchoServer

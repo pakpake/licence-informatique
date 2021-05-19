@@ -1,0 +1,185 @@
+@CHARSET "ISO-8859-1";
+/* propri�t�s g�n�rales de la page */
+
+body {
+background: #eee9df url(../images/fond.jpg) center top repeat;
+
+color:#fff;
+font:12px/18px "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
+line-height:22px;
+margin:0;
+padding:20px 0 0;
+
+}
+
+/* propri�t�s du menu horizontal */
+#menu_horizontal {
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+
+	}
+/* comportement de la liste dans le bloc menu_horizontal */
+#menu_horizontal li {
+	margin-right:40px;
+    list-style-type: none;
+    display: inline;
+
+	}
+/* propri�t�s des liens (de base et d�j� visit�s) contenus dans le bloc menu_horizontal */
+#menu_horizontal a:link, #menu_horizontal a:visited {
+	color:#339999;
+
+	font-weight:bold;
+	text-decoration:none;
+	}
+/* propri�t�s des liens (au dessus et actifs) contenus dans le bloc menu_horizontal */
+#menu_horizontal a:hover, #menu_horizontal a:active {
+	text-decoration:underline overline;
+	text-decoration:underline;
+	}
+#fil_ariane{
+	background-color:#036;
+	}
+/* propri�t�s des liens (de base et d�j� visit�s) contenus dans le bloc fil_ariane */
+#fil_ariane a:link, #fil_ariane a:visited {
+	#color:#FF9933;
+	color:#fff;
+	text-decoration:none;
+	 font-size:14px;
+	}
+/* propri�t�s des liens (au dessus et actifs) contenus dans le bloc fil_ariane */
+#fil_ariane a:hover, #chemin_fer a:active {
+	#text-decoration:underline overline;
+	text-decoration:underline;
+	}
+/* propri�t�s des liens (de base et d�j� visit�s) contenus dans le bloc menu_vertical */
+#menu_vertical a:link, #menu_vertical a:visited {
+	color:#CC66CC;
+	font-size:16px;
+	text-decoration:none;
+	}
+/* propri�t�s des liens (au dessus et actifs) contenus dans le bloc menu_gauche */
+#menu_vertical a:hover, #menu_vertical a:active {
+	text-decoration:underline;
+	}
+/* propri�t�s du fil d'ariane */
+#fil_ariane {
+	}
+/* bloc central uniquement cr�e pour uniformiser les hauteurs des deux blocs contenus (menu_vertical et contenu) */
+#bloc_central {
+	}
+/* propri�t�s du menu vertical */
+#menu_vertical {
+	float:left;
+	width:20%;
+	height:300px;
+	}
+/* propri�t�s du contenu */
+
+/*-----------------------------------------------------*/
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+nav, #ft1, #hd1, #main {
+	margin:auto;
+  width:1110px;
+}
+
+
+
+h1, h2, h3, h6 {
+font-size:1em;
+font-style:normal;
+font-weight:normal;
+}
+
+
+p {
+font-size:13px;
+margin:5px 0 5px;
+text-align:justify;
+}
+
+
+ul li img {
+vertical-align: middle;
+}
+a:link, a:visited {
+color:#319FFF;
+text-decoration:none;
+}
+
+a:hover {
+color:#726F61;
+text-decoration:none;
+}
+
+
+
+#hd1 hgroup {
+color:#666666;
+float:right;
+font-family:Georgia;
+height:36px;
+width:787px;
+}
+
+#hd1 hgroup h1 {
+color: #666666;
+float: left;
+font-family: Georgia;
+font-size: 20px;
+font-style: italic;
+width:787px;
+}
+
+#hd1 hgroup h2 {
+	font-size:14px;
+}
+
+nav {
+  border-top: 1px solid #E5E5E5;
+  border-bottom: 1px solid #E5E5E5;
+  color: #4D4D4D;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+article {
+width:800px;
+float:left;
+}
+
+#aside {
+width:310px;
+float:left;
+}
+
+footer {
+position: relative;clear:both;padding-top: 10px;text-align:center;color: #76797c; font-size:12px;font-family: Arial;}
+
+
+/**************************************************************/
+/* lightbox
+#gallery {
+	background-color: #444;
+	padding: 10px;
+	width: 520px;
+}
+#gallery ul { list-style: none; }
+#gallery ul li { display: inline; }
+#gallery ul img {
+	border: 5px solid #3e3e3e;
+	border-width: 5px 5px 20px;
+}
+#gallery ul a:hover img {
+	border: 5px solid #fff;
+	border-width: 5px 5px 20px;
+	color: #fff;
+}
+#gallery ul a:hover { color: #fff; }
+
+*/

@@ -1,0 +1,43 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+class Partie {
+    - nbMinesInitial : int = 10
+    -/ nbMinesRestantes : int
+    - niveau: Chaine = "débutant"
+    - résultat: boolean
+}
+
+class Joueur {
+    - nom: Chaine
+}
+
+class Chronomètre {
+    - temps: int
+}
+
+class Plateau {
+    - hauteur: int = 9
+    - largeur: int = 9
+    __coordonnées__
+}
+
+class "//Case//" {
+    - coordonnées: Point
+}
+
+CaseMinée : \t
+
+class CaseNonMinée {
+    -/ nbVoisinesMinées: 0..8
+}
+
+Partie "1" --- "1" Joueur
+Partie "1" -- "1" Chronomètre
+Partie "0..1" - "1" Plateau : "\n pariteEnCours"
+"Plateau" "1" o-down- "1" "//Case//"
+"//Case//" - "//Case//" : "voisines 3,5,8"
+CaseMinée -up-|> "//Case//"
+CaseNonMinée -up-|> "//Case//"
+@enduml

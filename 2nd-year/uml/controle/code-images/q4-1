@@ -1,0 +1,27 @@
+@startuml
+actor ":Joueur" as player
+participant ":Partie" as game
+participant ":Plateau" as plateau
+participant "cases:Map<Point,Case>" as point
+participant "c:Case" as case
+
+player -> game : marquerCase(pt)
+activate player
+activate game
+game -> plateau : marquerCase(pt)
+activate plateau
+plateau -> point : \t trouver(pt)
+activate point
+point --> plateau : \t c
+deactivate point
+plateau -> case : \t \t \t marquer()
+activate case
+
+
+deactivate case
+deactivate plateau
+deactivate game
+deactivate player
+
+ref over game, case : marquerCase (DP State)
+@enduml

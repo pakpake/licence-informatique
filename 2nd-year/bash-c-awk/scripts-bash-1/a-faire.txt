@@ -1,0 +1,19 @@
+créez un répertoire comme ceci :
+tmp
+├── src
+│   ├── filer2.txt
+│   ├── r1
+│   ├── r2
+│   └── test1.txt
+├── src1
+│   ├── test11.txt
+│   └── test12.txt
+├── src2
+│   └── sr2
+│       ├── r1
+│       │   └── newr2.txt
+│       └── r2
+├── src3
+└── test.txt
+
+9 directories, 6 files

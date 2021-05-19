@@ -1,0 +1,6 @@
+<Files admin.php> 
+AuthName "Administration du site"
+AuthType Basic
+AuthUserFile "/var/www/html/projet2/prive/.htpasswd"
+Require valid-user
+</Files>

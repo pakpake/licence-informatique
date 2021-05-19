@@ -1,0 +1,142 @@
+################################################################################
+ps aux | head -n 11
+
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root      d   1  0.4  0.0 193944  7016 ?        Ss   14:00   0:01 /usr/lib/systemd/systemd --switched-root --system --deserialize 22
+root         2  0.0  0.0      0     0 ?        S    14:00   0:00 [kthreadd]
+
+################################################################################
+ps aux | tail -n +2 | head -n 10
+
+root         1  0.2  0.0 193944  7016 ?        Ss   14:00   0:01 /usr/lib/systemd/systemd --switched-root --system --deserialize 22
+root         2  0.0  0.0      0     0 ?        S    14:00   0:00 [kthreadd]
+
+################################################################################
+ps aux | tail -n +2 | sort
+
+avahi     1016  0.0  0.0  62296  2216 ?        Ss   14:00   0:00 avahi-daemon: running [ens-ssiva-0064.local]
+avahi     1023  0.0  0.0  62172   404 ?        S    14:00   0:00 avahi-daemon: chroot helper
+e1800010  2250  0.0  0.2 522988 16088 ?        Sl   14:00   0:00 /usr/libexec/csd-housekeeping
+
+################################################################################
+ps aux | tail -n +2 | sort -r -n -k 6 | head -n 11
+
+e1800010  2666  3.4  3.8 3197196 309352 ?      Sl   14:00   0:42 /usr/lib64/firefox/firefox
+e1800010  2700  0.0  0.4 707020 35876 ?        Sl   14:00   0:00 cinnamon-screensaver
+e1800010  3397  1.1  0.3 783396 31432 ?        Sl   14:03   0:12 /usr/libexec/gnome-terminal-server
+
+################################################################################
+ps aux | grep tty
+
+root      1888  2.0  0.8 759564 71600 tty1     Ssl+ 14:00   0:27 /usr/bin/X -core -noreset :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt1 -novtswitch -background none
+e1800010  6317  0.0  0.0 112740   960 pts/0    S+   14:22   0:00 grep --color=auto tty
+
+################################################################################
+ps aux |grep -v grep | grep tty
+
+root      1888  1.7  0.8 759696 71536 tty1     Ssl+ 14:00   0:29 /usr/bin/X -core -noreset :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt1 -novtswitch -background none
+
+################################################################################
+ps aux | tail -n +2 | grep -v root | head -n 10
+
+rpc        977  0.0  0.0  69488  1596 ?        Ss   14:00   0:00 /sbin/rpcbind -w
+libstor+   979  0.0  0.0   6668   704 ?        Ss   14:00   0:00 /usr/bin/lsmd -d
+rtkit     1012  0.0  0.0 196892  1712 ?        SNsl 14:00   0:00 /usr/libexec/rtkit-daemon
+rpcuser   1506  0.0  0.0  42648  1648 ?        Ss   14:00   0:00 /usr/sbin/rpc.statd
+
+################################################################################
+ps aux | cut -c 1,2,3,4,5,6,7,8
+
+USER    
+# [j'ai supprimé pleins de lignes faites un test chez vous vous verrez le résultat]
+root    
+root    
+lp      
+pakpake
+root    
+root    
+root    
+
+################################################################################
+# en enlevant les doublons
+ps aux | cut -c 1,2,3,4,5,6,7,8 | sort |uniq
+
+avahi   
+chrony  
+colord  
+dbus    
+libstor+
+lp      
+nobody  
+nscd    
+nslcd   
+polkitd 
+postfix 
+root    
+rpc     
+rpcuser 
+rtkit   
+USER    
+
+################################################################################
+ps aux | sed 's/ \+/ /g' | cut -c 1-8,10-16,64-80
+
+USER PID%CPU %M
+root 2 00 0.0 0
+
+################################################################################
+ps aux | sed 's/ \+/ /g' | cut -f 2-3,11 -d   | head -n 11
+
+PID %CPU COMMAND
+1 0.0 /usr/lib/systemd/systemd
+2 0.0 [kthreadd]
+4 0.0 [kworker/0:0H]
+
+################################################################################
+ps aux | awk -F" " '{printf("%5d\t%5.1f\t%s \n",$2,$3,$11)}' | sort -n -k 2 -r | head -n 10
+
+ 2725	 32.0	/usr/lib/firefox/firefox 
+ 2466	  4.1	/usr/lib/xorg/Xorg 
+
+################################################################################
+ps aux | awk -F" " '{if ($8 ~ /^S/) printf("%5d\t%5.1f\t%s\n",$2,$3,$11)}' | sort -n -k 2 -r | head -n 10 | cut -f 3
+
+/usr/lib/xorg/Xorg
+/usr/lib/firefox/firefox
+/lib/systemd/systemd-resolved
+[ecryptfs-kthrea]
+
+################################################################################
+
+On peut obtenir le même resultat avec un script .awk
+
+script :
+
+# script awk pour filtrer les processus avec Etat endormis (STAT S SPLEEPING)
+# appel de commande avec : ps aux | awk -f nomduscirpt.awk
+BEGIN{
+        FS = " " #on specifie que le separateur de champs est 1 ou plusieurs espaces
+        getline ; # permet de supprimer la premiere (le nom des colonnes)
+}
+{
+        if ($8 ~ /^S/) # expression reguliere sur le champs n°8 qui commence par un "S"
+                printf("%5d\t%5.1f\t%s\n",$2,$3,$11) # on affiche le PID, le % CPU et la commande
+}
+
+
+# commande pour appeler le script :
+
+ps aux | awk -f awk-tp1bis.awk | sort -n -r -k 2 | head -n 10 | cut -f 3
+
+# resultat final :
+
+/usr/lib/firefox/firefox
+/usr/lib/xorg/Xorg
+/usr/lib/firefox/firefox
+/usr/lib/firefox/firefox
+/usr/lib/firefox/firefox
+/usr/lib/thunderbird/thunderbird
+/lib/systemd/systemd-resolved
+[ecryptfs-kthrea]
+/lib/systemd/systemd-timesyncd
+[kswapd0]

@@ -1,0 +1,26 @@
+@startuml
+participant ":CaseMinée" as mine #lightgrey
+participant ":CaseNumérotée" as num #lightgrey
+participant ":CaseVide" as vide #lightgrey
+participant "voisines[i]:Case" as case
+participant "<<singleton>>\n :Partie" as party
+
+alt minée
+    [o-> mine ++ #lightgrey : dévoiler()
+    mine -> party ++ : \t \t \t \t \t \t \t \t \t \t \t \t perdre()
+    party --
+    mine --
+else numérotée
+    [o-> num ++ #lightgrey : déoviler()
+    num -> party ++ : \t \t \t \t \t \t \t \t \t testerSiGagne()
+    party --
+    num --
+else vide
+    [o-> vide ++ #lightgrey : dévoiler()
+    loop voisines 
+        vide -> case ++ : découvrir()
+        case --
+        vide --
+    end
+end
+@enduml
