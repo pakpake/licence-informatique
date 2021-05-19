@@ -1,0 +1,10 @@
+@startuml
+skinparam packageStyle rectangle
+title Cas d'utilisation\nSupprimer Abonné
+actor Bibliothécaire as biblio
+(Supprimer Abonné) as del
+(se connecter) as seco
+
+biblio - del
+del .> seco : <<include>>
+@enduml

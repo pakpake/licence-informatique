@@ -1,0 +1,10 @@
+@startuml
+skinparam packageStyle rectangle
+title Cas d'utilisation\nSupprimer Média
+actor Bibliothécaire as biblio
+(Supprimer Média) as del
+(se connecter) as seco
+
+biblio - del
+del .> seco : <<include>>
+@enduml

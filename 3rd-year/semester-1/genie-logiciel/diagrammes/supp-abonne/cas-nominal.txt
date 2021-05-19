@@ -1,0 +1,20 @@
+@startuml
+!pragma teoz true
+
+'participants :
+actor "Bibliothécaire" as biblio
+entity "Logiciel" as log
+database "Base de Donnée" as bdd
+
+title Diagramme de séquence : Supprimer un Abonne\nCas nominal
+
+biblio -> log : PageSupprimerAbonne
+log --> biblio : askData()
+biblio -> log : enterInfos()
+log -> bdd : transmitInfo()
+bdd -> bdd : !existe()
+bdd -> bdd : supprimerAbonne()
+bdd --> log : confirm()
+log --> biblio : confirm()
+log -> biblio : backHome()
+@enduml

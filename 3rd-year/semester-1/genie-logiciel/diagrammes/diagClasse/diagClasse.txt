@@ -1,0 +1,149 @@
+@startuml
+'left to right direction
+hide circle
+skinparam classAttributeIconSize 0
+
+title Diagramme de Classe
+
+' ==================
+class "Média" as media {
+' attributs
+- titre : string
+- isbn : int 
+- langue : string
+' synopsis & 4eme de couverture
+- resume : string
+- datePublication : date
+- motsCles : string
+' nombre d'exemplaire du média
+- nombre : int
+
+' méthodes
++ ajoutMedia()
++ supprimerMedia()
+' etatMedia a modifier via acesseur et récupérer graces aux getter
++ etatMedia()
++ existeMedia()
+}
+
+class "Livre" as livre {
+' attributs : 
+- editeur : string
+- auteur : string
+
+' méthodes
+' code : surcharge de la méthode ajoutMedia()
++ ajoutLivre()
+' code : surcharge de la méthode supprimerMedia()
++ supprimerLivre()
+' code : surcharge
++ etatLivre()
+}
+
+class "DVD" as dvd {
+- duree : int
+' signaletique jeunesse
+- signaletique : string
+- ppxacteurs : string
+
+' méthodes
+' code : surcharge de la méthode ajoutMedia()
++ ajoutDvd()
+' code : surcharge de la méthode supprimerMedia()
++ supprimerDvd()
+' code : susentées les multiplicités :rcharge de etatMedia
++ etatDvd()
+}
+
+' ==================
+class "Usager" as usager {
+' A un compte (soit abonné soit biblio) ou n'en a pas
+' méthodes
++ seConnecter()
++ creerCompte()
+}
+
+class "Abonné" as abonne {
+' attributs
+- nom : string
+- prenom : string
+- dateDeNaissance : date
+- dateInscription : date
+- numSecu : int
+- identifiant : int
+- motdepasse : string
+
+' méthodes
++ modifierInfo()
++ supprimerCompte()
++ seDeconnecter()
++ rechercherMedia()
++ existeMedia()
+}
+class "Bibliothécaire" as biblio {
+' attributs
+- nom : string
+- prenom : string
+- numSecu : int
+- identifiant : int
+- motdepasse : string
+
+' méthodes
+' modifier ses infos
++ modifierInfo()
++ supprimerCompte()
++ seDeconnecter()
++ ajouterAbonne()
++ supprimerAbonne()
+' modifier les infos d'un abonné
++ modifierAbonne()
++ ajoutListeNoire()
++ supprimerListeNoire()
++ rechercherMedia()
+}
+
+/' ==========================
+   =========================='/
+class "Emprunt" as emprunt {
+' attribut
+- dateRetourTheorique : date
+' méthode
+' timer = date de début de l'emprunt, nb jour en retard (si pas en retard = 0)
++ timer()
++ empruntMedia()
++ retourMedia()
+}
+
+class "Réservation" as reservation {
+' attribut
+' date a laquel ca ete reserve
+- date : date
+' méthodes
++ reserver()
++ annulerReservation()
+}
+
+/' ============================
+=============================='/
+
+livre -right-|> media
+dvd -left|> media
+
+abonne -left-|> usager
+biblio -down|> usager
+
+emprunt "0..*" -down- "1..*" biblio
+' n à définir en fonction de l'age, l'ancienneté
+emprunt "0..*" -down- "0..n" media
+
+note as N1
+  Pour emprunter, un abonné doit d'abord réserver le média,
+  si il est déjà emprunté ou si l'abonné est chez lui,
+  sinon, il peut l'emprunter directement à la bibliothèque
+  en passant par le bibliothécaire qui vérifiera s'il est dans les règles
+  (nombre maximum d'emprunts, emprunts en retard, ...)
+end note
+
+abonne "0..*" -right- "0..n" reservation
+media "0..*" -- "0..*" reservation
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+!pragma teoz true
+
+'participants :
+actor "Bibliothécaire" as biblio
+entity "Logiciel" as log
+database "Base de Donnée" as bdd
+
+title Diagramme de séquence : Supprimer un Média\nCas d'erreur\nMédia en cours d'emprunt
+
+biblio -> log : PageSupprimerMedia
+log --> biblio : askData()
+biblio -> log : enterInfos()
+log -> bdd : transmitInfos()
+bdd -> bdd : existe()
+bdd -> bdd : etatMedia()
+bdd -> log : Média emprunté !
+log -> biblio : Média emprunté !
+note over biblio,log #Red 
+Message personalisé indiquant
+que le média est en cours d'emprunt,
+la suppression se fera au moment
+où le média sera rendu
+end note
+@enduml

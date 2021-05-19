@@ -1,0 +1,21 @@
+@startuml
+!pragma teoz true
+
+'participants :
+actor "Bibliothécaire" as biblio
+entity "Logiciel" as log
+' database "Base de Donnée" as bdd
+
+title Diagramme de séquence : Ajouter un média\nCas d'erreur\nDonnées d'entrées incomplètes
+
+biblio -> log : PageAjoutMédia
+log --> biblio : askData()
+biblio -> log : enterInfos()
+log --> biblio : infosIncomplètes()
+log --> biblio : miseEnEvidence()
+note over biblio,log #Red 
+mise en evidence
+des champs incorrects
+par un affichage de couleur
+end note
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+skinparam packageStyle rectangle
+title Cas d'utilisation\nAjouter Média 
+actor Bibliothécaire as biblio
+(Ajout Média) as addMedia
+(se connecter) as seco
+
+biblio - addMedia 
+addMedia .> seco : <<include>>
+@enduml

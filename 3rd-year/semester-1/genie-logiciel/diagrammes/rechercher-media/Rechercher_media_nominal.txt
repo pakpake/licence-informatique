@@ -1,0 +1,18 @@
+@startuml
+!pragma teoz true
+
+'participants :
+actor "Usager" as usa
+entity "Logiciel" as log
+database "Base de Donnée" as bdd
+
+title Diagramme de séquence : Rechercher média\nCas nominal
+
+usa -> log : seConnecter()
+usa -> log : rechercherMedia()
+log --> usa : askData()
+usa -> log : enterInfos()
+log -> bdd : Demander les médias
+bdd --> log : Retourner les médias
+log --> usa : Retourner les médias
+@enduml

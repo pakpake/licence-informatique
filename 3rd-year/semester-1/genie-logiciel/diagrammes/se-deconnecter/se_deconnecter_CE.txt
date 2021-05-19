@@ -1,0 +1,20 @@
+@startuml
+'pragma teoz true
+
+actor "Usager" as usa
+entity "Logiciel" as app
+database "Base de Donnée" as bdd
+
+title Diagramme de séquence : Se deconnecter\nCas d'erreur
+
+usa->app: Deconnexion()
+app->bdd: verifIfConnected()
+bdd->bdd: verifIfConnected()
+bdd-->app: verifIfConnected():False
+app-->usa: PrintError()
+
+note over usa,app #Red 
+Affichage du message d'erreur indiquant
+que l'utulisateur n'est pas connecté
+end note
+@enduml

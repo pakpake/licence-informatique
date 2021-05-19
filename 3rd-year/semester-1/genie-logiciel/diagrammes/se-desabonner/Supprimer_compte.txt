@@ -1,0 +1,14 @@
+@startuml
+'participants :
+actor :Abonné: as abo
+
+(Supprimer compte) as (delete)
+(Consulter liste noire) as (noire)
+(Consulter emprunts) as (emprunts)
+(Se connecter) as (co)
+
+abo--(delete)
+(delete) .down.> (emprunts) : << include >>
+(delete) .> (co) : << include >>
+(delete) .left.> (noire) : << include >>
+@enduml

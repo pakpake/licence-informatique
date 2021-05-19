@@ -1,0 +1,14 @@
+@startuml
+'participants :
+actor :Usager: as usa
+
+(Créer compte) as (new)
+(Consulter liste noire) as (noire)
+(Donner informations) as (infos)
+(Consulter abonnées existants) as (abonnes)
+
+usa--(new)
+(new) .down.> (infos) : << include >>
+(new) .> (abonnes) : << include >>
+(new) .left.> (noire) : << include >>
+@enduml

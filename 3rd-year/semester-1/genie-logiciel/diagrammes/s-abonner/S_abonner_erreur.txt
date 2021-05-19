@@ -1,0 +1,24 @@
+@startuml
+!pragma teoz true
+
+'participants :
+actor "Usager" as usa
+entity "Logiciel" as log
+database "Base de Donnée" as bdd
+
+title Diagramme de séquence : S'abonner\nCas d'erreur\nAbonne sur liste noire
+
+usa -> log : creerCompte()
+log --> usa : askData()
+usa -> log : enterInfos()
+log -> bdd : transmitInfo()
+bdd -> bdd : existe()
+bdd -> bdd : surListeNoire()
+bdd --> log : Sur liste noire
+log --> usa : Sur liste noire
+
+note over usa,log #Red 
+Affichage du message d'erreur signifiant
+l'interdiction de créer un compte
+end note
+@enduml
