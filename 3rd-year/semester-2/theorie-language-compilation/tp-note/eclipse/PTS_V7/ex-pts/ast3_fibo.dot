@@ -1,0 +1,174 @@
+digraph ast3_fibo {
+size="20,20"
+node [shape=plaintext]
+edge [dir=none]
+n56 [label="program:fibonacci@0"]
+n0 [label="new_ident:fibonacci@0"]
+
+n56 -> n0;
+n4 [label="var_decl_list"]
+n3 [label="var_decl"]
+n1 [label="new_ident:x@0"]
+
+n3 -> n1;
+n2 [label="int_type\n< int >"]
+
+n3 -> n2;
+
+n4 -> n3;
+
+n56 -> n4;
+n44 [label="fct_decl_list"]
+n43 [label="fct_decl"]
+n5 [label="new_ident:fibo@0"]
+
+n43 -> n5;
+n9 [label="param_decl_list"]
+n8 [label="param_decl"]
+n6 [label="new_ident:n@1"]
+
+n8 -> n6;
+n7 [label="int_type\n< int >"]
+
+n8 -> n7;
+
+n9 -> n8;
+
+n43 -> n9;
+n10 [label="int_type\n< int >"]
+
+n43 -> n10;
+n42 [label="compound"]
+n41 [label="stm_list"]
+n40 [label="if"]
+n14 [label="equal\n< bool >"]
+n12 [label="var\n< int >"]
+n11 [label="ident:n@1\n< int >"]
+
+n12 -> n11;
+
+n14 -> n12;
+n13 [label="integer:0\n< int >"]
+
+n14 -> n13;
+
+n40 -> n14;
+n16 [label="return"]
+n15 [label="integer:1\n< int >"]
+
+n16 -> n15;
+
+n40 -> n16;
+n39 [label="if"]
+n20 [label="equal\n< bool >"]
+n18 [label="var\n< int >"]
+n17 [label="ident:n@1\n< int >"]
+
+n18 -> n17;
+
+n20 -> n18;
+n19 [label="integer:1\n< int >"]
+
+n20 -> n19;
+
+n39 -> n20;
+n22 [label="return"]
+n21 [label="integer:1\n< int >"]
+
+n22 -> n21;
+
+n39 -> n22;
+n38 [label="return"]
+n37 [label="plus\n< int >"]
+n29 [label="fct_call\n< int >"]
+n23 [label="ident:fibo@0\n< (int,):int >"]
+
+n29 -> n23;
+n28 [label="arg_list"]
+n27 [label="minus\n< int >"]
+n25 [label="var\n< int >"]
+n24 [label="ident:n@1\n< int >"]
+
+n25 -> n24;
+
+n27 -> n25;
+n26 [label="integer:1\n< int >"]
+
+n27 -> n26;
+
+n28 -> n27;
+
+n29 -> n28;
+
+n37 -> n29;
+n36 [label="fct_call\n< int >"]
+n30 [label="ident:fibo@0\n< (int,):int >"]
+
+n36 -> n30;
+n35 [label="arg_list"]
+n34 [label="minus\n< int >"]
+n32 [label="var\n< int >"]
+n31 [label="ident:n@1\n< int >"]
+
+n32 -> n31;
+
+n34 -> n32;
+n33 [label="integer:2\n< int >"]
+
+n34 -> n33;
+
+n35 -> n34;
+
+n36 -> n35;
+
+n37 -> n36;
+
+n38 -> n37;
+
+n39 -> n38;
+
+n40 -> n39;
+
+n41 -> n40;
+
+n42 -> n41;
+
+n43 -> n42;
+
+n44 -> n43;
+
+n56 -> n44;
+n55 [label="compound"]
+n54 [label="stm_list"]
+n47 [label="read"]
+n46 [label="var\n< int >"]
+n45 [label="ident:x@0\n< int >"]
+
+n46 -> n45;
+
+n47 -> n46;
+
+n54 -> n47;
+n53 [label="write"]
+n52 [label="fct_call\n< int >"]
+n48 [label="ident:fibo@0\n< (int,):int >"]
+
+n52 -> n48;
+n51 [label="arg_list"]
+n50 [label="var\n< int >"]
+n49 [label="ident:x@0\n< int >"]
+
+n50 -> n49;
+
+n51 -> n50;
+
+n52 -> n51;
+
+n53 -> n52;
+
+n54 -> n53;
+
+n55 -> n54;
+
+n56 -> n55;
+}

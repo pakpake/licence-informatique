@@ -1,0 +1,16 @@
+{ programme d'appel d'une fonction d'addition }
+PROGRAM callAdd ;
+
+FUNCTION add(p1:INTEGER, p2:INTEGER):INTEGER;
+BEGIN
+  RETURN p1+p2;
+END;
+
+BEGIN 
+  VAR x1:INTEGER;
+  VAR x2:INTEGER;
+  READ x1;
+  READ x2;
+  WRITE add(x1,x2);
+END.
+

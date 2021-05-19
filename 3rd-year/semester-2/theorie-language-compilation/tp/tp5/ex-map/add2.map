@@ -1,0 +1,10 @@
+ 14    2;  	GBL 	2
+  7     ;  	RCV 	
+ 18    0;  	STG 	0
+  7     ;  	RCV 	
+ 18    1;  	STG 	0
+ 17    0;  	LDG 	0
+ 17    1;  	LDG 	1
+  1     ;  	ADD 	
+  6     ;  	SND 	
+ 10     ; L1: 	HLT 	

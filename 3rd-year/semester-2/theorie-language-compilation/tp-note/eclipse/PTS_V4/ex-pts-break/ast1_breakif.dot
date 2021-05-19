@@ -1,0 +1,96 @@
+digraph ast1_breakif {
+size="20,20"
+node [shape=plaintext]
+edge [dir=none]
+n30 [label="program"]
+n0 [label="new_ident:cpt"]
+
+n30 -> n0;
+n4 [label="var_decl_list"]
+n3 [label="var_decl"]
+n1 [label="new_ident:x"]
+
+n3 -> n1;
+n2 [label="int_type"]
+
+n3 -> n2;
+
+n4 -> n3;
+
+n30 -> n4;
+n29 [label="compound"]
+n28 [label="stm_list"]
+n8 [label="assign"]
+n6 [label="var"]
+n5 [label="ident:x"]
+
+n6 -> n5;
+
+n8 -> n6;
+n7 [label="integer:0"]
+
+n8 -> n7;
+
+n28 -> n8;
+n27 [label="while"]
+n9 [label="boolean:TRUE"]
+
+n27 -> n9;
+n26 [label="compound"]
+n25 [label="stm_list"]
+n12 [label="write"]
+n11 [label="var"]
+n10 [label="ident:x"]
+
+n11 -> n10;
+
+n12 -> n11;
+
+n25 -> n12;
+n17 [label="breakif"]
+n16 [label="equal"]
+n14 [label="var"]
+n13 [label="ident:x"]
+
+n14 -> n13;
+
+n16 -> n14;
+n15 [label="integer:10"]
+
+n16 -> n15;
+
+n17 -> n16;
+
+n25 -> n17;
+n24 [label="assign"]
+n19 [label="var"]
+n18 [label="ident:x"]
+
+n19 -> n18;
+
+n24 -> n19;
+n23 [label="plus"]
+n21 [label="var"]
+n20 [label="ident:x"]
+
+n21 -> n20;
+
+n23 -> n21;
+n22 [label="integer:1"]
+
+n23 -> n22;
+
+n24 -> n23;
+
+n25 -> n24;
+
+n26 -> n25;
+
+n27 -> n26;
+
+n28 -> n27;
+
+n29 -> n28;
+
+n30 -> n29;
+}

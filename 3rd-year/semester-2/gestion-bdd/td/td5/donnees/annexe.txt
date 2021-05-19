@@ -1,0 +1,47 @@
+select * from dict where comments like '%role%';
+
+
+TABLE_NAME
+------------------------------
+COMMENTS
+------------------------------------------------------------------------------------------------------------------------
+
+ALL_COL_PRIVS
+Grants on columns for which the user is the grantor, grantee, owner, or an enabled role or PUBLIC is the grantee
+
+ALL_COL_PRIVS_RECD
+Grants on columns for which the user, PUBLIC or enabled role is the grantee
+
+ALL_TAB_PRIVS
+Grants on objects for which the user is the grantor, grantee, owner, or an enabled role or PUBLIC is the grantee
+
+ALL_TAB_PRIVS_RECD
+Grants on objects for which the user, PUBLIC or enabled role is the grantee
+
+DBA_AUDIT_OBJECT
+Audit trail records for statements concerning objects, specifically: table, cluster, view, index, sequence,  [public] database link, [public] synonym, procedure, trigger, rollback segment, tablespace, role, user
+
+DBA_ROLE_PRIVS
+Roles granted to users and roles
+
+DBA_SYS_PRIVS
+System privileges granted to users and roles
+
+USER_AUDIT_OBJECT
+Audit trail records for statements concerning objects, specifically: table, cluster, view, index, sequence,  [public] database link, [public] synonym, procedure, trigger, rollback segment, tablespace, role, user
+
+COLUMN_PRIVILEGES
+Grants on columns for which the user is the grantor, grantee, owner, or an enabled role or PUBLIC is the grantee
+
+ROLE_ROLE_PRIVS
+Roles which are granted to roles
+
+ROLE_SYS_PRIVS
+System privileges granted to roles
+
+ROLE_TAB_PRIVS
+Table privileges granted to roles
+
+TABLE_PRIVILEGES
+Grants on objects for which the user is the grantor, grantee, owner,or an enabled role or PUBLIC is the grantee
+

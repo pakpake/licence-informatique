@@ -1,0 +1,11 @@
+{ programme d'affichage d'un compteur de 0 a 9 inclus avec un FOR }
+PROGRAM cptbis ;
+
+BEGIN
+   FOR x FROM 0 TO TRUE DO 
+   {[erreur de COMPILATION] : l'expression de fin du for n'est pas un entier ligne 9}
+   BEGIN
+      WRITE x;
+   END;
+END.
+

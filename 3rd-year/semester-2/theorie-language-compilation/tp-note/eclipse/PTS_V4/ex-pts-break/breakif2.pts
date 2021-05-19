@@ -1,0 +1,23 @@
+{ programme d'affichage d'un compteur imbrique de 0 a 9 
+  doit afficher : 0 0 1 0 1 2 0 1 2 3 0 1 2 3 4 .... 0 1 2 3 4 5 6 7 8 9 
+}
+PROGRAM cpt2 ;
+
+VAR	x1 : INTEGER;
+VAR x2 : INTEGER;
+BEGIN
+    x1 := 0;	
+    WHILE (TRUE) DO
+      BEGIN
+        x2 := 0;
+        WHILE (TRUE) DO
+          BEGIN
+            WRITE x2;
+            BREAKIF (x2 = x1);
+            x2 := x2+1;
+          END;
+        BREAKIF (x1 = 9);
+        x1 := x1+1;
+      END;
+END.
+

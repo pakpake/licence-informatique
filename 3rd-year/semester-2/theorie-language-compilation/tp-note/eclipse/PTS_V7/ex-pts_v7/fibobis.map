@@ -1,0 +1,53 @@
+ 14    1;  	GBL 	1
+ 21   73;  	JMP 	L0:
+  0     ; L1: 	NOP 	
+ 12    1;  	INC 	1
+ 15   -3;  	LDL 	-3
+ 11    0;  	LDC 	0
+  2     ;  	SUB 	
+ 23   39;  	JNZ 	L7:
+ 21   16;  	JMP 	L5:
+  0     ; L5: 	NOP 	
+ 11    0;  	LDC 	0
+ 19    0;  	LLA 	0
+  9     ;  	STI 	
+ 15   -3;  	LDL 	-3
+ 11    1;  	LDC 	1
+  2     ;  	SUB 	
+ 23   39;  	JNZ 	L7:
+ 21   31;  	JMP 	L6:
+  0     ; L6: 	NOP 	
+ 11    1;  	LDC 	1
+ 19    0;  	LLA 	0
+  9     ;  	STI 	
+ 21   62;  	JMP 	L4:
+  0     ; L7: 	NOP 	
+ 12    1;  	INC 	1
+ 15   -3;  	LDL 	-3
+ 11    1;  	LDC 	1
+  2     ;  	SUB 	
+ 24    4;  	JSR 	L1:
+ 12    1;  	INC 	1
+ 15   -3;  	LDL 	-3
+ 11    2;  	LDC 	2
+  2     ;  	SUB 	
+ 24    4;  	JSR 	L1:
+  1     ;  	ADD 	
+ 19    0;  	LLA 	0
+  9     ;  	STI 	
+  0     ; L4: 	NOP 	
+ 15    0;  	LDL 	0
+ 16   -4;  	STL 	-4
+ 21   71;  	JMP 	L2:
+ 13    1; L3: 	DEC 	1
+ 25    1; L2: 	RET 	1
+  0     ; L0: 	NOP 	
+  7     ;  	RCV 	
+ 20    0;  	LGA 	0
+  9     ;  	STI 	
+  0     ; L9: 	NOP 	
+ 12    1;  	INC 	1
+ 17    0;  	LDG 	0
+ 24    4;  	JSR 	L1:
+  6     ;  	SND 	
+ 10     ; L8: 	HLT 	

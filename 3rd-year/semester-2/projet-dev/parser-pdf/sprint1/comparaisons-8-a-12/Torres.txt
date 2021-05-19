@@ -1,0 +1,23 @@
+1. pdftotext 
+
+
+* sans option
+
+Bonne optimisation, mise en page difficile avec les formules.
+
+* -raw 
+
+Compacte et formules incompréhensibles
+
+* -layout
+
+Plus claire. Même problèmes avec les formules
+
+
+2. pdf2txt
+
+Plus claire et mieux organisé. Même problème avec les formules
+
+Conclusion:
+
+Cette fois ci pour une fois le pdf2txt est la meilleure option.

@@ -1,0 +1,19 @@
+{programme du fibo recursif}
+PROGRAM fibonacci ;
+
+VAR		   
+   x : INTEGER;
+
+FUNCTION fibo(n : INTEGER):INTEGER;
+
+BEGIN
+	IF (n=0) THEN RETURN 1
+	ELSE IF (n=1) THEN RETURN 1
+	ELSE RETURN fibo(n-1)+fibo(n-2);
+END;
+
+BEGIN 
+   READ x;
+   WRITE fibo(x);
+END.
+

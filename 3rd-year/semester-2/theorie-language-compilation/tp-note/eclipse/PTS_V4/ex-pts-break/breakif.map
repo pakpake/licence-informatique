@@ -1,0 +1,26 @@
+ 14    1;  	GBL 	1
+ 21    4;  	JMP 	L0:
+  0     ; L0: 	NOP 	
+ 11    0;  	LDC 	0
+ 20    0;  	LGA 	0
+  9     ;  	STI 	
+  0     ; L2: 	NOP 	
+  0     ; L3: 	NOP 	
+ 21   14;  	JMP 	L4:
+  0     ; L4: 	NOP 	
+ 17    0;  	LDG 	0
+  6     ;  	SND 	
+  0     ; L5: 	NOP 	
+ 17    0;  	LDG 	0
+ 11   10;  	LDC 	10
+  2     ;  	SUB 	
+ 23   28;  	JNZ 	L6:
+ 21   39;  	JMP 	L1:
+  0     ; L6: 	NOP 	
+ 17    0;  	LDG 	0
+ 11    1;  	LDC 	1
+  1     ;  	ADD 	
+ 20    0;  	LGA 	0
+  9     ;  	STI 	
+ 21   11;  	JMP 	L3:
+ 10     ; L1: 	HLT 	

@@ -1,0 +1,21 @@
+{programme du pgcd iteratif}
+PROGRAM pgcd ;
+
+FUNCTION gcd(a : INTEGER , b : INTEGER):INTEGER;
+
+BEGIN
+	WHILE (a <> b) DO
+		BEGIN
+			IF (a>b) THEN a := a-b ELSE b := b-a;
+		END;
+	RETURN a;
+END;
+
+BEGIN 
+	VAR  x : INTEGER;
+    VAR y : INTEGER;
+   READ x;
+   READ y;
+   WRITE gcd(x,y)
+END.
+

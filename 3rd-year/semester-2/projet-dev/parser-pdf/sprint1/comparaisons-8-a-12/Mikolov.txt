@@ -1,0 +1,23 @@
+1. pdftotext
+
+* sans options
+
+Bonne optimisation sauf que les formules de math sont peu mises en evidence
+
+* -raw
+
+Optimisation compacte, même problème des formules précédent
+
+* -layout
+
+Mise en page terrible, mais formules mises en evidence
+
+
+2. pdf2txt
+
+Bonne mise en page mais optimisation moyenne
+
+
+Conclusion:
+
+pdftotext est le meilleur, avec -raw

@@ -1,0 +1,4 @@
+article03.pdf
+A survey on the animation of signing avatars: From sign representation to utterance synthesis
+Lucie Naert Caroline Larboulette Sylvie Gibet
+Language registers are the highly perceptible characteristic of written or spoken communication. In this paper we present a methodology to automatically characterize language Language registers are the highly perceptible characteristic of written or spoken communication. In this paper we present a methodology to automatically characterize language registers using statistical tool named "emerging sequential patterns". Our approach is presented in two steps : the first one exhibits the relevance of the chosen statistical tool from artificial texts ; the second one shows that the characteristic patterns of the language registers from real data can be extracted by using this statistical tool. Experimental results show the quality of our methodology. 

@@ -1,0 +1,72 @@
+digraph ast2_add {
+size="20,20"
+node [shape=plaintext]
+edge [dir=none]
+n22 [label="program"]
+n0 [label="new_ident:add@0"]
+
+n22 -> n0;
+n7 [label="var_decl_list"]
+n3 [label="var_decl"]
+n1 [label="new_ident:x1@0"]
+
+n3 -> n1;
+n2 [label="int_type"]
+
+n3 -> n2;
+
+n7 -> n3;
+n6 [label="var_decl"]
+n4 [label="new_ident:x2@0"]
+
+n6 -> n4;
+n5 [label="int_type"]
+
+n6 -> n5;
+
+n7 -> n6;
+
+n22 -> n7;
+n21 [label="compound"]
+n20 [label="stm_list"]
+n10 [label="read"]
+n9 [label="var"]
+n8 [label="ident:x1@0"]
+
+n9 -> n8;
+
+n10 -> n9;
+
+n20 -> n10;
+n13 [label="read"]
+n12 [label="var"]
+n11 [label="ident:x2@0"]
+
+n12 -> n11;
+
+n13 -> n12;
+
+n20 -> n13;
+n19 [label="write"]
+n18 [label="plus"]
+n15 [label="var"]
+n14 [label="ident:x1@0"]
+
+n15 -> n14;
+
+n18 -> n15;
+n17 [label="var"]
+n16 [label="ident:x2@0"]
+
+n17 -> n16;
+
+n18 -> n17;
+
+n19 -> n18;
+
+n20 -> n19;
+
+n21 -> n20;
+
+n22 -> n21;
+}

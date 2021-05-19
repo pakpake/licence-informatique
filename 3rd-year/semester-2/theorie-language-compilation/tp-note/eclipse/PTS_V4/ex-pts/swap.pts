@@ -1,0 +1,23 @@
+{programme d'echange de deux valeurs}
+PROGRAM fact ;
+
+VAR	x1 : INTEGER;
+VAR  x2 : INTEGER;
+      
+FUNCTION swap(a : INTEGER,
+		  b : INTEGER): VOID;
+BEGIN
+   VAR tmp : INTEGER;
+   tmp := a;
+   a := b;
+   b := tmp;
+END;
+   
+BEGIN
+   READ x1;
+   READ x2;
+   swap(x1,x2);
+   WRITE x1;
+   WRITE x2;
+END.
+   

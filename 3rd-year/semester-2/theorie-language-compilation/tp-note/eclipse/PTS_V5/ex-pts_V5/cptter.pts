@@ -1,0 +1,14 @@
+{ programme d'affichage d'un compteur de 0 a 9 inclus avec un FOR }
+PROGRAM cptter ;
+
+BEGIN
+   VAR x : INTEGER;
+   VAR y : INTEGER;
+   y := 9;
+   FOR x FROM 0*y TO y*1 DO
+   BEGIN
+      WRITE x;
+      y := y+1;
+   END;
+END.
+

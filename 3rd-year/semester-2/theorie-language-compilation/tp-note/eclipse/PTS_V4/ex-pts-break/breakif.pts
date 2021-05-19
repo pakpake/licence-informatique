@@ -1,0 +1,15 @@
+{ programme d'affichage d'un compteur de 0 a 10 }
+PROGRAM cpt ;
+
+VAR		   
+   x : INTEGER;
+BEGIN
+   x := 0;	
+   WHILE (TRUE) DO
+   BEGIN
+      WRITE x;
+      BREAKIF (x = 10);
+      x:= x+1;
+   END;
+END.
+

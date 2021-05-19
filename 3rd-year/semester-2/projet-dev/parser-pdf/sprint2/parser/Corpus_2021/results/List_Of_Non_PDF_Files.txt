@@ -1,0 +1,3 @@
+Voici la liste des fichiers de votre dossier Corpus_2021 qui ne sont pas des PDF :
+
+-> CPoUnPdf.pdf

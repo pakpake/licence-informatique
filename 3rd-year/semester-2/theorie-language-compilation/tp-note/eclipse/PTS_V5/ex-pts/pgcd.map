@@ -1,0 +1,50 @@
+ 21   54;  	JMP 	L0:
+  0     ; L1: 	NOP 	
+  0     ; L4: 	NOP 	
+ 15   -4;  	LDL 	-4
+ 15   -3;  	LDL 	-3
+  2     ;  	SUB 	
+ 23   13;  	JNZ 	L5:
+ 21   45;  	JMP 	L3:
+  0     ; L5: 	NOP 	
+ 15   -3;  	LDL 	-3
+ 15   -4;  	LDL 	-4
+  2     ;  	SUB 	
+ 22   34;  	JGZ 	L7:
+ 21   23;  	JMP 	L6:
+  0     ; L6: 	NOP 	
+ 15   -4;  	LDL 	-4
+ 15   -3;  	LDL 	-3
+  2     ;  	SUB 	
+ 19   -4;  	LLA 	-4
+  9     ;  	STI 	
+ 21    3;  	JMP 	L4:
+  0     ; L7: 	NOP 	
+ 15   -3;  	LDL 	-3
+ 15   -4;  	LDL 	-4
+  2     ;  	SUB 	
+ 19   -3;  	LLA 	-3
+  9     ;  	STI 	
+ 21    3;  	JMP 	L4:
+  0     ; L3: 	NOP 	
+ 15   -4;  	LDL 	-4
+ 16   -5;  	STL 	-5
+ 21   52;  	JMP 	L2:
+ 25    2; L2: 	RET 	2
+  0     ; L0: 	NOP 	
+ 12    2;  	INC 	2
+  7     ;  	RCV 	
+ 19    0;  	LLA 	0
+  9     ;  	STI 	
+  0     ; L10: 	NOP 	
+  7     ;  	RCV 	
+ 19    1;  	LLA 	1
+  9     ;  	STI 	
+  0     ; L11: 	NOP 	
+ 12    1;  	INC 	1
+ 15    0;  	LDL 	0
+ 15    1;  	LDL 	1
+ 24    2;  	JSR 	L1:
+  6     ;  	SND 	
+ 13    2; L9: 	DEC 	2
+ 10     ; L8: 	HLT 	

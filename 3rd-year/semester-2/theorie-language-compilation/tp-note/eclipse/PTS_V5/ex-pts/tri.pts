@@ -1,0 +1,69 @@
+{ programme de tri par selection }
+PROGRAM tri ;
+
+VAR tab : ARRAY[100] OF INTEGER;
+
+{ lecture du tableau }
+{ on lit d'abord la taille, puis la valeur des elements }
+FUNCTION lireTab () : INTEGER ;
+BEGIN
+  VAR i : INTEGER;
+  VAR n : INTEGER;
+  READ n;
+  i := 0;
+  WHILE(i < n) DO
+    BEGIN 
+      READ tab[i]; 
+      i := i+1;
+    END;
+  RETURN n;
+END;
+
+{ fonction d'echange de deux valeurs de tab }
+FUNCTION swap ( i1 : INTEGER, i2 : INTEGER): VOID ;
+BEGIN
+  VAR tmp : INTEGER;
+  tmp := tab[i1];
+  tab[i1] := tab[i2];
+  tab[i2] := tmp;
+END;
+
+{ tri d'un tableau }
+FUNCTION triTab ( n : INTEGER ) : VOID ;
+BEGIN
+  VAR i : INTEGER;   
+  i := 0;
+  WHILE (i < n-1) DO
+  BEGIN
+    VAR j : INTEGER;
+    j := i;
+    WHILE (j < n) DO
+    BEGIN
+      IF (tab[j] < tab[i]) THEN swap(i,j);
+      j := j+1;
+    END;
+    i := i+1;
+  END;
+END;
+
+{ affichage d'un tableau }
+FUNCTION ecrireTab( n : INTEGER ) : VOID;
+BEGIN 
+  VAR i : INTEGER;
+  i := 0;
+  WHILE(i < n) DO
+    BEGIN 
+      WRITE tab[i]; 
+      i := i+1;
+    END
+END;   
+    
+{ programme principal }
+BEGIN 
+   VAR size : INTEGER;
+   size :=lireTab();
+   triTab(size);
+   ecrireTab(size);
+END.
+
+

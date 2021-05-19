@@ -1,0 +1,679 @@
+/**
+ * Compilateur PTS Version 1
+ * F. Raimbault
+ */
+/*
+ * Analyseur syntaxique 
+ */
+
+options {
+  JAVA_UNICODE_ESCAPE = true;
+  STATIC=false;
+  OUTPUT_DIRECTORY =  "javacc"; 
+}
+
+PARSER_BEGIN(AnalyseurSyntaxique)
+
+package pts.javacc;
+
+import java.util.ArrayList;
+import pts.ast.*;
+
+public class AnalyseurSyntaxique
+{
+    
+} 
+
+PARSER_END(AnalyseurSyntaxique)
+
+
+/* ESPACE */
+
+SPECIAL_TOKEN :
+{
+    " "
+	| "\t"
+	| "\n"
+	| "\r"
+	| "\f"
+}
+
+/* COMMENTAIRES */
+
+MORE :
+{
+  "{" : IN_MULTI_LINE_COMMENT
+}
+
+<IN_MULTI_LINE_COMMENT>
+SPECIAL_TOKEN :
+{
+  <MULTI_LINE_COMMENT: "}" > : DEFAULT
+}
+
+<IN_MULTI_LINE_COMMENT>
+MORE :
+{
+  < ~[] >
+}
+
+/* MOTS RESERVES ET LITERAUX */
+
+TOKEN :
+{
+    < BOOLEAN: "BOOLEAN" >
+	| < DO: "DO" >
+	| < ELSE: "ELSE" >
+	| < THEN: "THEN" >
+	| < FALSE: "FALSE" >
+	| < IF: "IF" >
+	| < INTEGER: "INTEGER" >
+	| < RETURN: "RETURN" >
+	| < TRUE: "TRUE" >
+	| < VOID: "VOID" >
+	| < WHILE: "WHILE" >
+    | < PROGRAM: "PROGRAM" >
+	| < VAR: "VAR" >
+	| < FUNCTION: "FUNCTION" >
+	| < ARRAY: "ARRAY" >
+	| < OF: "OF" >
+	| < BEGIN: "BEGIN" >
+	| < END: "END" >
+	| < OR: "OR" >
+	| < AND: "AND" >
+	| < NOT: "NOT" >
+	| < READ: "READ" >
+	| < WRITE: "WRITE" >
+}
+
+/* LITERAUX */
+
+TOKEN :
+{
+    < INTEGER_LITERAL: ( ["1"-"9"] (["0"-"9"])* | "0") >
+}
+
+/* IDENTIFICATEURS */
+
+TOKEN :
+{
+  < IDENTIFIER: <LETTER_MIN> (<LETTER>|<DIGIT>)* >
+|
+< #LETTER_MIN:
+    [
+     "a"-"z"
+    ]
+>
+|
+< #LETTER:
+  [
+   "a"-"z",
+   "A"-"Z"
+  ]
+>
+|
+  < #DIGIT:
+      [
+       "0"-"9"
+      ]
+  >
+}
+
+/* SEPARATEURS */
+
+TOKEN :
+{
+  < LPAREN: "(" >
+| < RPAREN: ")" >
+| < LBRAC: "[" >
+| < RBRAC: "]" >
+| < SEMICOLON: ";" >
+| < COMMA: "," >
+| < DOT: "." >
+| < COLON: ":" >
+}
+
+/* OPERATORS */
+
+TOKEN :
+{
+ < ASSIGN: ":=" >
+| < GT: ">" >
+| < LT: "<" >
+| < EQ: "=" >
+| < LE: "<=" >
+| < GE: ">=" >
+| < NE: "<>" >
+| < PLUS: "+" >
+| < MINUS: "-" >
+| < MUL: "*" >
+| < DIV: "/" >
+| < REM: "%" >
+}
+
+
+/********************************************
+ * LA GRAMMAIRE DU LANGAGE TPS COMMENCE ICI *
+ ********************************************/
+
+Noeud Program() : 
+{ 
+    Noeud n1,n2=null,n3=null,n4;
+}
+{
+    <PROGRAM> n1=NewIdentifier() <SEMICOLON> 
+    ( n2= VariableDeclarationList() )?
+    ( n3= FunctionDeclarationList() )?
+    n4=CompoundStatement() <DOT>
+    { 
+        	return new Noeud(getToken(0).beginLine,EtiquetteNoeud.PROGRAM,new Noeud[]{n1,n2,n3,n4});
+    }
+}
+
+Noeud VariableDeclarationList() :
+{ 
+    Noeud n;
+    ArrayList ln= new ArrayList();
+}
+{
+    n=VariableDeclaration() { ln.add(n); } (<SEMICOLON> ( n=VariableDeclaration() { ln.add(n); } )? )*
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.VARIABLE_DECLARATION_LIST,ln);
+    }
+}
+
+Noeud VariableDeclaration() :
+{
+    Noeud n1,n2;
+}
+{
+   <VAR> n1=NewIdentifier() <COLON>  n2=Type()
+   {
+       return new Noeud(getToken(0).beginLine,EtiquetteNoeud.VARIABLE_DECLARATION,new Noeud[]{n1,n2});
+   }
+}
+
+Noeud FunctionDeclarationList() :
+{ 
+    ArrayList ln= new ArrayList();
+    Noeud n;
+}
+{
+    n=FunctionDeclaration() { ln.add(n); } (  <SEMICOLON> ( n=FunctionDeclaration()  { ln.add(n); } )? )*
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.FUNCTION_DECLARATION_LIST,ln);
+    }
+}
+
+Noeud FunctionDeclaration() :
+{ 
+    Noeud n1,n2=null,n3,n4;
+}
+{
+    <FUNCTION> n1=NewIdentifier() <LPAREN> ( n2=ParameterDeclarationList() )? <RPAREN> 
+           <COLON> ( n3=BasicType() | n3=VoidType() ) <SEMICOLON>
+           n4= CompoundStatement()
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.FUNCTION_DECLARATION,new Noeud[]{n1,n2,n3,n4});
+    }
+}
+
+Noeud ParameterDeclarationList() :
+{ 
+    Noeud n;
+    ArrayList ln= new ArrayList();
+}
+{
+    n=ParameterDeclaration() { ln.add(n); } (<COMMA> n=ParameterDeclaration() { ln.add(n); } )*
+    {
+        return new Noeud(getToken(0).beginLine,
+                EtiquetteNoeud.PARAMETER_DECLARATION_LIST,ln);
+    }
+}
+
+Noeud ParameterDeclaration() : 
+{
+    Noeud n1,n2;
+}
+{
+   n1=NewIdentifier() <COLON>  n2=BasicType()
+   {
+       return new Noeud(getToken(0).beginLine,EtiquetteNoeud.PARAMETER_DECLARATION,new Noeud[]{n1,n2});
+   }
+}
+
+Noeud Type() :
+{ 
+    Noeud n;
+ }
+{
+    n= BasicType()
+    {
+        return n;
+    }
+    | n=ArrayType()
+    {
+	return n;
+    }
+}
+
+Noeud BasicType() :
+{  
+}
+{
+    <INTEGER>
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.INTEGER_TYPE);
+    }
+    | <BOOLEAN>
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.BOOLEAN_TYPE);
+    }
+}
+
+Noeud VoidType() :
+{
+}
+{
+   <VOID>
+    {	
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.VOID_TYPE);
+    }
+}
+ 
+Noeud ArrayType() :
+{ 
+    Noeud n1,n2;
+}
+{
+    <ARRAY> <LBRAC> n1=Integer() <RBRAC> <OF> n2=BasicType()
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.ARRAY_TYPE,new Noeud[]{n1,n2});
+    }
+ }
+
+Noeud CompoundStatement() :
+{
+    Noeud n1=null,n2=null;
+}
+{
+    <BEGIN> ( n1=VariableDeclarationList() )? ( n2=StatementList() )? <END>
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.COMPOUND_STATEMENT,new Noeud[]{n1,n2});
+    }
+}
+
+Noeud StatementList() :
+{
+    ArrayList ln= new ArrayList();
+    Noeud n;
+}
+{
+    n=Statement() {ln.add(n);} ( <SEMICOLON> ( n=Statement() {ln.add(n);} )? )*
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.STATEMENT_LIST,ln);
+    }
+}
+
+Noeud Statement() :
+{
+    Noeud n;
+}
+{
+    LOOKAHEAD(2) n=AssignmentStatement()
+        {
+        	return n;
+        }
+        | n=ProcedureStatement()
+        {
+        	return n;
+        }
+        | n=CompoundStatement()
+        {
+        	return n;
+        }
+        | n=IfStatement()
+        {
+        	return n;
+        }
+        | n=WhileStatement()
+        {
+        	return n;
+        }
+        | n=IOStatement()
+        {
+           	return n;
+        }
+        | n=ReturnStatement()
+        {
+           	return n;
+        }
+}
+
+Noeud WhileStatement() :
+{
+    Noeud n1,n2;
+}
+{
+    <WHILE> n1=Expression() <DO> n2=Statement()
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.WHILE_STATEMENT,new Noeud[] {n1,n2});
+    }
+}
+
+
+Noeud IfStatement() :
+{
+    Noeud n1,n2,n3=null;
+}
+{
+    <IF> n1=Expression() <THEN> n2=Statement() 
+    ( LOOKAHEAD(<ELSE>) <ELSE> n3=Statement() )?
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.IF_STATEMENT, new Noeud[] {n1,n2,n3});
+    }
+}
+
+Noeud AssignmentStatement() :
+{
+    Noeud n1,n2;
+}
+{
+    n1=VariableAccess() <ASSIGN> n2=Expression()
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.ASSIGN_STATEMENT, new Noeud[] {n1,n2});
+    }
+}
+
+Noeud VariableAccess() :
+{
+    Noeud n;
+}
+{
+    LOOKAHEAD(2) n=ArrayAccess()
+    {
+        return n;
+    }
+    | n=Identifier()
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.VARIABLE_ACCESS,n);
+    }
+}
+
+Noeud ArrayAccess() :
+{
+    Noeud n1,n2;
+}
+{
+    n1=Identifier() <LBRAC> n2=Expression() <RBRAC>
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.ARRAY_ACCESS,new Noeud[]{n1,n2});
+    }
+}
+
+Noeud ProcedureStatement() :
+{
+    Noeud n1,n2=null;
+}
+{
+    n1=Identifier() <LPAREN> ( n2=ArgumentList() )? <RPAREN>
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.PROCEDURE_STATEMENT,new Noeud[]{n1,n2});
+    }
+}
+
+Noeud IOStatement() :
+{
+    Noeud n;
+}
+{
+    <READ> n=VariableAccess() 
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.READ_STATEMENT,n);
+    }
+    |
+    <WRITE> n=Expression() 
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.WRITE_STATEMENT,n);
+    }
+}
+
+Noeud ReturnStatement() :
+{
+    Noeud n;
+}
+{
+    <RETURN> n=Expression() 
+    {
+        return new Noeud(getToken(0).beginLine,EtiquetteNoeud.RETURN_STATEMENT,n);
+    }
+}
+
+Noeud ArgumentList() :
+{
+    Noeud n;
+    ArrayList ln= new ArrayList();
+}
+{
+    n=Argument() {ln.add(n);} ( <COMMA> n=Argument() {ln.add(n);} )*  
+    {
+	return new Noeud(getToken(0).beginLine,
+	    EtiquetteNoeud.ARGUMENT_LIST,ln);
+    }
+}
+
+Noeud Argument() :
+{
+    Noeud n;
+}
+{
+    n=Expression()
+    {
+        return n;
+    }	
+}
+
+Noeud Expression() :
+{
+    Noeud n1,n2=null;
+    EtiquetteNoeud op=null;
+}
+{
+    n1=SimpleExpression() ( op=RelOp() n2=SimpleExpression() )? 
+    {
+        return (n2==null) ? n1 : new Noeud(getToken(0).beginLine,op,new Noeud[]{n1,n2});
+    }
+}
+
+EtiquetteNoeud RelOp() :
+{
+}
+{
+    <EQ>
+    {
+	return EtiquetteNoeud.EQUAL_EXPRESSION;
+    }
+    | <NE>
+    {
+	return EtiquetteNoeud.NOT_EQUAL_EXPRESSION;
+    }
+    | <LT>
+    {
+	return EtiquetteNoeud.LOWER_EXPRESSION;
+    }
+    | <GT>
+    {
+	return EtiquetteNoeud.GREATER_EXPRESSION;
+    }
+    | <LE>
+    {
+	return EtiquetteNoeud.LOWER_EQUAL_EXPRESSION;
+    }
+    | <GE>
+    {
+	return EtiquetteNoeud.GREATER_EQUAL_EXPRESSION;
+    }
+}
+
+
+Noeud SimpleExpression() :
+{
+    Noeud n1,n2=null;
+    EtiquetteNoeud op=null;
+}
+{
+    n1=Term() ( op=AddOp() n2=SimpleExpression() )?
+    {
+        return (n2==null) ? n1 : new Noeud(getToken(0).beginLine,op,new Noeud[]{n1,n2});
+    }
+}
+
+EtiquetteNoeud AddOp() :
+{
+}
+{
+    <PLUS>
+    {
+	return EtiquetteNoeud.PLUS_EXPRESSION;
+    }
+    | <MINUS>
+    {
+	return EtiquetteNoeud.MINUS_EXPRESSION;
+    }
+    | <OR>
+    {
+	return EtiquetteNoeud.OR_EXPRESSION;
+    }
+}
+
+
+Noeud Term() :
+{
+    Noeud n1,n2=null;
+    EtiquetteNoeud op=null;
+}
+{
+    n1=Primary() ( op=MulOp() n2=Term() )?
+    {
+        return (n2==null) ? n1 : new Noeud(getToken(0).beginLine,op,new Noeud[]{n1,n2});
+    }
+}
+
+EtiquetteNoeud MulOp() :
+{
+}
+{
+    <MUL>
+    {
+	return EtiquetteNoeud.MUL_EXPRESSION;
+    }
+    | <DIV>
+    {
+	return EtiquetteNoeud.DIV_EXPRESSION;
+    }
+    | <REM>
+    {
+	return EtiquetteNoeud.MOD_EXPRESSION;
+    }
+    | <AND>
+    {
+	return EtiquetteNoeud.AND_EXPRESSION;
+    }
+}
+
+
+Noeud Primary() :
+{
+    Noeud n;
+}
+{
+     LOOKAHEAD(2) n=FunctionCall()
+    {
+	return n;
+    }
+    | n=VariableAccess()
+    {
+	return n;
+    }
+     | n=Integer()
+    {
+	return n;
+    }
+     | n=Boolean()
+    {
+	return n;
+    }
+     | <MINUS> n=Primary()
+    {
+	return new Noeud(getToken(0).beginLine,EtiquetteNoeud.NEGATIVE_EXPRESSION,n);
+    }
+    | <LPAREN> n=Expression() <RPAREN> 
+    {
+	return n;
+    }
+    | <NOT> n=Primary()
+    {
+	return new Noeud(getToken(0).beginLine,EtiquetteNoeud.NOT_EXPRESSION,n);
+    }
+}
+
+Noeud FunctionCall() :
+{
+    Noeud n1,n2= null;
+}
+{
+    n1=Identifier() <LPAREN> (n2= ArgumentList() )? <RPAREN>
+    {
+	return new Noeud(getToken(0).beginLine,EtiquetteNoeud.FUNCTION_CALL,new Noeud[]{n1,n2});
+    }
+}
+
+Noeud Identifier() :
+{
+    Token tok;
+}
+{
+    tok= <IDENTIFIER>
+    {
+        return new Noeud(tok.beginLine,EtiquetteNoeud.IDENTIFIER,tok.image);
+    }
+}
+
+Noeud NewIdentifier() :
+{
+    Token tok;
+}
+{
+    tok= <IDENTIFIER>
+    {
+        return new Noeud(tok.beginLine,EtiquetteNoeud.NEW_IDENTIFIER,tok.image);
+    }
+}
+
+Noeud Integer() :
+{
+    Token tok;
+}
+{
+    tok= <INTEGER_LITERAL>
+    {
+        return new Noeud(tok.beginLine,EtiquetteNoeud.INTEGER_VALUE,tok.image);
+    }
+}
+
+Noeud Boolean() :
+{
+    Token tok;
+}
+{
+    tok= <TRUE>
+    {	
+	return new Noeud(tok.beginLine,EtiquetteNoeud.BOOLEAN_VALUE,tok.image);
+    }
+    | tok= <FALSE>
+    {
+	return new Noeud(tok.beginLine,EtiquetteNoeud.BOOLEAN_VALUE,tok.image);
+    }
+}
+
+
