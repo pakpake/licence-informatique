@@ -1,0 +1,39 @@
+Attention, il doit y avoir des erreurs quelque part.
+
+1ere exercice :
+
+Q1.1 : idC -> idP, idM, dateC, tarifC => chaque identifiant de consultation détermine l'identifiant du patient, la date de la consultation ainsi que le tarif de la consultation
+Q1.3 : (Dépendance multivalué) tous les médecins, quelle que soit leur spécialité ont été consultés par tous les patients
+Q1.2 : (dépendance hiérarchique) la spécialité d'un médecin dépend du médecin et du patient
+Q1.4 : 1 -> IdM->NomM,SpecM
+Q1.5: pas de dépendance
+Q1.6 : VilleM ->->SpecM
+Q1.7 : IdP, IdC -> VilleP
+Q1.8 :  Ville : IdM | IdP
+
+2eme exercice :
+F1 :
+A -> B
+AB -> CD
+Donc A -> BCD (par transivité)
+E -> AB
+E est donc la clé
+F1 est 2NF car tous les attributs dépendent de la clé
+
+F2 : 
+A -> BC et D -> A
+=>B ->ABC
+DE sont donc les clés
+1NF car atomique, pas 2NF car ABC dépend de la clé
+
+F3 ::
+A -> ABCDE
+B -> BDEAC
+C -> C
+D -> D
+E -> EABCD
+CD -> CD
+clé -> {A,B,E}
+1/ toutes les clés sont des singletons => 2NF
+2/ aucune clé ne détermine 1 autre non membre de la clé => 3NF
+3/ seuls des clés ou sous-ensembles de clés déterminent quelque chose => BCNF

@@ -1,0 +1,22 @@
+{programme de fibonacci avec instruction CASE}
+PROGRAM fibobis ;
+
+VAR x : INTEGER;
+	
+FUNCTION fibo(n : INTEGER):INTEGER;
+
+    BEGIN
+    	VAR res : INTEGER;
+	CASE  
+            n=0 : res:=0 ;
+            n=1 : res:=1 ;
+            ELSE : res:= fibo(n-1)+fibo(n-2)
+	END;
+	RETURN res;
+    END;
+	
+BEGIN 
+    READ x;
+    WRITE fibo(x);
+END.
+

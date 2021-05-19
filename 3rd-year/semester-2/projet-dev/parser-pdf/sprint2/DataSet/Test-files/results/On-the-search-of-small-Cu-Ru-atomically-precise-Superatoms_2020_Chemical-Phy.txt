@@ -1,0 +1,4 @@
+On-the-search-of-small-Cu-Ru-atomically-precise-Superatoms_2020_Chemical-Phy.pdf
+On the search of small Cu-Ru atomically precise Superatoms. Cu10Ru cluster as a stable 18-ve endohedral structure
+P.L. Rodríguez-Kessler
+Here we discussed the plausible formation of the Cu10Ru cluster as a superatomic specie accounted for its Here we discussed the plausible formation of the Cu10Ru cluster as a superatomic specie accounted for its 1S21P61D10 shell order. By stochastic structure search on Cu10Ru clusters, we found six low-lying cluster isomers with ΔE values from 0.0 to 4.7 kcal∙mol above the ground state denoting an endohedral motif with the Ru dopant inside the Cu10 cage. By using molecular dynamics simulations we found a clear trend of encapsulation of the Ru atom at low temperatures. These results are useful for further rationalization and design of novel spherical superatoms expanding the libraries of stable endohedral clusters.  

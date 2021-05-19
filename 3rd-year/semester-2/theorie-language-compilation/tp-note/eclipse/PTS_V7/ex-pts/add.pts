@@ -1,0 +1,11 @@
+{ programme d'addition de deux entiers lus au clavier }
+PROGRAM add ;
+   VAR x1 : INTEGER;
+   VAR x2 : INTEGER;
+   BEGIN 
+     READ x1; 
+     READ x2; 
+     WRITE x1+x2; 
+   END.
+
+

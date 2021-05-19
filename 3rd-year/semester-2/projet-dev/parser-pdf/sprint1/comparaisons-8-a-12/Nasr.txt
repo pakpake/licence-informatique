@@ -1,0 +1,26 @@
+1. pdftotext
+
+* sans option
+
+Mise en page assez bonne.
+Figures inexistantes
+
+
+* -raw
+
+Pas assez clair dans les formations
+Figures inexistantes
+
+*-layout
+
+Mise en page assez bonne (les figures gênent les autres textes)
+Figures présentes mais incomplètes
+
+2. pdf2txt
+
+Mise en page inexistante, optimisation oublié. Terrible comme option.
+
+
+Conclusion: 
+
+Il est vital de prendre pdftotext, vraiment.

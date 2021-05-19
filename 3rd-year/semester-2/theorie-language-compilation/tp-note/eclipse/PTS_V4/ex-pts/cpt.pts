@@ -1,0 +1,14 @@
+{ programme d'affichage d'un compteur de 0 a 9 }
+PROGRAM cpt ;
+
+VAR		   
+   x : INTEGER;
+BEGIN
+   x := 0;	
+   WHILE (x <> 10) DO
+   BEGIN
+      WRITE x;
+      x:= x+1;
+   END;
+END.
+

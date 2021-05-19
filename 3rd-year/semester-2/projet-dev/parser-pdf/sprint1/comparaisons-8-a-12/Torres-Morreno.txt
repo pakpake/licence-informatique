@@ -1,0 +1,22 @@
+1. pdftotext
+
+* sans options
+
+Bonne mise en page. Formules de maths catastrophiques.
+
+* -raw
+
+Mise en page compacte(pas assez claire). Formules de maths catastrophiques.
+
+*-layout
+
+Bonne mise en page, plus claire même si au niveau des formules c'est toujours pas compréhensible.
+
+2. pdf2txt
+
+Bonne mise en page, optimisation pas terrible au niveau des phrases avec des formules. 
+Formules de maths catastrophiques.
+
+Conclusion : 
+
+pdftotext est la meilleure option, en -layout

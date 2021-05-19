@@ -1,0 +1,42 @@
+digraph ast3_cptbis {
+size="20,20"
+node [shape=plaintext]
+edge [dir=none]
+n12 [label="program:cptbis@0"]
+n0 [label="new_ident:cptbis@0"]
+
+n12 -> n0;
+n11 [label="compound"]
+n10 [label="stm_list"]
+n9 [label="for:x@2"]
+n1 [label="new_ident:x@2"]
+
+n9 -> n1;
+n2 [label="integer:0\n< int >"]
+
+n9 -> n2;
+n3 [label="integer:9\n< int >"]
+
+n9 -> n3;
+n8 [label="compound"]
+n7 [label="stm_list"]
+n6 [label="write"]
+n5 [label="var\n< int >"]
+n4 [label="ident:x@2\n< int >"]
+
+n5 -> n4;
+
+n6 -> n5;
+
+n7 -> n6;
+
+n8 -> n7;
+
+n9 -> n8;
+
+n10 -> n9;
+
+n11 -> n10;
+
+n12 -> n11;
+}

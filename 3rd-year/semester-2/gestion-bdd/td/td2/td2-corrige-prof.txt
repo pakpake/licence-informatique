@@ -1,0 +1,799 @@
+Partie 0  
+
+Visualisez les vues v$database et v$instance.
+
+desc v$instance
+ Nom                                                               NULL ?   Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ INSTANCE_NUMBER                                                            NUMBER
+ INSTANCE_NAME                                                              VARCHAR2(16)
+ HOST_NAME                                                                  VARCHAR2(64)
+ VERSION                                                                    VARCHAR2(17)
+ STARTUP_TIME                                                               DATE
+ STATUS                                                                     VARCHAR2(12)
+ PARALLEL                                                                   VARCHAR2(3)
+ THREAD#                                                                    NUMBER
+ ARCHIVER                                                                   VARCHAR2(7)
+ LOG_SWITCH_WAIT                                                            VARCHAR2(15)
+ LOGINS                                                                     VARCHAR2(10)
+ SHUTDOWN_PENDING                                                           VARCHAR2(3)
+ DATABASE_STATUS                                                            VARCHAR2(17)
+ INSTANCE_ROLE                                                              VARCHAR2(18)
+ ACTIVE_STATE                                                               VARCHAR2(9)
+ BLOCKED                                                                    VARCHAR2(3)
+
+
+SELECT * FROM v$instance ;
+
+INSTANCE_NUMBER INSTANCE_NAME    HOST_NAME                                                        VERSION
+--------------- ---------------- ---------------------------------------------------------------- -----------------
+STARTUP_ STATUS       PAR    THREAD# ARCHIVE LOG_SWITCH_WAIT LOGINS     SHU DATABASE_STATUS   INSTANCE_ROLE
+-------- ------------ --- ---------- ------- --------------- ---------- --- ----------------- ------------------
+ACTIVE_ST BLO
+--------- ---
+              1 oraetud          paddy                                                            10.2.0.1.0
+10/09/07 OPEN         NO           1 STOPPED                 ALLOWED    NO  ACTIVE            PRIMARY_INSTANCE
+NORMAL    NO
+
+desc v$database ;
+ Nom                                                               NULL ?   Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ DBID                                                                       NUMBER
+ NAME                                                                       VARCHAR2(9)
+ CREATED                                                                    DATE
+ RESETLOGS_CHANGE#                                                          NUMBER
+ RESETLOGS_TIME                                                             DATE
+ PRIOR_RESETLOGS_CHANGE#                                                    NUMBER
+ PRIOR_RESETLOGS_TIME                                                       DATE
+ LOG_MODE                                                                   VARCHAR2(12)
+ CHECKPOINT_CHANGE#                                                         NUMBER
+ ARCHIVE_CHANGE#                                                            NUMBER
+ CONTROLFILE_TYPE                                                           VARCHAR2(7)
+ CONTROLFILE_CREATED                                                        DATE
+ CONTROLFILE_SEQUENCE#                                                      NUMBER
+ CONTROLFILE_CHANGE#                                                        NUMBER
+ CONTROLFILE_TIME                                                           DATE
+ OPEN_RESETLOGS                                                             VARCHAR2(11)
+ VERSION_TIME                                                               DATE
+ OPEN_MODE                                                                  VARCHAR2(10)
+ PROTECTION_MODE                                                            VARCHAR2(20)
+ PROTECTION_LEVEL                                                           VARCHAR2(20)
+ REMOTE_ARCHIVE                                                             VARCHAR2(8)
+ ACTIVATION#                                                                NUMBER
+ SWITCHOVER#                                                                NUMBER
+ DATABASE_ROLE                                                              VARCHAR2(16)
+ ARCHIVELOG_CHANGE#                                                         NUMBER
+ ARCHIVELOG_COMPRESSION                                                     VARCHAR2(8)
+ SWITCHOVER_STATUS                                                          VARCHAR2(20)
+ DATAGUARD_BROKER                                                           VARCHAR2(8)
+ GUARD_STATUS                                                               VARCHAR2(7)
+ SUPPLEMENTAL_LOG_DATA_MIN                                                  VARCHAR2(8)
+ SUPPLEMENTAL_LOG_DATA_PK                                                   VARCHAR2(3)
+ SUPPLEMENTAL_LOG_DATA_UI                                                   VARCHAR2(3)
+ FORCE_LOGGING                                                              VARCHAR2(3)
+ PLATFORM_ID                                                                NUMBER
+ PLATFORM_NAME                                                              VARCHAR2(101)
+ RECOVERY_TARGET_INCARNATION#                                               NUMBER
+ LAST_OPEN_INCARNATION#                                                     NUMBER
+ CURRENT_SCN                                                                NUMBER
+ FLASHBACK_ON                                                               VARCHAR2(18)
+ SUPPLEMENTAL_LOG_DATA_FK                                                   VARCHAR2(3)
+ SUPPLEMENTAL_LOG_DATA_ALL                                                  VARCHAR2(3)
+ DB_UNIQUE_NAME                                                             VARCHAR2(30)
+ STANDBY_BECAME_PRIMARY_SCN                                                 NUMBER
+ FS_FAILOVER_STATUS                                                         VARCHAR2(21)
+ FS_FAILOVER_CURRENT_TARGET                                                 VARCHAR2(30)
+ FS_FAILOVER_THRESHOLD                                                      NUMBER
+ FS_FAILOVER_OBSERVER_PRESENT                                               VARCHAR2(7)
+ FS_FAILOVER_OBSERVER_HOST                                                  VARCHAR2(512)
+
+CHECKPOINT_CHANGE# : num�ro SCN (System Change Number) du dernier point de reprise (CKPT)
+CURRENT_SCN : num�ro SCN courant
+CONTROLFILE_CREATED : date de cr�ation fu fichier de contr�le  
+CONTROLFILE_SEQUENCE# : num�ro de s�quence du fichier de contr�le, incr�ment� lors des MAJ du fichier de contr�le                                                                                                                                                                                                                 NUMBER
+CONTROLFILE_CHANGE# : dernier num�ro SCN enregistr� dans le fichier de contr�le
+CONTROLFILE_TIME : date/heure de denier enregistrement dans le fichier de contr�le
+      
+
+select * from v$database ;
+
+      DBID NAME      CREATED  RESETLOGS_CHANGE# RESETLOG PRIOR_RESETLOGS_CHANGE# PRIOR_RE LOG_MODE
+---------- --------- -------- ----------------- -------- ----------------------- -------- ------------
+CHECKPOINT_CHANGE# ARCHIVE_CHANGE# CONTROL CONTROLF CONTROLFILE_SEQUENCE# CONTROLFILE_CHANGE# CONTROLF OPEN_RESETL
+------------------ --------------- ------- -------- --------------------- ------------------- -------- -----------
+VERSION_ OPEN_MODE  PROTECTION_MODE      PROTECTION_LEVEL     REMOTE_A ACTIVATION# SWITCHOVER# DATABASE_ROLE
+-------- ---------- -------------------- -------------------- -------- ----------- ----------- ----------------
+ARCHIVELOG_CHANGE# ARCHIVEL SWITCHOVER_STATUS    DATAGUAR GUARD_S SUPPLEME SUP SUP FOR PLATFORM_ID
+------------------ -------- -------------------- -------- ------- -------- --- --- --- -----------
+PLATFORM_NAME
+-----------------------------------------------------------------------------------------------------
+RECOVERY_TARGET_INCARNATION# LAST_OPEN_INCARNATION# CURRENT_SCN FLASHBACK_ON       SUP SUP
+---------------------------- ---------------------- ----------- ------------------ --- ---
+DB_UNIQUE_NAME                 STANDBY_BECAME_PRIMARY_SCN FS_FAILOVER_STATUS    FS_FAILOVER_CURRENT_TARGET
+------------------------------ -------------------------- --------------------- ------------------------------
+FS_FAILOVER_THRESHOLD FS_FAIL
+--------------------- -------
+FS_FAILOVER_OBSERVER_HOST
+------------------------------------------------------------------------------------------------------------------------
+2972661408 ORAETUD   21/08/07            446075 21/08/07                       1 30/06/05 NOARCHIVELOG
+           2605339         2552634 CURRENT 21/08/07               2100281             2616893 21/09/07 NOT ALLOWED
+21/08/07 READ WRITE MAXIMUM PERFORMANCE  UNPROTECTED          ENABLED   2972685984  2972685984 PRIMARY
+           1526169 DISABLED SESSIONS ACTIVE      DISABLED NONE    NO       NO  NO  NO           10
+Linux IA (32-bit)
+                           2                      2     2617008 NO                 NO  NO
+oraetud                                                 0 DISABLED
+                    0
+
+
+Partie 1 : Fichiers 
+Q1	:	
+Fichiers de contr�le
+Quels sont-ils ?
+
+
+desc v$controlfile ;
+ Nom                                                               NULL ?   Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ STATUS                                                                     VARCHAR2(7)
+ NAME                                                                       VARCHAR2(513)
+ IS_RECOVERY_DEST_FILE                                                      VARCHAR2(3)
+ BLOCK_SIZE                                                                 NUMBER
+ FILE_SIZE_BLKS                                                             NUMBER
+
+IS_RECOVERY_DEST_FILE : indique si le fichier est stock� dans la zone de r�cup�ration rapide (flash), 
+d�finie par le param�tre DB_RECOVERY_FILE_DEST.
+
+select * from v$controlfile ;
+
+STATUS
+-------
+NAME
+------------------------------------------------------------------------------------------------------------------------
+IS_ BLOCK_SIZE FILE_SIZE_BLKS
+--- ---------- --------------
+
+/u01/oracle/oradata/oraetud/control01.ctl
+NO       16384            436
+
+
+/u01/oracle/oradata/oraetud/control02.ctl
+NO       16384            436
+
+
+/u01/oracle/oradata/oraetud/control03.ctl
+NO       16384            436
+
+
+Q2	:	Fichiers de reprise
+Quels sont-ils ?
+Quelle est leur taille ?
+Quel est le fichier de reprise en cours ?
+Les fichiers sont-ils multiplex�s ?
+La base est-elle en mode ARCHIVELOG ?
+
+
+
+Les fichiers de reprise servent � la restauration de la base apr�s un arr�t brutal 
+ou si un fichier de donn�es est perdu ou endommag�.
+
+Ils sont cr�es lors de la d�finition de la base
+Ils sont organis�s en groupes (au moins 2), chaque groupe est compos� d'au moins 1 membre.
+A l'int�rieur d'un groupe, les membres sont en miroir.
+
+On peut (ALTER DATABASE) :
+- ajouter un nouveau membre dans un groupe
+- ajouter un nouveau groupe
+- d�placer un membre (Optimisation des E/S)
+- supprimer un groupe
+
+desc v$log ;
+ Nom                                                               NULL ?   Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ GROUP#                                                                     NUMBER
+ THREAD#                                                                    NUMBER
+ SEQUENCE#                                                                  NUMBER
+ BYTES                                                                      NUMBER
+ MEMBERS                                                                    NUMBER
+ ARCHIVED                                                                   VARCHAR2(3)
+ STATUS                                                                     VARCHAR2(16)
+ FIRST_CHANGE#                                                              NUMBER
+ FIRST_TIME                                                                 DATE
+
+GROUP# : num�ro du groupe
+SEQUENCE# : numero de s�quence du groupe, s'incr�mente � chaque basculement
+BYTES : taille en octet
+MEMBERS : nombre de membres du groupe
+ARCHIVED : groupe archiv� (OUI/NON)
+STATUS
+-UNUSED : jamais �crit (car nouveau)
+-CURRENT : en cours d'�criture
+-ACTIVE : groupe encore n�cessaire en cas de restauration (point de reprise non termin�)
+-INACTIVE : groupe inutile pour une restauration (point de reprise termin�)
+FIRST_CHANGE : plus petit num�ro SCN �crit dans le groupe
+FIRST_TIME : date/heure du plus petit num�ro SCN dans le groupe
+
+select * from v$log ;
+
+    GROUP#    THREAD#  SEQUENCE#      BYTES    MEMBERS ARC STATUS           FIRST_CHANGE# FIRST_TI
+---------- ---------- ---------- ---------- ---------- --- ---------------- ------------- --------
+         1          1        131   52428800          1 NO  INACTIVE               2523806 20/09/07
+         2          1        132   52428800          1 NO  INACTIVE               2552634 20/09/07
+         3          1        133   52428800          1 NO  INACTIVE               2565567 21/09/07
+         4          1        134  104857600          1 NO  CURRENT                2605339 21/09/07
+
+
+
+desc v$logfile ;
+ Nom                                                               NULL ?   Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ GROUP#                                                                     NUMBER
+ STATUS                                                                     VARCHAR2(7)
+ TYPE                                                                       VARCHAR2(7)
+ MEMBER                                                                     VARCHAR2(513)
+ IS_RECOVERY_DEST_FILE                                                      VARCHAR2(3)
+
+STATUS 
+-INVALID : fichier inaccessible
+-STALE : fichier incomplet (nouveaux membres)
+-DELETED : supprim�, plus utilis�
+-vide : utilis�
+MEMBER : nom complet des membres du groupe
+IS_RECOVERY_DEST_FILE : indique si le membre est stock� dans la zone de r�cup�ration rapide (flash), 
+d�finie par le param�tre DB_RECOVERY_FILE_DEST.
+
+select * from v$logfile order by group# ;
+
+    GROUP# STATUS  TYPE
+---------- ------- -------
+MEMBER
+------------------------------------------------------------------------------------------------------------------------
+IS_
+---
+         1         ONLINE
+/u01/oracle/oradata/oraetud/redo01.log
+NO
+
+         2         ONLINE
+/u01/oracle/oradata/oraetud/redo02.log
+NO
+
+         3         ONLINE
+/u01/oracle/oradata/oraetud/redo03.log
+NO
+
+         4         ONLINE
+/u01/oracle/oradata/oraetud/redo04.log
+NO
+
+
+desc v$log_history ;
+ Nom                                                               NULL ?   Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ RECID                                                                      NUMBER
+ STAMP                                                                      NUMBER
+ THREAD#                                                                    NUMBER
+ SEQUENCE#                                                                  NUMBER
+ FIRST_CHANGE#                                                              NUMBER
+ FIRST_TIME                                                                 DATE
+ NEXT_CHANGE#                                                               NUMBER
+ RESETLOGS_CHANGE#                                                          NUMBER
+ RESETLOGS_TIME                                                             DATE
+
+select * from v$log_history ;
+
+     RECID      STAMP    THREAD#  SEQUENCE# FIRST_CHANGE# FIRST_TI NEXT_CHANGE# RESETLOGS_CHANGE# RESETLOG
+---------- ---------- ---------- ---------- ------------- -------- ------------ ----------------- --------
+         1  631210547          1          1        446075 21/08/07       452366            446075 21/08/07
+         2  631231203          1          2        452366 21/08/07       474784            446075 21/08/07
+         3  631299657          1          3        474784 21/08/07       520998            446075 21/08/07
+         4  631346436          1          4        520998 22/08/07       553172            446075 21/08/07
+         5  631425655          1          5        553172 23/08/07       601432            446075 21/08/07
+         6  631494566          1          6        601432 24/08/07       645837            446075 21/08/07
+         7  631558817          1          7        645837 24/08/07       687089            446075 21/08/07
+         8  631666866          1          8        687089 25/08/07       747389            446075 21/08/07
+         9  631749609          1          9        747389 26/08/07       796500            446075 21/08/07
+        10  631828959          1         10        796500 27/08/07       845132            446075 21/08/07
+        11  632407824          1         11        845132 28/08/07       879196            446075 21/08/07
+        12  632409614          1         12        879196 04/09/07       887486            446075 21/08/07
+        13  632430068          1         13        887486 04/09/07       916305            446075 21/08/07
+        14  632448721          1         14        916305 04/09/07       938985            446075 21/08/07
+        15  632481161          1         15        938985 05/09/07       970515            446075 21/08/07
+        16  632508050          1         16        970515 05/09/07      1002760            446075 21/08/07
+        17  632508060          1         17       1002760 05/09/07      1005292            446075 21/08/07
+        18  632508073          1         18       1005292 05/09/07      1007621            446075 21/08/07
+        19  632508089          1         19       1007621 05/09/07      1009812            446075 21/08/07
+        20  632508706          1         20       1009812 05/09/07      1016341            446075 21/08/07
+        21  632508745          1         21       1016341 05/09/07      1017775            446075 21/08/07
+        22  632508756          1         22       1017775 05/09/07      1018536            446075 21/08/07
+        23  632508768          1         23       1018536 05/09/07      1019311            446075 21/08/07
+        24  632508778          1         24       1019311 05/09/07      1020075            446075 21/08/07
+        25  632508788          1         25       1020075 05/09/07      1020860            446075 21/08/07
+        26  632508799          1         26       1020860 05/09/07      1021612            446075 21/08/07
+        27  632508809          1         27       1021612 05/09/07      1022381            446075 21/08/07
+        28  632508819          1         28       1022381 05/09/07      1023173            446075 21/08/07
+        29  632508829          1         29       1023173 05/09/07      1023933            446075 21/08/07
+        30  632508840          1         30       1023933 05/09/07      1024691            446075 21/08/07
+        31  632508850          1         31       1024691 05/09/07      1025477            446075 21/08/07
+        32  632508883          1         32       1025477 05/09/07      1026641            446075 21/08/07
+        33  632508889          1         33       1026641 05/09/07      1026686            446075 21/08/07
+        34  632508900          1         34       1026686 05/09/07      1026733            446075 21/08/07
+        35  632509122          1         35       1026733 05/09/07      1027536            446075 21/08/07
+        36  632509132          1         36       1027536 05/09/07      1028309            446075 21/08/07
+        37  632509142          1         37       1028309 05/09/07      1029086            446075 21/08/07
+        38  632509152          1         38       1029086 05/09/07      1029842            446075 21/08/07
+        39  632509162          1         39       1029842 05/09/07      1030623            446075 21/08/07
+        40  632509171          1         40       1030623 05/09/07      1031386            446075 21/08/07
+        41  632509182          1         41       1031386 05/09/07      1032156            446075 21/08/07
+        42  632509192          1         42       1032156 05/09/07      1032949            446075 21/08/07
+        43  632509203          1         43       1032949 05/09/07      1033702            446075 21/08/07
+        44  632509213          1         44       1033702 05/09/07      1034485            446075 21/08/07
+        45  632509223          1         45       1034485 05/09/07      1035294            446075 21/08/07
+        46  632509234          1         46       1035294 05/09/07      1036148            446075 21/08/07
+        47  632509244          1         47       1036148 05/09/07      1036922            446075 21/08/07
+        48  632509255          1         48       1036922 05/09/07      1037755            446075 21/08/07
+        49  632573720          1         49       1037755 05/09/07      1062159            446075 21/08/07
+        50  632575649          1         50       1062159 06/09/07      1084387            446075 21/08/07
+        51  632575750          1         51       1084387 06/09/07      1086349            446075 21/08/07
+        52  632579260          1         52       1086349 06/09/07      1094770            446075 21/08/07
+        53  632579266          1         53       1094770 06/09/07      1095524            446075 21/08/07
+        54  632579281          1         54       1095524 06/09/07      1097136            446075 21/08/07
+        55  632579289          1         55       1097136 06/09/07      1097906            446075 21/08/07
+        56  632579297          1         56       1097906 06/09/07      1098664            446075 21/08/07
+        57  632579305          1         57       1098664 06/09/07      1099416            446075 21/08/07
+        58  632579319          1         58       1099416 06/09/07      1101073            446075 21/08/07
+        59  632579328          1         59       1101073 06/09/07      1101829            446075 21/08/07
+        60  632579336          1         60       1101829 06/09/07      1102606            446075 21/08/07
+        61  632579344          1         61       1102606 06/09/07      1103359            446075 21/08/07
+        62  632579359          1         62       1103359 06/09/07      1104989            446075 21/08/07
+        63  632579367          1         63       1104989 06/09/07      1105741            446075 21/08/07
+        64  632579375          1         64       1105741 06/09/07      1106493            446075 21/08/07
+        65  632579385          1         65       1106493 06/09/07      1107263            446075 21/08/07
+        66  632579435          1         66       1107263 06/09/07      1108576            446075 21/08/07
+        67  632579442          1         67       1108576 06/09/07      1108640            446075 21/08/07
+        68  632579450          1         68       1108640 06/09/07      1108686            446075 21/08/07
+        69  632579529          1         69       1108686 06/09/07      1110694            446075 21/08/07
+        70  632579547          1         70       1110694 06/09/07      1112306            446075 21/08/07
+        71  632579562          1         71       1112306 06/09/07      1113070            446075 21/08/07
+        72  632579572          1         72       1113070 06/09/07      1113816            446075 21/08/07
+        73  632579582          1         73       1113816 06/09/07      1114575            446075 21/08/07
+        74  632579600          1         74       1114575 06/09/07      1116246            446075 21/08/07
+        75  632579609          1         75       1116246 06/09/07      1117005            446075 21/08/07
+        76  632579618          1         76       1117005 06/09/07      1117782            446075 21/08/07
+        77  632579628          1         77       1117782 06/09/07      1118538            446075 21/08/07
+        78  632579645          1         78       1118538 06/09/07      1120162            446075 21/08/07
+        79  632579654          1         79       1120162 06/09/07      1120932            446075 21/08/07
+        80  632579662          1         80       1120932 06/09/07      1121689            446075 21/08/07
+        81  632579672          1         81       1121689 06/09/07      1122458            446075 21/08/07
+        82  632579688          1         82       1122458 06/09/07      1124057            446075 21/08/07
+        83  632579697          1         83       1124057 06/09/07      1124834            446075 21/08/07
+        84  632579705          1         84       1124834 06/09/07      1125587            446075 21/08/07
+        85  632579718          1         85       1125587 06/09/07      1126348            446075 21/08/07
+        86  632579734          1         86       1126348 06/09/07      1127980            446075 21/08/07
+        87  632579743          1         87       1127980 06/09/07      1128735            446075 21/08/07
+        88  632579784          1         88       1128735 06/09/07      1129470            446075 21/08/07
+        89  632579820          1         89       1129470 06/09/07      1129977            446075 21/08/07
+        90  632579834          1         90       1129977 06/09/07      1130077            446075 21/08/07
+        91  632579852          1         91       1130077 06/09/07      1130135            446075 21/08/07
+        92  632579916          1         92       1130135 06/09/07      1130446            446075 21/08/07
+        93  632595379          1         93       1130446 06/09/07      1147077            446075 21/08/07
+        94  632636341          1         94       1147077 06/09/07      1227605            446075 21/08/07
+        95  632670422          1         95       1227605 07/09/07      1261154            446075 21/08/07
+        96  632700005          1         96       1261154 07/09/07      1293128            446075 21/08/07
+        97  632718050          1         97       1293128 07/09/07      1314388            446075 21/08/07
+        98  632773716          1         98       1314388 08/09/07      1372060            446075 21/08/07
+        99  632806482          1         99       1372060 08/09/07      1402833            446075 21/08/07
+       100  632836980          1        100       1402833 09/09/07      1433619            446075 21/08/07
+       101  632869714          1        101       1433619 09/09/07      1465230            446075 21/08/07
+       102  632915164          1        102       1465230 09/09/07      1526169            446075 21/08/07
+       103  632944852          1        103       1526169 10/09/07      1556444            446075 21/08/07
+       104  632959243          1        104       1556444 10/09/07      1574655            446075 21/08/07
+       105  632985495          1        105       1574655 10/09/07      1601881            446075 21/08/07
+       106  633042228          1        106       1601881 11/09/07      1678866            446075 21/08/07
+       107  633052801          1        107       1678866 11/09/07      1695741            446075 21/08/07
+       108  633080135          1        108       1695741 12/09/07      1722582            446075 21/08/07
+       109  633103560          1        109       1722582 12/09/07      1752273            446075 21/08/07
+       110  633149869          1        110       1752273 12/09/07      1802558            446075 21/08/07
+       111  633176593          1        111       1802558 13/09/07      1829730            446075 21/08/07
+       112  633205955          1        112       1829730 13/09/07      1870238            446075 21/08/07
+       113  633218474          1        113       1870238 13/09/07      1886244            446075 21/08/07
+       114  633282964          1        114       1886244 13/09/07      1949914            446075 21/08/07
+       115  633304818          1        115       1949914 14/09/07      1973174            446075 21/08/07
+       116  633330018          1        116       1973174 14/09/07      1998668            446075 21/08/07
+       117  633337236          1        117       1998668 15/09/07      2012486            446075 21/08/07
+
+     RECID      STAMP    THREAD#  SEQUENCE# FIRST_CHANGE# FIRST_TI NEXT_CHANGE# RESETLOGS_CHANGE# RESETLOG
+---------- ---------- ---------- ---------- ------------- -------- ------------ ----------------- --------
+       118  633407635          1        118       2012486 15/09/07      2077976            446075 21/08/07
+       119  633431893          1        119       2077976 16/09/07      2102689            446075 21/08/07
+       120  633464871          1        120       2102689 16/09/07      2133520            446075 21/08/07
+       121  633498463          1        121       2133520 16/09/07      2164012            446075 21/08/07
+       122  633564004          1        122       2164012 17/09/07      2237768            446075 21/08/07
+       123  633565445          1        123       2237768 17/09/07      2246514            446075 21/08/07
+       124  633598069          1        124       2246514 17/09/07      2278157            446075 21/08/07
+       125  633620466          1        125       2278157 18/09/07      2319041            446075 21/08/07
+       126  633656725          1        126       2319041 18/09/07      2365314            446075 21/08/07
+       127  633686430          1        127       2365314 18/09/07      2405676            446075 21/08/07
+       128  633718859          1        128       2405676 19/09/07      2436103            446075 21/08/07
+       129  633736824          1        129       2436103 19/09/07      2456308            446075 21/08/07
+       130  633790479          1        130       2456308 19/09/07      2523806            446075 21/08/07
+       131  633823209          1        131       2523806 20/09/07      2552634            446075 21/08/07
+       132  633830445          1        132       2552634 20/09/07      2565567            446075 21/08/07
+       133  633862802          1        133       2565567 21/09/07      2605339            446075 21/08/07
+
+
+
+Q3	:	Fichiers de donn�es
+Quels sont-ils ?
+Quelle est leur taille ?
+Quand ont-ils �t� cr��s ?
+A quels tablespaces sont-ils associ�s ?
+
+
+select * from v$dbfile ;
+
+     FILE#
+----------
+NAME
+------------------------------------------------------------------------------------------------------------------------
+         4
+/u01/oracle/oradata/oraetud/users01.dbf
+
+         3
+/u01/oracle/oradata/oraetud/sysaux01.dbf
+
+         2
+/u01/oracle/oradata/oraetud/undotbs01.dbf
+
+         1
+/u01/oracle/oradata/oraetud/system01.dbf
+
+         5
+/vserver/tablespace/etudiants
+
+         7
+/vserver/tablespace/hplusindex
+
+         6
+/vserver/tablespace/hplus
+
+
+desc v$datafile ;
+ Nom                                                               NULL ?   Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ FILE#                                                                      NUMBER
+ CREATION_CHANGE#                                                           NUMBER
+ CREATION_TIME                                                              DATE
+ TS#                                                                        NUMBER
+ RFILE#                                                                     NUMBER
+ STATUS                                                                     VARCHAR2(7)
+ ENABLED                                                                    VARCHAR2(10)
+ CHECKPOINT_CHANGE#                                                         NUMBER
+ CHECKPOINT_TIME                                                            DATE
+ UNRECOVERABLE_CHANGE#                                                      NUMBER
+ UNRECOVERABLE_TIME                                                         DATE
+ LAST_CHANGE#                                                               NUMBER
+ LAST_TIME                                                                  DATE
+ OFFLINE_CHANGE#                                                            NUMBER
+ ONLINE_CHANGE#                                                             NUMBER
+ ONLINE_TIME                                                                DATE
+ BYTES                                                                      NUMBER
+ BLOCKS                                                                     NUMBER
+ CREATE_BYTES                                                               NUMBER
+ BLOCK_SIZE                                                                 NUMBER
+ NAME                                                                       VARCHAR2(513)
+ PLUGGED_IN                                                                 NUMBER
+ BLOCK1_OFFSET                                                              NUMBER
+ AUX_NAME                                                                   VARCHAR2(513)
+ FIRST_NONLOGGED_SCN                                                        NUMBER
+ FIRST_NONLOGGED_TIME                                                       DATE
+
+
+
+
+select file#,NAME,CREATION_TIME,STATUS,ENABLED,CHECKPOINT_CHANGE#,LAST_CHANGE#,BLOCKS,
+CREATE_BYTES/BLOCK_SIZE AS "CREATE_BLOCKS", BLOCK_SIZE
+from v$datafile ;
+
+     FILE#
+----------
+NAME
+------------------------------------------------------------------------------------------------------------------------
+CREATION STATUS  ENABLED    CHECKPOINT_CHANGE# LAST_CHANGE#     BLOCKS CREATE_BLOCKS BLOCK_SIZE
+-------- ------- ---------- ------------------ ------------ ---------- ------------- ----------
+         1
+/u01/oracle/oradata/oraetud/system01.dbf
+30/06/05 SYSTEM  READ WRITE            2605339                   64000             0       8192
+
+         2
+/u01/oracle/oradata/oraetud/undotbs01.dbf
+30/06/05 ONLINE  READ WRITE            2605339                   20480             0       8192
+
+         3
+/u01/oracle/oradata/oraetud/sysaux01.dbf
+30/06/05 ONLINE  READ WRITE            2605339                   47360             0       8192
+
+         4
+/u01/oracle/oradata/oraetud/users01.dbf
+30/06/05 ONLINE  READ WRITE            2605339                     640             0       8192
+
+         5
+/vserver/tablespace/etudiants
+04/09/07 ONLINE  READ WRITE            2605339                  655360        655360       8192
+
+         6
+/vserver/tablespace/hplus
+05/09/07 ONLINE  READ WRITE            2605339                  786432        786432       8192
+
+         7
+/vserver/tablespace/hplusindex
+05/09/07 ONLINE  READ WRITE            2605339                  524288        524288       8192
+
+
+desc dba_data_files ;
+
+Nom                                                               NULL ?   Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ FILE_NAME                                                                  VARCHAR2(513)
+ FILE_ID                                                                    NUMBER
+ TABLESPACE_NAME                                                            VARCHAR2(30)
+ BYTES                                                                      NUMBER
+ BLOCKS                                                                     NUMBER
+ STATUS                                                                     VARCHAR2(9)
+ RELATIVE_FNO                                                               NUMBER
+ AUTOEXTENSIBLE                                                             VARCHAR2(3)
+ MAXBYTES                                                                   NUMBER
+ MAXBLOCKS                                                                  NUMBER
+ INCREMENT_BY                                                               NUMBER
+ USER_BYTES                                                                 NUMBER
+ USER_BLOCKS                                                                NUMBER
+ ONLINE_STATUS                                                              VARCHAR2(7)
+
+
+
+select file_name, tablespace_name, blocks, status, autoextensible, maxblocks,INCREMENT_BY ,USER_BLOCKS ,ONLINE_STATUS 
+from dba_data_files ;
+
+FILE_NAME
+------------------------------------------------------------------------------------------------------------------------
+TABLESPACE_NAME                    BLOCKS STATUS    AUT  MAXBLOCKS INCREMENT_BY USER_BLOCKS ONLINE_
+------------------------------ ---------- --------- --- ---------- ------------ ----------- -------
+/u01/oracle/oradata/oraetud/users01.dbf
+USERS                                 640 AVAILABLE YES    4194302          160         632 ONLINE
+
+/u01/oracle/oradata/oraetud/sysaux01.dbf
+SYSAUX                              47360 AVAILABLE YES    4194302         1280       47352 ONLINE
+
+/u01/oracle/oradata/oraetud/undotbs01.dbf
+UNDOTBS1                            20480 AVAILABLE YES    4194302          640       20472 ONLINE
+
+/u01/oracle/oradata/oraetud/system01.dbf
+SYSTEM                              64000 AVAILABLE YES    4194302         1280       63992 SYSTEM
+
+/vserver/tablespace/etudiants
+ETUDIANTS                          655360 AVAILABLE YES    4194302        64000      655352 ONLINE
+
+/vserver/tablespace/hplusindex
+HPLUSINDEX                         524288 AVAILABLE YES    4194302        64000      524280 ONLINE
+
+/vserver/tablespace/hplus
+HPLUS                              786432 AVAILABLE YES    4194302        64000      786424 ONLINE
+
+Partie 2 : M�moire 
+
+Q1	:	
+Quelle est la taille de la SGA ? Les zones qui la composent sont-elles allou�es dynamiquement ?
+
+select name, value from v$parameter where name in('sga_target', 'sga_max_size') ;
+
+NAME
+--------------------------------------------------------------------------------
+VALUE
+------------------------------------------------------------------------------------------------------------------------
+sga_max_size
+566231040
+
+sga_target
+566231040
+
+
+select name, value from v$parameter where name in 
+('db_cache_size','shared_pool_size','log_buffer', 'java_pool_size','large_pool_size','streams_pool_size');
+
+NAME
+--------------------------------------------------------------------------------
+VALUE
+------------------------------------------------------------------------------------------------------------------------
+shared_pool_size
+0
+
+large_pool_size
+0
+
+java_pool_size
+0
+
+streams_pool_size
+0
+
+db_cache_size
+0
+
+log_buffer
+7057408
+
+*******************************************
+
+oraetud.__db_cache_size=398458880
+oraetud.__java_pool_size=4194304
+oraetud.__large_pool_size=4194304
+oraetud.__shared_pool_size=150994944
+oraetud.__streams_pool_size=0
+******************************************
+
+
+select * from v$sga union all select 'TOTAL', sum(value) from v$sga ;
+
+NAME                      VALUE
+-------------------- ----------
+Fixed Size              1220580
+Variable Size         155189276
+Database Buffers      402653184
+Redo Buffers            7168000
+TOTAL                 566231040
+
+Variable = shared pool+large pool+java pool
+
+select * from v$sgainfo ;
+
+NAME                                  BYTES RES
+-------------------------------- ---------- ---
+Fixed SGA Size                      1220580 No
+Redo Buffers                        7168000 No
+Buffer Cache Size                 402653184 Yes
+Shared Pool Size                  146800640 Yes
+Large Pool Size                     4194304 Yes
+Java Pool Size                      4194304 Yes
+Streams Pool Size                         0 Yes
+Granule Size                        4194304 No
+Maximum SGA Size                  566231040 No
+Startup overhead in Shared Pool    46137344 No
+Free SGA Memory Available                 0
+
+
+NB : on peut avoir tout le d�tail des shared pool+large pool+java pool dans v$sgastat ...
+					
+Q2	:	Visualisez la zone LC de la shared pool.
+  
+desc v$sqlarea ;
+ Nom                                                               NULL ?   Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ SQL_TEXT                                                                   VARCHAR2(1000)
+ SQL_FULLTEXT                                                               CLOB
+ SQL_ID                                                                     VARCHAR2(13)
+ SHARABLE_MEM                                                               NUMBER
+ PERSISTENT_MEM                                                             NUMBER
+ RUNTIME_MEM                                                                NUMBER
+ SORTS                                                                      NUMBER
+ VERSION_COUNT                                                              NUMBER
+ LOADED_VERSIONS                                                            NUMBER
+ OPEN_VERSIONS                                                              NUMBER
+ USERS_OPENING                                                              NUMBER
+ FETCHES                                                                    NUMBER
+ EXECUTIONS                                                                 NUMBER
+ PX_SERVERS_EXECUTIONS                                                      NUMBER
+ END_OF_FETCH_COUNT                                                         NUMBER
+ USERS_EXECUTING                                                            NUMBER
+ LOADS                                                                      NUMBER
+ FIRST_LOAD_TIME                                                            VARCHAR2(19)
+ INVALIDATIONS                                                              NUMBER
+ PARSE_CALLS                                                                NUMBER
+ DISK_READS                                                                 NUMBER
+ DIRECT_WRITES                                                              NUMBER
+ BUFFER_GETS                                                                NUMBER
+ APPLICATION_WAIT_TIME                                                      NUMBER
+ CONCURRENCY_WAIT_TIME                                                      NUMBER
+ CLUSTER_WAIT_TIME                                                          NUMBER
+ USER_IO_WAIT_TIME                                                          NUMBER
+ PLSQL_EXEC_TIME                                                            NUMBER
+ JAVA_EXEC_TIME                                                             NUMBER
+ ROWS_PROCESSED                                                             NUMBER
+ COMMAND_TYPE                                                               NUMBER
+ OPTIMIZER_MODE                                                             VARCHAR2(10)
+ OPTIMIZER_COST                                                             NUMBER
+ OPTIMIZER_ENV                                                              RAW(797)
+ OPTIMIZER_ENV_HASH_VALUE                                                   NUMBER
+ PARSING_USER_ID                                                            NUMBER
+ PARSING_SCHEMA_ID                                                          NUMBER
+ PARSING_SCHEMA_NAME                                                        VARCHAR2(30)
+ KEPT_VERSIONS                                                              NUMBER
+ ADDRESS                                                                    RAW(4)
+ HASH_VALUE                                                                 NUMBER
+ OLD_HASH_VALUE                                                             NUMBER
+ PLAN_HASH_VALUE                                                            NUMBER
+ MODULE                                                                     VARCHAR2(64)
+ MODULE_HASH                                                                NUMBER
+ ACTION                                                                     VARCHAR2(64)
+ ACTION_HASH                                                                NUMBER
+ SERIALIZABLE_ABORTS                                                        NUMBER
+ OUTLINE_CATEGORY                                                           VARCHAR2(64)
+ CPU_TIME                                                                   NUMBER
+ ELAPSED_TIME                                                               NUMBER
+ OUTLINE_SID                                                                VARCHAR2(40)
+ LAST_ACTIVE_CHILD_ADDRESS                                                  RAW(4)
+ REMOTE                                                                     VARCHAR2(1)
+ OBJECT_STATUS                                                              VARCHAR2(19)
+ LITERAL_HASH_VALUE                                                         NUMBER
+ LAST_LOAD_TIME                                                             DATE
+ IS_OBSOLETE                                                                VARCHAR2(1)
+ CHILD_LATCH                                                                NUMBER
+ SQL_PROFILE                                                                VARCHAR2(64)
+ PROGRAM_ID                                                                 NUMBER
+ PROGRAM_LINE#                                                              NUMBER
+ EXACT_MATCHING_SIGNATURE                                                   NUMBER
+ FORCE_MATCHING_SIGNATURE                                                   NUMBER
+ LAST_ACTIVE_TIME                                                           DATE
+ BIND_DATA                                                                  RAW(2000)
+
+
+SQL_TEXT
+------------------------------------------------------------------------------------------------------------------------
+SQL_FULLTEXT                                                                     SQL_ID        SHARABLE_MEM
+-------------------------------------------------------------------------------- ------------- ------------
+PERSISTENT_MEM RUNTIME_MEM      SORTS VERSION_COUNT LOADED_VERSIONS OPEN_VERSIONS USERS_OPENING    FETCHES EXECUTIONS
+-------------- ----------- ---------- ------------- --------------- ------------- ------------- ---------- ----------
+PX_SERVERS_EXECUTIONS END_OF_FETCH_COUNT USERS_EXECUTING      LOADS
+--------------------- ------------------ --------------- ----------
+FIRST_LOAD_TIME                                                              INVALIDATIONS PARSE_CALLS DISK_READS
+---------------------------------------------------------------------------- ------------- ----------- ----------
+DIRECT_WRITES BUFFER_GETS APPLICATION_WAIT_TIME CONCURRENCY_WAIT_TIME CLUSTER_WAIT_TIME USER_IO_WAIT_TIME
+------------- ----------- --------------------- --------------------- ----------------- -----------------
+PLSQL_EXEC_TIME JAVA_EXEC_TIME ROWS_PROCESSED COMMAND_TYPE OPTIMIZER_ OPTIMIZER_COST
+--------------- -------------- -------------- ------------ ---------- --------------
+OPTIMIZER_ENV
+------------------------------------------------------------------------------------------------------------------------
+OPTIMIZER_ENV_HASH_VALUE PARSING_USER_ID PARSING_SCHEMA_ID PARSING_SCHEMA_NAME            KEPT_VERSIONS ADDRESS
+------------------------ --------------- ----------------- ------------------------------ ------------- --------
+HASH_VALUE OLD_HASH_VALUE PLAN_HASH_VALUE MODULE                                                           MODULE_HASH
+---------- -------------- --------------- ---------------------------------------------------------------- -----------
+ACTION                                                           ACTION_HASH SERIALIZABLE_ABORTS
+---------------------------------------------------------------- ----------- -------------------
+OUTLINE_CATEGORY                                                   CPU_TIME ELAPSED_TIME
+---------------------------------------------------------------- ---------- ------------
+OUTLINE_SID                              LAST_ACT R OBJECT_STATUS       LITERAL_HASH_VALUE LAST_LOA I CHILD_LATCH
+---------------------------------------- -------- - ------------------- ------------------ -------- - -----------
+SQL_PROFILE                                                      PROGRAM_ID PROGRAM_LINE# EXACT_MATCHING_SIGNATURE
+---------------------------------------------------------------- ---------- ------------- ------------------------
+FORCE_MATCHING_SIGNATURE LAST_ACT
+------------------------ --------
+BIND_DATA
+------------------------------------------------------------------------------------------------------------------------
+
+SELECT DISTINCT M1.f FROM Mafourniture M1, Mafourniture M2 WHERE M1.f=M2.f AND M1.f<> M2.f
+SELECT DISTINCT M1.f                                                             4qd810y15406g        12800
+FROM Mafourniture M1, Mafourniture M2
+WHERE M1.f=M2.f AND M
+          3244        2688          0             1               1             0             0          1          1
+                    0                  1               0          1
+2007-09-21/16:47:47                                                                      0           1          0
+            0           7                     0                     0                 0                 0
+              0              0              0            3 ALL_ROWS                3
+E289FB89A1E49800BA001000AEF9C3E2CFEA331056414555519521105555551545545558591555449665851D551105855515551515255245A5154A8E
+09502020000020000000000100001000000002002000017D000000C02C00000032001010000080837F3BF3080000601600104A8E0950464626204026
+232003002000302
+              2730146989             809               809 E0700175                                   0 3AB67BA8
+2186412239     2925328065      4107416786 iSQL*Plus                                                         1568916235
+                                                                           0                   0
+                                                                       3343         3343
+                                         3A3CE2B4 N VALID                                0 21/09/07 N           3
+                                                                      50705            48               1,3828E+19
+              1,3828E+19 21/09/07
+
+Partie 3 : Processus 
+Q1	:	
+Quel est l�ensemble des processus ? 
+des processus d�arri�re plan ?
+
+select * from v$process ;
+
+select * from v$bg_process ;
+

@@ -1,0 +1,25 @@
+ 21   14;  	JMP 	L0:
+  0     ; L1: 	NOP 	
+ 15   -4;  	LDL 	-4
+ 15   -3;  	LDL 	-3
+  1     ;  	ADD 	
+ 16   -5;  	STL 	-5
+ 21   12;  	JMP 	L2:
+ 25    2; L2: 	RET 	2
+  0     ; L0: 	NOP 	
+ 12    2;  	INC 	2
+  7     ;  	RCV 	
+ 19    0;  	LLA 	0
+  9     ;  	STI 	
+  0     ; L5: 	NOP 	
+  7     ;  	RCV 	
+ 19    1;  	LLA 	1
+  9     ;  	STI 	
+  0     ; L6: 	NOP 	
+ 12    1;  	INC 	1
+ 15    0;  	LDL 	0
+ 15    1;  	LDL 	1
+ 24    2;  	JSR 	L1:
+  6     ;  	SND 	
+ 13    2; L4: 	DEC 	2
+ 10     ; L3: 	HLT 	

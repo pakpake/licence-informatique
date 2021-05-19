@@ -1,0 +1,539 @@
+QUESTION 1
+
+---------------------------------------------------------------------------------------
+
+
+fichier creerTables.sql
+
+DROP TABLE affectation;
+DROP TABLE avion;
+DROP TABLE appareil;
+DROP TABLE pilote;
+DROP TABLE vol;
+
+CREATE TABLE vol
+(
+idVol          VARCHAR2(6),
+villeDepart    VARCHAR2(20)
+               CONSTRAINT volVilleDepNotNull NOT NULL,
+villeArrivee   VARCHAR2(20)
+               CONSTRAINT volVilleArrNotNull NOT NULL,
+heureDepart    NUMBER(10,2)
+               CONSTRAINT volHeureDep0_24 CHECK (heureDepart >= 0 AND heureDepart < 24),
+heureArrivee   NUMBER(10,2)
+               CONSTRAINT volHeureArr0_24 CHECK (heureArrivee >= 0 AND heureArrivee < 24),
+decalage       NUMBER(3) DEFAULT 0, 
+jour           NUMBER(1) DEFAULT 0
+               CONSTRAINT volJourDecal CHECK (jour = 0 OR jour = 1 OR jour = -1),
+CONSTRAINT volClePrim PRIMARY KEY (idVol)
+);
+
+CREATE TABLE pilote
+(
+idPilote       VARCHAR2(4),
+nomPilote      VARCHAR2(30)
+               CONSTRAINT piloteNomNotNull NOT NULL,
+adrPilote      VARCHAR2(40),
+salairePilote  NUMBER(10,2)
+               CONSTRAINT piloteSalairePositif CHECK (salairePilote > 0),
+embauchePilote DATE
+               CONSTRAINT piloteEmbaucheNotNull NOT NULL,
+CONSTRAINT piloteClePrim PRIMARY KEY (idPilote)
+);
+
+CREATE TABLE avion
+(
+idAvion        VARCHAR2(4),
+typeAppareil   VARCHAR2(3),
+miseEnService  NUMBER
+               CONSTRAINT avionServiceNotNull NOT NULL,
+CONSTRAINT avionClePrim PRIMARY KEY (idAvion)
+);
+
+
+
+----------------------------------------------------------------------------
+
+CREATE TABLE appareil
+(
+typeAppareil   VARCHAR2(3),
+capacite       NUMBER
+               CONSTRAINT appareilCapaciteNotNull NOT NULL
+               CONSTRAINT appareilCapacitePositif CHECK (capacite > 0),
+designation    VARCHAR2(40),
+CONSTRAINT appareilClePrim PRIMARY KEY (typeAppareil)
+);
+
+
+
+
+CREATE TABLE affectation
+(
+idVol          VARCHAR2(6),
+dateVol        DATE,
+idPilote       VARCHAR2(4),
+idAvion        VARCHAR2(4),
+nbPassagers    NUMBER DEFAULT 0
+               CONSTRAINT affectationNbPassagersPositif CHECK (nbPassagers >=0),
+CONSTRAINT affectationClePrim PRIMARY KEY (idVol, dateVol),
+CONSTRAINT affectationCleEtrVol FOREIGN KEY (idVol) REFERENCES vol (idVol),
+CONSTRAINT affectationCleEtrPilote FOREIGN KEY (idPilote) 
+						REFERENCES pilote (idPilote),
+CONSTRAINT affectationCleEtrAvion FOREIGN KEY (idAvion) 
+						REFERENCES avion (idAvion)
+);
+
+
+
+ALTER TABLE avion ADD CONSTRAINT avionCleEtrType FOREIGN KEY (typeAppareil) REFERENCES appareil (typeAppareil);
+
+
+
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+
+QUESTION 2
+
+
+---------------------------------------------------------------------------------------
+
+--table vol
+
+
+sqlldr data=vol.don control=vol.ctl
+
+3 rejets 
+
+
+Enregistrement 3 : Rejet� - Erreur sur table VOL.
+ORA-02290: violation de contraintes (RAPHALEN.VOLHEUREDEP0_24) de v�rification
+
+Enregistrement 7 : Rejet� - Erreur sur table VOL.
+ORA-02290: violation de contraintes (RAPHALEN.VOLJOURDECAL) de v�rification
+
+Enregistrement 10 : Rejet� - Erreur sur table VOL.
+ORA-00001: violation de contrainte unique (RAPHALEN.VOLCLEPRIM)
+
+
+
+Table VOL :
+  9 Lignes - Chargement termin�.
+  3 Lignes chargement impossible d� � des erreurs de donn�es.
+  0 Lignes chargement impossible car �chec de toutes les clauses WHEN.
+  0 Lignes chargement impossible car tous les champs �taient non renseign�s.
+
+AF8812, BANGKOK, PARIS-CDG, "24,0", "8,0", 1, "+5"
+BA1728, STUTTGART, LONDRES, "10,5", "12", 2, "+2"
+LH2235, LONDRES, MUNICH, "17,5", "22,5", 0, "-2"
+
+
+
+---------------------------------------------------------------------------------------
+
+-- table pilote
+
+
+chargement de pilote :
+
+sqlldr data=pilote.don control=pilote.ctl
+
+0 rejet
+
+Table PILOTE :
+  7 Lignes - Chargement termin�.
+  0 Lignes chargement impossible d� � des erreurs de donn�es.
+  0 Lignes chargement impossible car �chec de toutes les clauses WHEN.
+  0 Lignes chargement impossible car tous les champs �taient non renseign�s.
+
+
+---------------------------------------------------------------------------------------
+
+-- table appareil
+
+
+chargement de appareil :
+
+@appareil
+
+Erreur commen�ant � la ligne: 3 de la commande -
+INSERT INTO appareil (typeAppareil, designation)
+VALUES ('AB3', 'Airbus A300')
+Rapport d'erreur -
+Erreur SQL : ORA-01400: impossible d'ins�rer NULL dans ("RAPHALEN"."APPAREIL"."CAPACITE")
+01400. 00000 -  "cannot insert NULL into (%s)"
+*Cause:    An attempt was made to insert NULL into previously listed objects.
+*Action:   These objects cannot accept NULL values.
+
+---------------------------------------------------------------------------------------
+
+-- table avion
+
+
+chargement de avion :
+
+sqlldr data=avion.don control=avion.ctl
+
+2 rejets
+
+Enregistrement 1 : Rejet� - Erreur sur table AVION.
+ORA-02291: violation de contrainte d'int�grit� (RAPHALEN.AVIONCLEETRTYPE) - cl� parent introuvable
+
+Enregistrement 8 : Rejet� - Erreur sur table AVION, colonne TYPEAPPAREIL.
+ORA-12899: valeur trop grande pour la colonne "RAPHALEN"."AVION"."TYPEAPPAREIL" (r�elle : 4, maximum : 3)
+
+
+Table AVION :
+  6 Lignes - Chargement termin�.
+  2 Lignes chargement impossible d� � des erreurs de donn�es.
+  0 Lignes chargement impossible car �chec de toutes les clauses WHEN.
+  0 Lignes chargement impossible car tous les champs �taient non renseign�s.
+
+8801, 737, "1995"
+8809, 734
+
+
+
+---------------------------------------------------------------------------------------
+
+-- table affectation
+
+
+
+chargement de affectation :
+
+sqlldr data=affectation.don control=affectation.ctl
+
+Enregistrement 2 : Rejet� - Erreur sur table AFFECTATION.
+ORA-02291: violation de contrainte d'int�grit� (RAPHALEN.AFFECTATIONCLEETRAVION) - cl� parent introuvable
+
+Enregistrement 6 : Rejet� - Erreur sur table AFFECTATION.
+ORA-02291: violation de contrainte d'int�grit� (RAPHALEN.AFFECTATIONCLEETRVOL) - cl� parent introuvable
+
+Enregistrement 8 : Rejet� - Erreur sur table AFFECTATION.
+ORA-00001: violation de contrainte unique (RAPHALEN.AFFECTATIONCLEPRIM)
+
+Enregistrement 10 : Rejet� - Erreur sur table AFFECTATION.
+ORA-02291: violation de contrainte d'int�grit� (RAPHALEN.AFFECTATIONCLEETRPILOTE) - cl� parent introuvable
+
+
+
+Table AFFECTATION :
+  7 Lignes - Chargement termin�.
+  4 Lignes chargement impossible d� � des erreurs de donn�es.
+  0 Lignes chargement impossible car �chec de toutes les clauses WHEN.
+  0 Lignes chargement impossible car tous les champs �taient non renseign�s.
+
+
+
+AF8810, 02/04/2018, 0002, 8801, "180"
+AL4511, 03/04/2018, 0002, 8805, "110"
+AF8810, 01/04/2018, 0006, 8808, "150"
+LH2235, 11/04/2018, 0004, 8803, "220"
+
+
+
+---------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+QUESTION 3
+
+
+CREATE OR REPLACE TRIGGER verificationPassagers
+BEFORE INSERT OR UPDATE
+ON affectation
+FOR EACH ROW
+DECLARE
+  /* type d'appareil de l'avion affecte */
+  typeAppareilAffecte avion.typeAppareil%TYPE ;
+  /* capacite de l'avion affecte */
+  capaciteAppareil appareil.capacite%TYPE ;
+BEGIN
+  /* recherche du type d'appareil de l'avion affecte */
+  SELECT avion.typeAppareil INTO typeAppareilAffecte
+  FROM avion
+  WHERE avion.idAvion = :new.idAvion ;
+  /* recherche de la capacite de l'appareil */
+  SELECT appareil.capacite INTO capaciteAppareil
+  FROM appareil
+  WHERE appareil.typeAppareil = typeAppareilAffecte ;
+
+  IF ( :new.nbPassagers > capaciteAppareil) THEN
+    RAISE_APPLICATION_ERROR (-20050, 'Capacite depassee. Avion '
+                                     || :new.idAvion
+                                     || '. Nombre de passagers : '
+                                     || :new.nbPassagers
+                                     || ' superieur a la capacite autorisee '
+                                     || capaciteAppareil ) ;
+  END IF ;
+END ;
+
+
+
+INSERT INTO affectation
+VALUES ('AF8810', '21/04/19', '0001', '8802', 170);
+
+Erreur commen�ant � la ligne: 32 de la commande -
+INSERT INTO affectation
+VALUES ('AF8810', '21/04/18', '0001', '8802', 170)
+Rapport d'erreur -
+Erreur SQL : ORA-20050: Capacite depassee. Avion 8802. Nombre de passagers : 170 superieur a la capacite autorisee 150
+ORA-06512: � "RAPHALEN.VERIFICATIONPASSAGERS", ligne 17
+ORA-04088: erreur lors d'ex�cution du d�clencheur 'RAPHALEN.VERIFICATIONPASSAGERS'
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+
+QUESTION 4
+
+ALTER TABLE avion
+ADD (nbHeuresVol NUMBER(10,2) CONSTRAINT avionNbHeuresVolPositif CHECK (nbHeuresVol >= 0)) ; 
+
+4.1
+
+ALTER TABLE vol
+ADD (dureeVol NUMBER(10,2) CONSTRAINT volDureePositif CHECK (dureeVol > 0)) ;
+
+UPDATE vol
+SET dureeVol = 24*jour+heureArrivee-heureDepart+decalage ;
+
+
+
+
+4.2
+
+SELECT a.idVol, a.dateVol, a.idAvion, v.dureeVol
+FROM affectation a, vol v
+WHERE a.idVol=v.idVol ;
+
+
+
+
+SELECT a.idAvion, SUM (v.dureeVol) AS totalHeuresVol
+FROM affectation a, vol v
+WHERE a.idVol=v.idVol
+GROUP BY a.idAvion ;
+
+IDA 	TOTALHEURESVOL
+---- 	--------------
+8805 	5
+8808 	35,5
+8804 	1,25
+8803 	3,75 
+
+
+---------------------------------------------------------------------------------------
+
+
+
+CREATE OR REPLACE PROCEDURE majNbHeuresVol AS
+BEGIN
+  DECLARE
+    /* Pour chacun des avions affectes a un vol, on stocke dans un curseur */
+    /* le nombre total d'heures de vol */
+    CURSOR heuresVolAvions IS
+      SELECT a.idAvion, SUM (v.dureeVol) AS totalHeuresVol
+      FROM affectation a, vol v
+      WHERE a.idVol=v.idVol
+      GROUP BY a.idAvion ;
+    TYPE TheuresVolAvion IS RECORD
+      (
+      idAvion avion.idAvion%TYPE,
+      totalHeuresVol avion.nbHeuresVol%TYPE
+      );
+    avionCourant TheuresVolAvion ;
+  BEGIN
+      UPDATE avion
+      SET nbHeuresVol = 0;
+    /* On parcourt le curseur et on met � jour le nbre d'heures de vol de chaque avion */
+    FOR avionCourant IN heuresVolAvions LOOP
+      UPDATE avion
+      SET nbHeuresVol = avionCourant.totalHeuresVol
+      WHERE idAvion = avionCourant.idAvion ;
+    END LOOP ;
+  END ;
+END ;
+
+execute majNbHeuresVol;
+
+AUTRE VERSION
+
+CREATE OR REPLACE PROCEDURE majNbHeuresVol IS
+TYPE TheuresVolAvion IS RECORD
+      (
+      idAvion avion.idAvion%TYPE,
+      totalHeuresVol avion.nbHeuresVol%TYPE
+      );
+CURSOR heuresVolAvions IS
+      SELECT a.idAvion, SUM (v.dureeVol) 
+      FROM affectation a, vol v
+      WHERE a.idVol=v.Vol
+      GROUP BY a.numAvion ;
+    
+BEGIN
+  DECLARE
+    /* Pour chacun des avions affectes a un vol, on stocke dans un curseur */
+    /* le nombre total d'heures de vol */
+    
+    avionCourant TheuresVolAvion ;
+  BEGIN
+     UPDATE avion
+     SET nbHeuresVol = 0;
+    /* On parcourt le curseur et on met � jour le nbre d'heures de vol de chaque avion */
+    OPEN heuresVolAvions ;
+    LOOP
+       FETCH heuresVolAvions INTO avionCourant;
+       EXIT WHEN heuresVolAvions%NOTFOUND;
+       UPDATE avion
+       SET nbHeuresVol = avionCourant.totalHeuresVol
+       WHERE idAvion = avionCourant.idAvion ;
+    END LOOP ;
+    CLOSE heuresVolAvions ;
+  END ;
+END ;
+
+execute majNbHeuresVol;
+
+select * from avion ;
+
+
+IDA 	TYP 	MISEENSERVICE 	NBHEURESVOL
+---- 	--- 	------------- 	-----------
+8802 	74E 	1998 		0
+8803 	AB3 	2003 		3,75
+8804 	741 	2000 		1,25
+8805 	741 	2001 		5
+8807 	AB3 	1994 		0
+8808 	734 	2012 		35,5
+
+6 ligne(s) s�lectionn�e(s).
+------------------------------------------------------------------------------------------
+
+CREATE OR REPLACE TRIGGER INSERTmaintienHeuresVol
+AFTER  INSERT 
+ON affectation
+FOR EACH ROW
+/* Maintien a jour du nombre d'heures de vol d'un avion */
+DECLARE
+ /* dur�e du vol affecte */
+ dureeVolAffecte vol.dureeVol%TYPE ;
+BEGIN
+  /* mise a jour dans la table avion du nombre d'heures de vol */
+  /* pr l'avion affecte */
+
+    SELECT dureeVol INTO dureeVolAffecte
+    FROM vol
+    WHERE idVol = :new.idVol ;
+    UPDATE avion
+    SET nbHeuresVol = nbHeuresVol + dureeVolAffecte
+    WHERE idAvion = :new.idAvion ;
+
+END ;
+
+CREATE OR REPLACE TRIGGER DELETEmaintienHeuresVol
+AFTER  DELETE
+ON affectation
+FOR EACH ROW
+/* Maintien a jour du nombre d'heures de vol d'un avion */
+DECLARE
+ /* dur�e du vol affecte */
+ dureeVolAffecte vol.dureeVol%TYPE ;
+BEGIN
+  /* mise a jour dans la table avion du nombre d'heures de vol */
+  /* pr l'avion affecte */
+
+    SELECT dureeVol INTO dureeVolAffecte
+    FROM vol
+    WHERE idVol = :old.idVol ;
+    UPDATE avion
+    SET nbHeuresVol = nbHeuresVol - dureeVolAffecte
+    WHERE idAvion = :old.idAvion ;
+
+END ;
+
+CREATE OR REPLACE TRIGGER UPDATEmaintienHeuresVol
+AFTER  UPDATE
+ON affectation
+FOR EACH ROW
+/* Maintien a jour du nombre d'heures de vol d'un avion */
+DECLARE
+ /* dur�e du vol affecte */
+ dureeVolAffecte vol.dureeVol%TYPE ;
+BEGIN
+  /* mise a jour dans la table avion du nombre d'heures de vol */
+  /* pr l'avion affecte */
+
+    SELECT dureeVol INTO dureeVolAffecte
+    FROM vol
+    WHERE idVol = :old.idVol ;
+    UPDATE avion
+    SET nbHeuresVol = nbHeuresVol - dureeVolAffecte
+    WHERE idAvion = :old.idAvion ;
+    SELECT dureeVol INTO dureeVolAffecte
+    FROM vol
+    WHERE idVol = :new.idVol ;
+    UPDATE avion
+    SET nbHeuresVol = nbHeuresVol + dureeVolAffecte
+    WHERE idAvion = :new.idAvion ;
+
+END ;
+
+INSERT INTO affectation
+VALUES ('AL4520', '25/04/19', '0007', '8807', 200);
+
+DELETE FROM affectation
+WHERE idVol = 'AL4520' AND dateVol = '25/04/19';
+
+UPDATE affectation
+SET idAvion = '8803'
+WHERE idVol = 'AL4520' AND dateVol = '25/04/19';
+
+
+---------------------------------------------------------------------------------------
+
+CREATE OR REPLACE TRIGGER maintienHeuresVol
+AFTER  INSERT OR UPDATE OR DELETE
+ON affectation
+FOR EACH ROW
+/* Maintien a jour du nombre d'heures de vol d'un avion */
+DECLARE
+ /* dur�e du vol affecte */
+ dureeVolAffecte vol.dureeVol%TYPE ;
+BEGIN
+  /* mise a jour dans la table avion du nombre d'heures de vol */
+  /* pr l'avion affecte */
+  IF INSERTING THEN
+    SELECT dureeVol INTO dureeVolAffecte
+    FROM vol
+    WHERE idVol = :new.idVol ;
+    UPDATE avion
+    SET nbHeuresVol = nbHeuresVol + dureeVolAffecte
+    WHERE idAvion = :new.idAvion ;
+  ELSIF UPDATING THEN
+    SELECT dureeVol INTO dureeVolAffecte
+    FROM vol
+    WHERE idVol = :old.idVol ;
+    UPDATE avion
+    SET nbHeuresVol = nbHeuresVol - dureeVolAffecte
+    WHERE idAvion = :old.idAvion ;
+    SELECT dureeVol INTO dureeVolAffecte
+    FROM vol
+    WHERE idVol = :new.idVol ;
+    UPDATE avion
+    SET nbHeuresVol = nbHeuresVol + dureeVolAffecte
+    WHERE idAvion = :new.idAvion ;
+  ELSIF DELETING THEN
+    SELECT dureeVol INTO dureeVolAffecte
+    FROM vol
+    WHERE idVol = :old.idVol ;
+    UPDATE avion
+    SET nbHeuresVol = nbHeuresVol - dureeVolAffecte
+    WHERE idAvion = :old.idAvion ;
+  END IF ;
+END ;
+/
+

@@ -1,0 +1,21 @@
+{programme de fibonacci avec une erreur de type dans l'instruction CASE}
+PROGRAM fibobis ;
+VAR		   
+	x : INTEGER;
+	
+FUNCTION fibo(n : INTEGER):INTEGER;
+
+    BEGIN
+    	VAR res : INTEGER;
+		CASE  
+			n=0 : res:=0 ;
+			n   : res:=1 ; {[compilation] : la condition du case (ligne 12) n'est pas une expression booléenne}
+			ELSE : res:= fibo(n-1)+fibo(n-2)
+		END;
+		RETURN res;
+	END;
+	
+BEGIN 
+	READ x;
+	WRITE fibo(x);
+END.

@@ -1,0 +1,32 @@
+graph P{
+    node [shape=none]; { node [label="(2)\nent"] ent0; ent1; ent2; ent3; ent4; ent5; ent6; }
+    node [shape=none]; { node [label="(3)\nent"] nt0; nt1; nt2; nt3; nt4; nt5; }
+    node [shape=none]; { node [label="sub\nent"] sub0; sub1; }
+
+    program -- "(1)\nprg";
+    program -- statement_list;
+    statement_list -- read1;
+    statement_list -- read2;
+    statement_list -- while;
+    statement_list -- writeln;
+    read1 -- ent0;
+    read2 -- nt0;
+    while -- "not_equal\nbool";
+    while -- if;
+    writeln -- ent1;
+    "not_equal\nbool" -- ent2;
+    "not_equal\nbool" -- nt1;
+    if -- "greater\nbool";
+    if -- assign1;
+    if -- assign2;
+    "greater\nbool" -- ent3;
+    "greater\nbool" -- nt2;
+    assign1 -- ent4;
+    assign1 -- sub0;
+    sub0 -- ent5;
+    sub0 -- nt4;
+    assign2 -- nt3;
+    assign2 -- sub1;
+    sub1 -- ent6;
+    sub1 -- nt5;
+}
