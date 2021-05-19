@@ -1,0 +1,311 @@
+%-------------------------------------------------------------------------------
+% Title: DPU 2 - Exercices
+% Authors: 
+% Created: Wed Nov 25 08:00 PM 2020 C
+% Last Revision: Wed Nov 25 08:00 PM 2020 C
+% Purpose: exo codage
+%-------------------------------------------------------------------------------
+
+\documentclass[a4paper,11pt]{article}
+
+% \usepackage{etex} % sometimes useful with LaTeX complilation bugs
+\usepackage[a4paper,margin=1in]{geometry} % a4 page, and standard margins
+\usepackage[utf8]{inputenc} % accept utf8 character as possible entry
+\usepackage[T1]{fontenc}           % font coding for output
+\usepackage{lmodern}               % both packages allow copy paste accents
+
+% other useful packages
+\usepackage[]{amsmath}
+
+\author{}
+\title{DPU 2 - Devoir Maison}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+\section*{Exercice 2.1}
+\subsection*{Application $\mathcal{C}_1$}
+
+Soit l'application $\mathcal{C}_1$, défine dans le tableau ci-dessous : \\
+
+\begin{tabular}{|c|c|}
+    \hline
+    $u\in\{0,1\}^3$ & $\mathcal{C}_1(u)$ \\
+    \hline
+    000 & 0000000 \\
+    001 & 0010110 \\
+    010 & 0101000 \\  
+    011 & 0111110 \\
+    100 & 1000101 \\
+    101 & 1010011 \\
+    110 & 1101101 \\
+    111 & 1111011 \\
+    \hline
+\end{tabular}
+
+\paragraph{Cette application est-elle un code ?}~\\
+
+D'après le tableau, à chaque ligne de $\mathcal{C}_1(u)$, correspond une et une seule ligne de la colonne $u$. Ce qui veut dire que pour tout $w \in \mathcal{C}_1(u)$, il existe un seul antécédent dans $\{0,1\}^3$. Cette application est injective, c'est donc un code.
+
+\paragraph{Ce code est-il linéaire ?}~\\
+
+Vérifions que :
+\[
+    \begin{split}
+        (i) \quad & \forall \lambda \in \{0,1\}, \forall u \in\{0,1\}^3, \mathcal{C}_1(\lambda u)=\lambda \mathcal{C}_1(u) \\
+        (ii) \quad & \forall u,v \in \{0,1\}^3, \mathcal{C}_1(u+v)=\mathcal{C}_1(u)+\mathcal{C}_1(v) \\
+    \end{split}
+\]
+
+(i) est vraie pour $\lambda=1$, évident.
+
+Pour $\lambda=0, \mathcal{C}_1(0)=\mathcal{C}_1(000)=0000000=0\times \mathcal{C}_1(000)$.
+
+Donc (i) est vraie.
+
+On a vérifié que $\forall u,v \in \{0,1\}^3, \mathcal{C}_1(u+v)=\mathcal{C}_1(u)+\mathcal{C}_1(v)$. On peut simplifier les calculs pour le cas $u+0=u$ et $\mathcal{C}(0)=0$, le cas $u$ où $v=0$ conduit à l'égalité demandée. De même pour le cas $u=v$.
+
+Donc (ii) est vraie, l'application $\mathcal{C}_1$ est linéaire.
+
+\paragraph{Matrice génératrice}~\\
+On choisit comme base évidente
+
+\[
+    \left (
+    \begin{array}{ccc}
+        1&0&0 \\
+        0&1&0 \\
+        0&0&1 \\
+    \end{array}
+    \right )
+\]
+
+La matrice génératrice est obtenue par application de $\mathcal{C}_1$ sur chacune des lignes de la base.
+On obtient la matrice $G_1$ suivante :
+\[
+    G_1=
+    \left (
+    \begin{array}{ccccccc}
+        1&0&0&0&1&0&1 \\
+        0&1&0&1&0&0&0 \\
+        0&0&1&0&1&1&0 \\
+    \end{array}
+    \right )
+\]
+
+\paragraph{Calcul de la distance minimale}~\\
+
+On calcule la distance $H$ pour chaque image $\mathcal{C}_1$.
+
+
+Le résultat est dans le tableau ci-dessous :
+
+\vspace{2ex}
+
+\begin{tabular}{|c|c|c|}
+    \hline
+    $u\in\{0,1\}^3$ & $w=\mathcal{C}_1(u)$ & $H(w)$ \\
+    \hline
+    000 & 0000000 & 0 \\
+    001 & 0010110 & 3 \\
+    010 & 0101000 & 2 \\  
+    011 & 0111110 & 5 \\
+    100 & 1000101 & 3 \\
+    101 & 1010011 & 4 \\
+    110 & 1101101 & 5 \\
+    111 & 1111011 & 6 \\
+    \hline
+\end{tabular}
+
+\vspace{2ex}
+La distance minimale $\delta{(\mathcal{C}_1)}=2$
+
+\paragraph{Capacité de correction}~\\
+\[
+    \begin{split}
+    k\quad &=\left\lfloor\frac{\delta(\mathcal{C}_1)-1}{2}\right\rfloor \\
+    k\quad &=0
+    \end{split}
+\]
+
+\subsection*{Application $\mathcal{C}_2$}
+
+En suivant le même raisonnement, $\mathcal{C}_2$ est injective, c'est donc un code. Elle est linéaire.
+
+Sa matrice génératice est :
+
+\[
+    G_2=
+    \left (
+    \begin{array}{ccccccc}
+        1&0&0&1&0&1&1 \\
+        0&1&0&0&1&1&1 \\
+        0&0&1&0&1&1&1 \\
+    \end{array}
+    \right )
+\]
+
+\vspace{2ex}
+La distance minimale $\delta{(\mathcal{C}_2)}=4$
+
+Capacité de correction $k=1$.
+
+
+\subsection*{Application $\mathcal{C}_3$}
+
+En suivant le même raisonnement, $\mathcal{C}_3$ est injective, c'est donc un code. Elle est linéaire.
+
+Sa matrice génératice est :
+
+\[
+    G_3=
+    \left (
+    \begin{array}{ccccccc}
+        1&0&0&1&0&0&1 \\
+        0&1&0&0&1&0&1 \\
+        0&0&1&0&0&1&1 \\
+    \end{array}
+    \right )
+\]
+
+\vspace{2ex}
+La distance minimale $\delta{(\mathcal{C}_3)}=3$
+
+Capacité de correction $k=1$.
+
+Identification des classes connues : $\mathcal{C}_3$ est un code de répétition sur les 6 premiers bits. Le dernier bit est un bit de parité impair pour les 3 premiers bits du code.
+
+\subsection*{Application $\mathcal{C}_4$}
+
+En suivant le même raisonnement, $\mathcal{C}_4$ est injective, c'est donc un code. Elle est linéaire.
+
+Sa matrice génératice est :
+
+\[
+    G_4=
+    \left (
+    \begin{array}{ccccccc}
+        1&1&1&0&0&1&0 \\
+        1&0&0&1&0&1&1 \\
+        1&0&1&0&1&0&1 \\
+    \end{array}
+    \right )
+\]
+
+\vspace{2ex}
+La distance minimale $\delta{(\mathcal{C}_4)}=4$
+
+Capacité de correction $k=1$.
+
+\section*{Exercice 2.3}
+
+On considère le code $\mathcal{C}$ de matrice génératrice
+Sa matrice génératice est :
+
+\[
+    G=
+    \left (
+    \begin{array}{cccccc}
+        1&0&0&1&1&1 \\
+        0&1&0&0&1&1 \\
+        0&0&1&1&0&1 \\
+    \end{array}
+    \right )
+\]
+
+\paragraph{Matrice de contrôle}~\\
+
+$G$ est une matrice génératice normalisée de la forme $(I_3 P)$.
+
+La matrice de contrôle $Y$ s'écrit : 
+
+\[
+    Y=
+    \left (
+    \begin{array}{c}
+        P \\
+        I_3 \\
+    \end{array}
+    \right )
+\]
+
+Donc
+
+\[
+    Y=
+    \left (
+    \begin{array}{ccc}
+        1&1&1 \\
+        0&1&1 \\
+        1&0&1 \\
+        1&0&0 \\
+        0&1&0 \\
+        0&0&1 \\
+    \end{array}
+    \right )
+\]
+
+\paragraph{Capacité de correction}~\\
+On écrit le tableau donnant $Im\mathcal{(C)}$ avec les poids correspondant
+\vspace{2ex}
+
+\begin{tabular}{|c|c|c|}
+    \hline
+    $u\in\{0,1\}^3$ & $w=\mathcal{C}(u)$ & $H(w)$ \\
+    \hline
+    000 & 000000 & 0 \\
+    001 & 001101 & 3 \\
+    010 & 010011 & 3 \\  
+    011 & 011110 & 4 \\
+    100 & 100111 & 4 \\
+    101 & 101010 & 3 \\
+    110 & 110100 & 3 \\
+    111 & 111001 & 4 \\
+    \hline
+\end{tabular}
+
+\vspace{2ex}
+Ainsi $\delta\mathcal{(C)}=\min\limits_{w\in \mathcal{C}\{0,1\}^6\atop w\neq 0} H(w) = 3$ 
+
+Donc
+\[
+    \begin{split}
+    k\quad &=\left\lfloor\frac{\delta(\mathcal{C})-1}{2}\right\rfloor \\
+    k\quad &=1
+    \end{split}
+\]
+
+Calculons le syndrome de $\tilde{w_1}=101111$ et $\tilde{w_2}=111111$.
+
+$S(\tilde{w}_1)=(101)$
+
+
+$S(\tilde{w}_2)=(110)$
+
+On écrit le tableau standard au poids $k=1$
+
+\vspace{2ex}
+\begin{tabular}{|c|c|c|}
+    \hline
+    $e\in\bar{B_1}$ & $S(e)\in \{0,1\}^3$ & $H(e)$ \\
+    \hline
+    000001 & 001 & 1 \\
+    000010 & 010 & 1 \\
+    000100 & 100 & 1 \\  
+    001000 & 101 & 1 \\
+    010000 & 011 & 1 \\
+    100000 & 111 & 1 \\
+    \hline
+\end{tabular}
+
+\vspace{2ex}
+D'après la table $\tilde{e_1}=001000$ on corrige $\tilde{w_1}$ par $\hat{w_1}=\tilde{w_1}+\tilde{e_1}$
+
+$\hat{w_1}=101111+001000=100111$
+
+\vspace{2ex}
+Le syndrome $S(\tilde{w_2})$ n'est pas trouvé dans le tableau standard, le mot $\tilde{w_2}$ comporte donc plus de $k=1$ erreurs.
+
+\end{document}

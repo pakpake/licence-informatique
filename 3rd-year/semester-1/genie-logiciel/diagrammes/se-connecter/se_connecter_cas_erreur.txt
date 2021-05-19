@@ -1,0 +1,23 @@
+@startuml
+'pragma teoz true
+
+actor "Usager" as usa
+entity "Logiciel" as app
+database "Base de Donnée" as bdd
+
+title Diagramme de séquence : Se connecter\nCas d'erreur\nL'utilisateur n'as pas de compte
+
+usa->app: Connexion()
+app-->usa: askData()
+usa->app: enterInfos()
+app->bdd: transmitInfo()
+bdd->bdd: Exist()
+bdd-->app: Exist(): False
+app-->usa: PrintError()
+
+note over usa,app #Red 
+Affichage du message d'erreur 
+signifiant l'absence d'un compte
+avec ces identifiants
+end note
+@enduml

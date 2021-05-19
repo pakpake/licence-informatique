@@ -1,0 +1,16 @@
+@startuml
+'pragma teoz true
+
+actor "Usager" as usa
+entity "Logiciel" as app
+database "Base de Donnée" as bdd
+
+title Diagramme de séquence : Se deconnecter\nCas nominal
+
+usa->app: Deconnexion()
+app->bdd: verifIfConnected()
+bdd->bdd: verifIfConnected()
+bdd-->app: verifIfConnected():True
+app-->usa: PrintSuccess()
+app->usa:backHome()
+@enduml

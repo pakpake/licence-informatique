@@ -1,0 +1,9 @@
+@startuml
+'participants :
+actor :Usager: as usa
+
+(Se connecter) as (sec)
+
+usa--(sec)
+(sec) .left.> (s'abonner) : << include >>
+@enduml

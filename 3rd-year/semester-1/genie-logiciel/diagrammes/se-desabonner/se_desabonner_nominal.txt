@@ -1,0 +1,22 @@
+@startuml
+!pragma teoz true
+
+'participants :
+actor "Abonné" as abo
+entity "Logiciel" as log
+database "Base de Donnée" as bdd
+
+title Diagramme de séquence : Se désabonner\nCas nominal
+
+abo -> log : supprimerCompte()
+log --> abo : askData()
+abo -> log : enterInfos()
+log -> bdd : transmitInfo()
+bdd -> bdd : existe()
+bdd -> bdd : surListeNoire()
+bdd -> bdd : empruntEnCours()
+bdd -> bdd : supprimeAbonne()
+bdd --> log : confirm()
+log --> abo : confirm()
+log -> abo : backHome()
+@enduml

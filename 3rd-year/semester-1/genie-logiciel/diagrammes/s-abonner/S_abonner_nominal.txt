@@ -1,0 +1,21 @@
+@startuml
+!pragma teoz true
+
+'participants :
+actor "Usager" as usa
+entity "Logiciel" as log
+database "Base de Donnée" as bdd
+
+title Diagramme de séquence : S'abonner\nCas nominal
+
+usa -> log : creerCompte()
+log --> usa : askData()
+usa -> log : enterInfos()
+log -> bdd : transmitInfo()
+bdd -> bdd : existe()
+bdd -> bdd : surListeNoire()
+bdd -> bdd : ajoutAbonne()
+bdd --> log : confirm()
+log --> usa : confirm()
+log -> usa : backHome()
+@enduml

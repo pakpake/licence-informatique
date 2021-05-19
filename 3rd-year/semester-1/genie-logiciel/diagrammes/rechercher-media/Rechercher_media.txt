@@ -1,0 +1,16 @@
+@startuml
+'participants :
+actor :Abonné: as abo
+actor :Bibliothécaire: as bibli
+
+(Rechercher média) as (rech)
+(Se connecter) as (co)
+(Réserver) as (res)
+(Emprunter) as (emp)
+
+abo--(rech)
+bibli--(rech)
+(res) .left.> (rech) : << extend >>
+(emp) .> (rech) : << extend >>
+(rech) .down.> (co) : << include >>
+@enduml

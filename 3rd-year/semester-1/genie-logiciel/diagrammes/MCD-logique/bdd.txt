@@ -1,0 +1,69 @@
+tables:
+Abonné
+Bibliothécaire
+Livre
+DVD
+Emprunt
+Reservation
+
+
+Abonné {
+    // variable : type
+    nom : string
+    prenom : string
+    ***numSecu : int
+    dateDeNaissance : date
+    dateInscription : date
+    identifiant : string
+    motdepasse : string
+}
+
+Bibliothécaire {
+    nom : string
+    prenom : string
+    ***numSecu : int
+    identifiant : int
+    motdepasse : string
+}
+
+Livre {
+    titre : string
+    ***isbn : int
+    langue : string
+    resume : string
+    datePublication
+    motsCles : string
+    nombre : int
+    editeur : string
+    auteur : string
+}
+
+DVD {
+    titre : string
+    ***isbn : int
+    langue : string
+    resume : string
+    datePublication
+    motsCles : string
+    nombre : int
+    duree : int
+    signaletique : string
+    ppxacteurs : string
+}
+
+Emprunt {
+    dateRetourTheorique : date
+    ***id_Emprunter
+
+    /*
+    * date de début ?
+    * date de fin ?
+    * rendu ?
+    */
+
+}
+
+Réservation {
+    date : date
+
+}
