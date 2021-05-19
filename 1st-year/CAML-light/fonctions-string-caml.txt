@@ -1,0 +1,5 @@
+let pr(s) = nth_char s 0;;
+let sp(s) = sub_string s 1 (string_length(s)-1);;
+let sd(s)=sub_string s 0 (string_length(s)-1);;
+let dr(s)=nth_char s (string_length(s)-1);;
+let lg(s)=string_length s;;

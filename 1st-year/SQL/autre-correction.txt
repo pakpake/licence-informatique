@@ -1,0 +1,110 @@
+SELECT titre,annee,realisateur FROM LESFILMS WHERE pays = 'France' ORDER BY annee ASC;
+
+SELECT titre,annee,realisateur FROM LESFILMS WHERE pays = 'France' OR pays= 'Italie' ORDER BY pays ASC;
+
+SELECT titre,annee,realisateur FROM LESFILMS WHERE pays = 'France' and annee < 1990 ORDER BY annee ASC;
+
+-- *************************************************************************************************************
+
+-- 1. Liste des lms (exclusivement) francais (titre, annee, realisateur).
+	SELECT titre,annee,realisateur FROM LESFILMS WHERE pays = 'France' ORDER BY annee ASC;
+
+
+-- 2. Liste des lms francais et italiens (titre, annee, realisateur).
+	SELECT titre,annee,realisateur FROM LESFILMS WHERE pays = 'France' OR pays= 'Italie' ORDER BY pays ASC;
+
+-- 3. Les titres des lms francais d'avant 1990.
+	SELECT titre,annee,realisateur FROM LESFILMS WHERE pays = 'France' ORDER BY annee ASC;
+
+-- 4. Liste des lms francais ou partiellement francais (titre, annee, realisateur).
+	SELECT titre,annee,realisateur FROM LESFILMS WHERE pays LIKE 'France%' ORDER BY annee ASC;
+
+-- 5. La liste des lms (titre, annee) realises par Pasolini, par ordre chronologique (du plus
+ancien au plus recent).
+	SELECT titre,annee FROM LESFILMS WHERE realisateur='Pasolini' ORDER BY annee ASC;
+
+-- 6. La duree moyenne des lms italiens.
+	SELECT avg(duree) FROM LESFILMS WHERE pays='Italie';
+
+-- 7. Le nombre de lms realises par Pasolini.
+	SELECT count(IdF) FROM LESFILMS WHERE realisateur='Pasolini';
+
+-- 8. Le nombre de lms par pays, classes par ordre decroissant de ce nombre.
+	SELECT pays,count(pays) FROM LESFILMS GROUP BY pays ORDER BY count(pays) DESC;
+
+-- 9. La liste des realisateurs qui ont realise au moins 2 lms.
+	SELECT realisateur,count(realisateur) FROM LESFILMS GROUP BY realisateur HAVING count(realisateur)>=2;
+
+-- 10. Le nombre de lms par pays ou il y a eu au moins deux lms.
+	SELECT pays,count(pays) FROM LESFILMS GROUP BY pays HAVING  count(pays)>=2 ORDER BY count(pays) DESC;
+
+-- 11. Les titres des lms qui sont utilises plusieurs fois (i.e. tels qu'il y a au moins deux lms
+dierents sous ce titre).
+	SELECT titre FROM LESFILMS GROUP BY titre HAVING  count(titre)>=2;
+
+-- 12. La duree du lm le plus court.
+	SELECT min(duree) FROM LESFILMS;
+
+-- 13. Le titre du lm le plus court.
+	SELECT titre FROM LESFILMS WHERE duree = (SELECT min(duree) FROM LESFILMS);
+
+-- 14. La liste des acteurs, avec pour chacun d'entre eux, le nombre de lms dans lesquels il a
+joue.
+	SELECT count(IdF),acteur FROM LESACTEURS GROUP BY acteur;
+
+-- 15. La liste de tous les acteurs ayant joue dans des lms francais.
+	SELECT acteur,titre FROM LESACTEURS INNER JOIN LESFILMS ON LESACTEURS.IdF =  LESFILMS.IdF WHERE pays='France';
+
+-- 16. Les titres des lms avec Piccoli.
+	SELECT acteur,titre FROM LESACTEURS INNER JOIN LESFILMS ON LESACTEURS.IdF =  LESFILMS.IdF WHERE acteur='Piccoli';
+
+-- 17. Les acteurs qui ont joue dans un lm tourne depuis l'annee 1990.
+	SELECT acteur,titre FROM LESACTEURS INNER JOIN LESFILMS ON LESACTEURS.IdF =  LESFILMS.IdF where annee<=1990;
+
+-- 18. Les acteurs qui ont joue dans des lms realises par Pasolini.
+	SELECT acteur,titre FROM LESACTEURS INNER JOIN LESFILMS ON LESACTEURS.IdF =  LESFILMS.IdF where realisateur='Pasolini';
+
+-- 19. La liste des acteurs ayant joue a la fois dans des lms francais et dans des lms etrangers.
+SELECT acteur FROM LESACTEURS INNER JOIN LESFILMS ON LESACTEURS.IdF =  LESFILMS.IdF where pays='France' INTERSECT
+SELECT acteur FROM LESACTEURS INNER JOIN LESFILMS ON LESACTEURS.IdF =  LESFILMS.IdF where pays<>'France';
+
+-- 20. La liste des acteurs qui n'ont joue que dans des lms francais.
+SELECT acteur FROM LESACTEURS INNER JOIN LESFILMS ON LESACTEURS.IdF =  LESFILMS.IdF where pays='France' MINUS 
+SELECT acteur FROM LESACTEURS INNER JOIN LESFILMS ON LESACTEURS.IdF =  LESFILMS.IdF where pays<>'France';
+
+-- 21. Les acteurs qui sont en m^eme temps realisateurs (il y en a un...)
+SELECT acteur FROM LESACTEURS  INTERSECT SELECT realisateur FROM LESFILMS;
+
+-- 22. Les acteurs qui n'ont joue dans aucun lm depuis 1980.
+SELECT acteur FROM LESACTEURS INNER JOIN LESFILMS ON LESACTEURS.IdF =  LESFILMS.IdF where annee<=1980 MINUS
+SELECT acteur FROM LESACTEURS INNER JOIN LESFILMS ON LESACTEURS.IdF =  LESFILMS.IdF where annee>=1980;
+
+-- 23. La liste des lms avec leur titre avec, pour chacun d'entre eux, le nombre d'acteurs.
+SELECT titre,count(acteur) FROM LESACTEURS INNER JOIN LESFILMS ON LESACTEURS.IdF = LESFILMS.IdF GROUP BY titre;
+
+
+-- *********************************************************************************************
+
+-- (a) La liste des films (titre,réalisateur,année) actuellement à l'affiche.
+SELECT DISTINCT titre,realisateur,annee FROM LESFILMS INNER JOIN FILMS_SALLES ON LESFILMS.IdF = FILMS_SALLES.IdF ;
+
+-- (b) La liste des salles et des villes ou l'on peut voir un film avec belmondo
+
+SELECT Nom,Ville FROM SALLESCINEMA INNER JOIN FILMS_SALLES ON SALLESCINEMA.IdS = FILMS_SALLES.IdS 
+INNER JOIN LESFILMS ON LESFILMS.IdF = FILMS_SALLES.IdF 
+INNER JOIN LESACTEURS ON LESACTEURS.IdF = LESFILMS.IdF WHERE acteur='Belmondo';
+
+-- (c) La liste des villes avec, pour chacune d'entre elles, le nombre de films differents qui son à l'affiche, les villes etant DESC de ce nombre.
+
+SELECT V, Count(C) FROM (SELECT Ville AS V,count(IdF) AS C FROM SALLESCINEMA INNER JOIN FILMS_SALLES ON SALLESCINEMA.IdS = FILMS_SALLES.IdS GROUP BY ville,IdF order by count(IdF) DESC)
+GROUP BY V ORDER BY Count(C) DESC;
+-- (d)  Les films ( titre, realisateur, année ) qui passent dans au moins deux villes diffrentes.
+
+SELECT DISTINCT titre,realisateur,annee FROM LESFILMS WHERE LESFILMS.IDF 
+IN ( SELECT Idf From FILMS_SALLES, SALLESCINEMA WHERE  
+SALLESCINEMA.IDS =  FILMS_SALLES.IDS 
+Group by idf HAVING  count(IdF)>1 AND count(ville) >1);
+
+-- (e) Les salles (nom,ville) ou aucun film ne passe actuellement.
+SELECT Nom,Ville FROM SALLESCINEMA MINUS
+SELECT Nom,Ville FROM SALLESCINEMA INNER JOIN FILMS_SALLES ON SALLESCINEMA.IdS = FILMS_SALLES.IdS ;
